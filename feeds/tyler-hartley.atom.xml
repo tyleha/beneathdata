@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Python, Data, and Statistics</title><link href="/" rel="alternate"></link><link href="/feeds/tyler-hartley.atom.xml" rel="self"></link><id>/</id><updated>2014-09-04T10:20:00-07:00</updated><entry><title>My super title</title><link href="/my-super-post.html" rel="alternate"></link><updated>2014-09-04T10:20:00-07:00</updated><author><name>Tyler Hartley</name></author><id>tag:,2014-09-04:my-super-post.html</id><summary type="html">&lt;h1&gt;My first post&lt;/h1&gt;
-&lt;p&gt;This is the content of my super blog post.&lt;/p&gt;</summary><category term="thats"></category><category term="awesome"></category></entry></feed>
