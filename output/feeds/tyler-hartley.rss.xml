@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python, Data, and Statistics</title><link>/</link><description></description><atom:link href="/feeds/tyler-hartley.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 04 Sep 2014 10:20:00 -0700</lastBuildDate><item><title>My super title</title><link>/my-super-post.html</link><description>&lt;h1&gt;My first post&lt;/h1&gt;
+&lt;p&gt;This is the content of my super blog post.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Point one&lt;/li&gt;
+&lt;li&gt;Point two that is better&lt;/li&gt;
+&lt;li&gt;And lastly&lt;/li&gt;
+&lt;/ol&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Tyler Hartley</dc:creator><pubDate>Thu, 04 Sep 2014 10:20:00 -0700</pubDate><guid>tag:,2014-09-04:my-super-post.html</guid><category>thats</category><category>awesome</category></item></channel></rss>
