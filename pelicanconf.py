@@ -55,7 +55,7 @@ SHOW_ARTICLE_CATEGORY = True
 #FAVICON = .png
 
 ABOUT_ME = """I'm a programmer and stats-head who thinks Python is fundamentally the best thing since slided bread."""# I enjoy testing odd hypotheses, investigating datasets and then building pretty graphs."""
-AVATAR = "images/headshot.png"
+AVATAR = "/images/headshot.png"
 
 DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
 
