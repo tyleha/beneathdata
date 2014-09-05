@@ -33,3 +33,6 @@ DEFAULT_PAGINATION = 10
 
 # Generate archive
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
+
+# Theme
+THEME = 'pelican-bootstrap3'
