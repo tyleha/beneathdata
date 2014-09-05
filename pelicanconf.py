@@ -23,6 +23,9 @@ FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 
+DISQUS_SITENAME = 'reticulatingspline'
+DISQUS_SHORTNAME = 'reticulatingspline'
+
 # Blogroll
 LINKS = (('Python', 'http://python.org'),
          )
