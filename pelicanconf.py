@@ -25,6 +25,7 @@ TRANSLATION_FEED_ATOM = None
 
 DISQUS_SITENAME = 'reticulatingspline'
 DISQUS_SHORTNAME = 'reticulatingspline'
+DISQUS_DISPLAY_COUNTS = True
 
 # Blogroll
 LINKS = (('Python', 'http://python.org'),
@@ -59,7 +60,12 @@ AVATAR = "/images/headshot.png"
 
 DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
 
-# Pure theme-specific variables
-#COVER_IMG_URL = 'https://lh4.googleusercontent.com/-pdMEIqwnrNg/U7iV5eV_dHI/AAAAAAAARQg/H9laWRcGnpI/w1223-h905-no/IMG_20140705_201757.jpg'
-#PROFILE_IMAGE_URL = 'images/headshot.png'
-#TAGLINE = "Came here to fuck bitches"
+# Add custom css
+#CUSTOM_CSS = 'static/custom.css'
+# Tell Pelican to add 'extra/custom.css' to the output dir
+#STATIC_PATHS = ['images', 'extra/custom.css']
+
+# Tell Pelican to change the path to 'static/custom.css' in the output dir
+#EXTRA_PATH_METADATA = {
+#    'extra/custom.css': {'path': 'static/custom.css'}
+#}

@@ -4,6 +4,7 @@ import os
 import sys
 import SimpleHTTPServer
 import SocketServer
+import subprocess
 
 # Local path configuration (can be absolute or relative to fabfile)
 env.deploy_path = 'output'
@@ -71,3 +72,13 @@ def publish():
         delete=True,
         extra_opts='-c',
     )
+
+def publishghp(msg):
+    preview()
+    proc = subprocess.Popen("git commit -a -m '%s'"%msg)
+    proc = subprocess.Popen("ghp-import.cmd -m '%s' -b master output"%msg)
+    proc = subprocess.Popen("git push --all")
+    print msg
+
+
+

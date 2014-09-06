@@ -1,3 +1,4 @@
 pelicanenv/
 pelican-bootstrap3/
 pure/
+*.pyc
