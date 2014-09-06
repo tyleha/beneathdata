@@ -27,6 +27,8 @@ DISQUS_SITENAME = 'reticulatingspline'
 DISQUS_SHORTNAME = 'reticulatingspline'
 DISQUS_DISPLAY_COUNTS = True
 
+GOOGLE_ANALYTICS = "UA-54524020-1"
+
 # Blogroll
 LINKS = (('Python', 'http://python.org'),
          )
