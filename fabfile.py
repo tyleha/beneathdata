@@ -74,11 +74,9 @@ def publish():
     )
 
 def publishghp(msg):
-    preview()
-    proc = subprocess.Popen("git commit -a -m '%s'"%msg)
-    proc = subprocess.Popen("ghp-import.cmd -m '%s' -b master output"%msg)
-    proc = subprocess.Popen("git push --all")
-    print msg
-
+	preview()
+	local("git commit -a -m '%s'"%msg)
+	local("ghp-import -m '%s' -b master output"%msg)
+	local("git push --all")
 
 
