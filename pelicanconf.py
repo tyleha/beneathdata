@@ -64,14 +64,6 @@ SHOW_ARTICLE_CATEGORY = True
 ABOUT_ME = """I'm a programmer and stats-head who thinks Python is fundamentally the best thing since slided bread."""# I enjoy testing odd hypotheses, investigating datasets and then building pretty graphs."""
 AVATAR = "/images/headshot.png"
 
+BANNER = "/images/banner.jpg"
+
 DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
-
-# Add custom css
-#CUSTOM_CSS = 'static/custom.css'
-# Tell Pelican to add 'extra/custom.css' to the output dir
-#STATIC_PATHS = ['images', 'extra/custom.css']
-
-# Tell Pelican to change the path to 'static/custom.css' in the output dir
-#EXTRA_PATH_METADATA = {
-#    'extra/custom.css': {'path': 'static/custom.css'}
-#}

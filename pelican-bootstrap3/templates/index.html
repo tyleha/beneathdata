@@ -5,11 +5,22 @@
 {% block canonical_rel %}<link rel="canonical" href="{{ SITEURL }}">{% endblock %}
 
 {% block banner %}
+<style>
+#banner {
+    background: url("{{ BANNER }}") no-repeat scroll center center / cover #1e2a28;
+    margin: 0 0 20px;
+    padding: 50px 0; 
+    position: relative;
+}
+body {
+    padding-top: 43px;
+}
+</style>
 <div id="banner">
 	<div class="inner-content">
 		<div class="copy">
-			<h1>Cactus</h1>
-			<p class="intro">Cactus is a responsive Jekyll theme that is easy to customize. It provides a baseline design for Jekyll powered websites.</p>
+			<h1>Reticulating Spline</h1>
+			<p class="intro">A blog dedicated to Python, data analystics, and good-looking graphs.</p>
 		</div>
 	</div>
 </div>
