@@ -1,6 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
+import platform
+
+def is_windows():
+    if platform.system() == 'Windows': return True
+    else: return False
+
+def system_path(path):
+    """Return path with forward or backwards slashes as necessary based on OS"""
+    if is_windows(): return path.replace('/', '\\')
+    else: return path.replace('\\', '/')
 
 AUTHOR = u'Tyler Hartley'
 SITENAME = u'Reticulating Spline'
@@ -19,8 +29,9 @@ DEFAULT_DATE = 'fs'
 # Add custom css
 CUSTOM_CSS = 'static/custom.css'
 STATIC_PATHS = ['images', 'extra/CNAME', 'extra/custom.css']
-EXTRA_PATH_METADATA = {'extra/CNAME':{'path':'CNAME'},
-						'extra/custom.css':{'path':'static/custom.css'},}
+EXTRA_PATH_METADATA = {system_path('extra/CNAME'):{'path':'CNAME'},
+                       system_path('extra/custom.css'):{'path':'static/custom.css'},
+                       }
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -40,7 +51,7 @@ LINKS = (('Python', 'http://python.org'),
 # Social widget
 SOCIAL = (('Github', 'http://github.com/tylerhartley'),
          ('Linkedin', 'http://linkedin.com/in/tylerhartley'),
-		 ('Google+', 'https://plus.google.com/102425100151107773886/posts'),	)
+         ('Google+', 'https://plus.google.com/102425100151107773886/posts'),    )
 
 DEFAULT_PAGINATION = 10
 
@@ -53,7 +64,7 @@ YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
 # Theme
 THEME = 'pelican-bootstrap3'#'html5-dopetrope'
 
-# Pelican Theme-Specific Variables	
+# Pelican Theme-Specific Variables  
 BOOTSTRAP_THEME = 'cosmo'#'sandstone'#'lumen'#'cosmo'
 SHOW_ARTICLE_CATEGORY = True
 

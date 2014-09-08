@@ -2,10 +2,11 @@
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
     display: inline;
     float: left;
-    margin-right: 1.1873%;
+    max-width: 600px;
+    /*margin-right: 1.1873%;*/
     margin-top: 20px;
     padding: 20px;
-    width: 52.2063%;
+    /*width: 52.2063%;*/
 }
 #banner:after {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.2);
@@ -16,18 +17,7 @@
     top: 0;
     width: 100%;
 }
-#banner .inner-content {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1300px;
-    padding-left: 70px;
-    padding-right: 20px;
-}
-#banner .inner-content:after {
-    clear: both;
-    content: "";
-    display: table;
-}
+
 #banner .copy {
     position: relative;
     z-index: 1;
@@ -46,16 +36,19 @@
     color: #fff;
     font-size: 21px;
     line-height: 1.33;
-    margin: 0;
     opacity: 0.75;
 }
 #banner .btn, #banner .intro {
     margin-left: 4px;
 }
-#banner img {
-    margin-top: 20px;
-}
-#banner .img-holder {
-    display: none;
-}
 
+
+/* Solutions for mobile and small screens  */
+@media (max-width: 600px) {
+    #banner h1{
+	   font-size: 30px; /* !important;*/
+    }
+    #banner .intro{
+        font-size: 16px;
+    }
+}
