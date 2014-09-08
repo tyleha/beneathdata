@@ -16,8 +16,11 @@ USE_FOLDER_AS_CATEGORY = True
 DEFAULT_DATE_FORMAT = '%a %d %B %Y'
 DEFAULT_DATE = 'fs'
 
-STATIC_PATHS = ['images', 'extra/CNAME']
-EXTRA_PATH_METADATA = {'extra/CNAME':{'path':'CNAME'}}
+# Add custom css
+CUSTOM_CSS = 'static/custom.css'
+STATIC_PATHS = ['images', 'extra/CNAME', 'extra/custom.css']
+EXTRA_PATH_METADATA = {'extra/CNAME':{'path':'CNAME'},
+						'extra/custom.css':{'path':'static/custom.css'},}
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None

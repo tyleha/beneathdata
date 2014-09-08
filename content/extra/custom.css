@@ -1,0 +1,60 @@
+#banner {
+    background: url("/images/banner.jpg") no-repeat scroll center center / cover #1e2a28;
+    margin: 0 0 20px;
+    padding: 100px 0; 
+    position: relative;
+}
+
+#banner:after {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+#banner .inner-content {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 940px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#banner .inner-content:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+#banner .copy {
+    position: relative;
+    z-index: 1;
+}
+#banner h1 {
+    color: #fff;
+    font-family: "HelveticaNeue-CondensedBold","Helvetica Neue CE 600 Condensed","Helvetica Neue LT Condensed","Helvetica Neue 600 Condensed","HelveticaNeue-BoldCondensed","Helvetica Neue BoldCondensed","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 110px;
+    font-stretch: condensed;
+    font-weight: 700;
+    line-height: 0.9;
+    margin: 0;
+    text-transform: uppercase;
+}
+#banner .intro {
+    color: #fff;
+    font-size: 21px;
+    line-height: 1.33;
+    margin: 0;
+    opacity: 0.75;
+}
+#banner .btn, #banner .intro {
+    margin-left: 4px;
+}
+#banner img {
+    margin-top: 20px;
+}
+#banner .img-holder {
+    display: none;
+}
+*/

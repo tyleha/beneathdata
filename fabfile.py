@@ -75,7 +75,8 @@ def publish():
 
 def publishghp(msg):
 	preview()
-	local("git commit -a -m '%s'"%msg)
+	local("git add . -A")
+	local("git commit -m '%s'"%msg)
 	local("ghp-import -m '%s' -b master output"%msg)
 	local("git push --all")
 

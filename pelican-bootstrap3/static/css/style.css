@@ -1,5 +1,5 @@
 body {
-    padding-top: 70px;
+    padding-top: 42px; //THIS IS THE DANG PADDING THAT CONTROLS THE PADDING BETWEEN NAVBAR AND BANNER, PRESUMABLY BECAUSE NAVBAR CLASS IS CONTAINED WITHIN THE BODY FOR SOME REASON
 }
 
 #sidebar .list-group, #sidebar .list-group-item {
