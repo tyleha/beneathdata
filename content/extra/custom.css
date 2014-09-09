@@ -1,11 +1,11 @@
 #banner {
     background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: scroll;
+    background-position: top left;
+    background-attachment: fixed;
     background-size: cover; /*100% auto;*/
     background-color: #1e2a28;
     margin: 0 0 20px;
-    padding: 60px 0; 
+    padding: 70px 0; /*controls padding around inner text*/
     position: relative;
 }
 body {
@@ -59,9 +59,17 @@ body {
 /* Solutions for mobile and small screens  */
 @media (max-width: 600px) {
     #banner h1{
-	   font-size: 30px; /* !important;*/
+       font-size: 30px; /* !important;*/
     }
     #banner .intro{
         font-size: 16px;
+    }
+}
+
+/* Solutions for mobile and small screens  */
+@media (min-width: 1200px) {
+    #banner {
+        background-position: right -50px;
+        background-size: 100% auto;
     }
 }
