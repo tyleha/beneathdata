@@ -1,22 +1,18 @@
 {% extends "article_list.html" %}
 
-
-
 {% block canonical_rel %}<link rel="canonical" href="{{ SITEURL }}">{% endblock %}
 
 {% block banner %}
 <style>
-#banner {
-    /*background: url("{{ BANNER }}") no-repeat fixed center center / cover #1e2a28;*/
+#banner{
     background-image:url("{{ BANNER }}");
 }
 </style>
-
 <div id="banner">
 	<div class="container">
 		<div class="copy">
-			<h1>Reticulating Spline</h1>
-			<p class="intro">A blog dedicated to Python, data analystics, and good-looking graphs.</p>
+			<h1>{{ SITENAME }}</h1>
+			<p class="intro">{{ SITESUBTITLE }}</p>
 		</div>
 	</div>
 </div>

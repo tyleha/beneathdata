@@ -14,6 +14,7 @@ def system_path(path):
 
 AUTHOR = u'Tyler Hartley'
 SITENAME = u'Reticulating Spline'
+SITESUBTITLE = "A blog dedicated to Python, data analystics, and good-looking graphs."
 SITEURL = ''
 
 PATH = 'content'
