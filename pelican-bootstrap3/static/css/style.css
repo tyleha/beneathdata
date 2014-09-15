@@ -1,5 +1,5 @@
 body {
-    padding-top: 70px; /*THIS IS THE DANG PADDING THAT CONTROLS THE PADDING BETWEEN NAVBAR AND BANNER, PRESUMABLY BECAUSE NAVBAR CLASS IS CONTAINED WITHIN THE BODY FOR SOME REASON*/
+    padding-top: 70px;
 }
 
 #sidebar .list-group, #sidebar .list-group-item {
@@ -40,6 +40,13 @@ body {
 
 .tag-4 {
     font-size: 8pt;
+}
+
+#aboutme {
+    padding-top: 0px;
+    padding-bottom: 5px;
+    -ms-word-break: normal;
+    word-break: normal;
 }
 
 #sidebar {
