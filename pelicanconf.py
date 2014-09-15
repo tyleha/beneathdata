@@ -45,6 +45,8 @@ DISQUS_DISPLAY_COUNTS = True
 
 GOOGLE_ANALYTICS = "UA-54524020-1"
 
+ADDTHIS_PROFILE = 'ra-54171855518a961e'
+ADDTHIS_DATA_TRACK_ADDRESSBAR = False
 # Blogroll
 LINKS = (('Python', 'http://python.org'),
          )
