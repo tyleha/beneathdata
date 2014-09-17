@@ -14,17 +14,33 @@ Various sources have tried to tackle this question in variously incompelte ways.
 
 Baseball stands apart from other North American sports in that it doesn't have a salary cap. It is this single fact that makes this debate possible - teams can spend whatever they want! In the NFL or NBA, money can't logically have a powerful effect on wins; each team has the same chips to play with. But baseball has never operated this way. I think it's worth a look back (real quick I promise!) to understand how we ended up here.
 
-## The History of Baseball Salaries
+#### A brief history of Baseball salaries
 When baseball began, teams _owned_ players. And I mean owned. Players either played for the team that controlled their rights, or they didn't play baseball at all. Free agency didn't exist - trades were the only time a player switched uniforms. Salaries were relatively consistent across teams because intra-team collusion could hold player salaries down.
 
 Then came the 1970's. Players banded together and negotiated Free Agency. FA meant that a player could enter the open market and sell his talents to the highest bidder, which opened the floodgates for spending in baseball. Suddenly, the artifically low salaries players were making in the early '70s skyrocketed (if this stuff floats your boat, go check out a great history of the economics of baseball [here](http://eh.net/encyclopedia/the-economic-history-of-major-league-baseball/)). Rich teams could simply outbid their opponents for a free agent while the poorer teams had to find alternate means. This is a great point to dive into the data.
 
-### The base data
+#### The base data
 I collected information on team history from the great [baseball-reference.com](http://baseball-reference.com) and cobbled together team salaries from a few wonky resources. Salary data hasn't always been available. Nearly nothing is out there from before 1977 though, since 1985, team salaries have been [public record](http://sabr.org/research/mlbs-annual-salary-leaders-1874-2012). So the data set we'll have to work with covers 1977 to 2013, with high confidence in the data post '85. 
 
-The first thing I noticed is the incredible growth of player salaries in baseball. Take a look at the chart below. Since 1977, salaries have increased a whopping 71 times over (unadjusted for inflation). By contrast, the median US income has only increased 4x and the entire NASDAQ only 45x. Nuts.
+The first thing I noticed is the incredible growth of player salaries in baseball. Take a look at the chart below. Since 1977, salaries have increased a whopping 71 times over (unadjusted for inflation). If somehow you were able to invest $10k in an index fund of baseball salaries 40 years ago, it would now be worth nearly three-quarters of a million dollars. By contrast, the median US income has only increased 4x and the entire NASDAQ (which barely existed in 1977) only 45x. 
 
+Because of this massive growth in player salaries, we can't compare team salaries across the years. Even adjusting for inflation won't do us any good. Instead, I tried to come up with a relative metric that would be fair to compare payrolls in 1980 to payrolls from 2013. I chose [Median Absolute Deviations (MAD)](https://dipot.ulb.ac.be/dspace/bitstream/2013/139499/1/Leys_MAD_final-libre.pdf), which you can think of as just standard deviations but less sensitive to outliers (_ahem_ Yankees _ahem_). 
 
+## Team Wins vs Team Payroll
+Using MADs, we can compare each team to the median salary that year and figure out how far above or below that median value they were. If we compare MADs to wins, we can get a feel for how outspending your opponents helps your team's win total for that year. Take a look below:
+
+![Alt text](/path/to/img.jpg)
+
+The linear regression line there clearly indicates that the data has a positive bias, with a slope of 3.8. That means that for every standard deviation you outspend the rest of the league, you can (on average) expect a 4 win boost. The inverse is also true. But the correlation to this line is terrible. Teams are all over the map both above and below this line. That's not surprising - there's a lot that makes a team on the field good other than just how much the players cost. And that's not even taking into account the inherent randomness in baseball. This plot really just gives us an idea, but it does hint that underneath it all money _does_ help teams win more games. 
+
+I read a good argument pointing out that if you want to find a relationship between money and wins, you need to look long term. This makes intuitive sense - it takes a baseball team years to build up farm system, get the right free agents, and gel a team together. So instead, let's look at average yearly wins over roughly 10-year spans vs payroll.
+
+![Alt text](/path/to/img.jpg)
+
+Now we've got a nicer looking linear relationship. 
+A few notes:
+* The Yankees are far and away the highest spending team from decade to decade. But since the early 2000's, they've been outspending opponents like no team ever before.
+* 
 
 
 You can download my data here if you'd like to fiddle around with it yourself.
