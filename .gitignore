@@ -1,3 +1,5 @@
 pelicanenv/
 pure/
 *.pyc
+output/
+cache/

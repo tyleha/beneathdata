@@ -75,7 +75,7 @@ SHOW_ARTICLE_CATEGORY = True
 #SITELOGO_SIZE = 
 #FAVICON = .png
 
-ABOUT_ME = """I'm a programmer and stats-head who thinks Python is fundamentally the best thing since slided bread."""# I enjoy testing odd hypotheses, investigating datasets and then building pretty graphs."""
+ABOUT_ME = """I'm a programmer and engineer with a love for Python. I enjoy testing odd hypotheses, investigating datasets, and building pretty good graphs."""
 AVATAR = "/images/headshot.png"
 
 BANNER = "/images/banner.jpg"
