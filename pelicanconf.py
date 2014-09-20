@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
+
 from __future__ import unicode_literals
 import platform
 
@@ -12,9 +13,11 @@ def system_path(path):
     if is_windows(): return path.replace('/', '\\')
     else: return path.replace('\\', '/')
 
+########################### General Settings ###################################
+
 AUTHOR = u'Tyler Hartley'
-SITENAME = u'Reticulating Spline'
-SITESUBTITLE = "A blog dedicated to Python, data analystics, and good-looking graphs."
+SITENAME = u'The Data Show'
+SITESUBTITLE = u"A blog dedicated to Python, data analystics, and good-looking graphs."
 SITEURL = ''
 
 PATH = 'content'
@@ -27,34 +30,23 @@ USE_FOLDER_AS_CATEGORY = True
 DEFAULT_DATE_FORMAT = '%a %d %B %Y'
 DEFAULT_DATE = 'fs'
 
-# Add custom css
-CUSTOM_CSS = 'static/custom.css'
-STATIC_PATHS = ['images', 'extra/CNAME', 'extra/custom.css']
-EXTRA_PATH_METADATA = {system_path('extra/CNAME'):{'path':'CNAME'},
-                       system_path('extra/custom.css'):{'path':'static/custom.css'},
-                       }
-
-# Feed generation is usually not desired when developing
+# Feed generation is usually not desired when developing 
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 
-DISQUS_SITENAME = 'reticulatingspline'
-DISQUS_SHORTNAME = 'reticulatingspline'
-DISQUS_DISPLAY_COUNTS = True
-
-GOOGLE_ANALYTICS = "UA-54524020-1"
-
-ADDTHIS_PROFILE = 'ra-54171855518a961e'
-ADDTHIS_DATA_TRACK_ADDRESSBAR = False
 # Blogroll
-LINKS = (('Python', 'http://python.org'),
+LINKS = (('IPython', 'http://ipython.org'),
+        ('xkcd', 'http://xkcd.com'),
+        ('FiveThirtyEight', 'http://FiveThirtyEight.com'),
          )
 
 # Social widget
 SOCIAL = (('Github', 'http://github.com/tylerhartley'),
          ('Linkedin', 'http://linkedin.com/in/tylerhartley'),
-         ('Google+', 'https://plus.google.com/102425100151107773886/posts'),    )
+         ('Google+', 'https://plus.google.com/102425100151107773886/posts'),    
+          ('My Professional Site', 'http://tylerhartley.com'),
+          )
 
 DEFAULT_PAGINATION = 10
 
@@ -64,7 +56,28 @@ DEFAULT_PAGINATION = 10
 # Generate archive
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
 
-# Theme
+################## Add custom css #########################
+CUSTOM_CSS = 'static/custom.css'
+STATIC_PATHS = ['images', 'extra/CNAME', 'extra/custom.css']
+EXTRA_PATH_METADATA = {'extra/CNAME':{'path':'CNAME'},
+                       'extra/custom.css':{'path':'static/custom.css'},
+                       }
+for k in EXTRA_PATH_METADATA.keys(): # Fix backslash paths to resources if on Windows
+    EXTRA_PATH_METADATA[system_path(k)] = EXTRA_PATH_METADATA.pop(k)
+
+
+##################### Exterior Services ############################
+DISQUS_SITENAME = 'reticulatingspline'
+DISQUS_SHORTNAME = 'reticulatingspline'
+DISQUS_DISPLAY_COUNTS = True
+
+GOOGLE_ANALYTICS = "UA-54524020-1"
+
+ADDTHIS_PROFILE = 'ra-54171855518a961e'
+ADDTHIS_DATA_TRACK_ADDRESSBAR = False
+
+
+####################### Theme-Specific Settings #########################
 THEME = 'pelican-bootstrap3'#'html5-dopetrope'
 
 # Pelican Theme-Specific Variables  
@@ -81,3 +94,4 @@ AVATAR = "/images/headshot.png"
 BANNER = "/images/banner.jpg"
 
 DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
+

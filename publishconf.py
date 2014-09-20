@@ -10,7 +10,7 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-SITEURL = 'http://reticulatingspline.com'
+SITEURL = 'http://the-data-show.com'
 RELATIVE_URLS = False
 
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
@@ -23,5 +23,3 @@ DELETE_OUTPUT_DIRECTORY = True
 DISQUS_SITENAME = "reticulatingspline"
 DISQUS_SHORTNAME = "reticulatingspline"
 DISQUS_DISPLAY_COUNTS = True
-
-#GOOGLE_ANALYTICS = "UA-54524020-1"
