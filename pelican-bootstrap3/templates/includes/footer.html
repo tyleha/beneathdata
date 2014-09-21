@@ -1,6 +1,33 @@
 <footer>
-   <div class="container">
-      <hr>
+   <div class="well well-lg" id="footer-well">
+      <style>
+         #footer-well {
+            margin-bottom: 0px;
+         }
+      </style>
+      <!-- <hr> -->
+      <div class="container">
+      <div class="row">
+           <div class="col-sm-4">
+               <div id="RecentComments" class="dsq-widget">
+                <h2>Recent Comments</h2>
+                <script type="text/javascript" src="http://reticulatingspline.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=0&avatar_size=32&excerpt_length=100"></script>
+               </div>
+
+           </div>
+           <div class="col-sm-4">
+               <h2>Website I like</h2>
+
+
+           </div>
+           <div class="col-sm-4">
+               {% if ABOUT_ME %}
+                   {% include 'includes/aboutme.html' %}
+                   
+               {% endif %}
+
+           </div>
+      </div>
       <div class="row">
          {% if articles %}
             {% set copy_date = articles[0].date.strftime('%Y') %}
@@ -19,5 +46,6 @@
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
       </div>
+   </div>
    </div>
 </footer>

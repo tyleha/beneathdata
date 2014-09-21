@@ -14,6 +14,9 @@
                     {% else %}
                         {% set iconattributes = '"fa fa-' ~ name_sanitized ~ '-square fa-lg"' %}
                     {% endif %}
+                    {% if name_sanitized in ['professional-site', 'personal-site'] %}
+                        {% set iconattributes = '"fa fa-user fa-lg"'  %}
+                    {% endif %}
                 <li class="list-group-item"><a href="{{ link }}"><i class={{ iconattributes }}></i> {{ name }}</a></li>
                 {% endfor %}
               </ul>

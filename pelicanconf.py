@@ -44,7 +44,7 @@ LINKS = (('IPython', 'http://ipython.org'),
 SOCIAL = (('Github', 'http://github.com/tylerhartley'),
          ('Linkedin', 'http://linkedin.com/in/tylerhartley'),
          ('Google+', 'https://plus.google.com/102425100151107773886/posts'),    
-          ('My Professional Site', 'http://tylerhartley.com'),
+          ('Professional Site', 'http://tylerhartley.com'),
           )
 
 DEFAULT_PAGINATION = 10
@@ -86,7 +86,9 @@ SITELOGO = 'images/logo.png'
 SITELOGO_SIZE = 32
 FAVICON = 'images/favicon.png'
 
-ABOUT_ME = """I'm a programmer and engineer with a love for Python. I enjoy testing odd hypotheses, investigating datasets, and building pretty good graphs."""
+ABOUT_ME = "I'm a programmer and engineer with a love for Python. I enjoy testing odd hypotheses, investigating datasets, and building pretty good graphs.\
+</br></br>Find out more about me at <strong><a href=\"http://tylerhartley.com\" title=\"Professional Website\">tylerhartley.com</a></strong>\
+</br></br>You can contact me at "
 AVATAR = "/images/headshot.png"
 
 BANNER = "/images/banner.png"

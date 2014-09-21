@@ -146,9 +146,6 @@
         {% if not HIDE_SIDEBAR or ABOUT_ME %}
         <div class="col-sm-3" id="sidebar">
             <aside>
-            {% if ABOUT_ME %}
-                {% include 'includes/aboutme.html' %}
-            {% endif %}
             {% if not HIDE_SIDEBAR %}
                 {% include 'includes/sidebar.html' %}
             {% endif %}
