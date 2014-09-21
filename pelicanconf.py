@@ -82,7 +82,7 @@ THEME = 'pelican-bootstrap3'#'html5-dopetrope'
 BOOTSTRAP_THEME = 'cosmo'#'sandstone'#'lumen'#'cosmo'
 SHOW_ARTICLE_CATEGORY = True
 
-SITELOGO = 'images/big_icon.png'
+SITELOGO = 'images/logo.png'
 SITELOGO_SIZE = 32
 FAVICON = 'images/favicon.png'
 
