@@ -37,7 +37,6 @@ TRANSLATION_FEED_ATOM = None
 
 # Blogroll
 LINKS = (('IPython', 'http://ipython.org'),
-        ('xkcd', 'http://xkcd.com'),
         ('FiveThirtyEight', 'http://FiveThirtyEight.com'),
          )
 
@@ -58,9 +57,8 @@ YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
 
 ################## Add custom css #########################
 CUSTOM_CSS = 'static/custom.css'
-STATIC_PATHS = ['images', 'extra/CNAME', 'extra/custom.css']
-EXTRA_PATH_METADATA = {'extra/CNAME':{'path':'CNAME'},
-                       'extra/custom.css':{'path':'static/custom.css'},
+STATIC_PATHS = ['images', 'extra/custom.css']
+EXTRA_PATH_METADATA = {'extra/custom.css':{'path':'static/custom.css'},
                        }
 for k in EXTRA_PATH_METADATA.keys(): # Fix backslash paths to resources if on Windows
     EXTRA_PATH_METADATA[system_path(k)] = EXTRA_PATH_METADATA.pop(k)
@@ -84,14 +82,14 @@ THEME = 'pelican-bootstrap3'#'html5-dopetrope'
 BOOTSTRAP_THEME = 'cosmo'#'sandstone'#'lumen'#'cosmo'
 SHOW_ARTICLE_CATEGORY = True
 
-#SITELOGO = .png
-#SITELOGO_SIZE = 
-#FAVICON = .png
+SITELOGO = 'images/big_icon.png'
+SITELOGO_SIZE = 32
+FAVICON = 'images/favicon.png'
 
 ABOUT_ME = """I'm a programmer and engineer with a love for Python. I enjoy testing odd hypotheses, investigating datasets, and building pretty good graphs."""
 AVATAR = "/images/headshot.png"
 
-BANNER = "/images/banner.jpg"
+BANNER = "/images/banner.png"
 
 DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
 

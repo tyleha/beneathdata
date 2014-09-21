@@ -3,3 +3,4 @@ pure/
 *.pyc
 output/
 cache/
+s3cmd/

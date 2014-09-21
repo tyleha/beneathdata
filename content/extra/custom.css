@@ -3,14 +3,14 @@
     background-position: top left;
     background-attachment: scroll;
     background-size: cover; /*100% auto;*/
-    background-color: #1e2a28;
+    background-color: #9BB3C5; /*#C4C4C4;*/
     margin: 0 0 20px;
     padding: 70px 0; /*controls padding around inner text*/
     position: relative;
 }
 
 #banner .copy {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);
     display: inline;
     float: left;
     max-width: 800px;
@@ -50,6 +50,9 @@
     }
 }
 
+.navbar-brand {
+    padding: 10px 15px;
+}
 /* Solutions for mobile and small screens  */
 /*
 @media (min-width: 1200px) {
