@@ -1,8 +1,8 @@
 Title: Does money buy wins in Baseball?
 Date: 2014-9-04 10:20
-Tags: thats, awesome
+Tags: baseball, python, statistics, money
 Category: Blog
-Slug: money-baseball
+Slug: money-in-baseball
 Author: Tyler Hartley
 <!-- Summary: Short version for index and feeds -->
 

@@ -71,7 +71,7 @@ DISQUS_DISPLAY_COUNTS = True
 
 GOOGLE_ANALYTICS = "UA-54524020-1"
 
-ADDTHIS_PROFILE = 'ra-54171855518a961e'
+ADDTHIS_PROFILE = 'ra-5420884b27b877bf'
 ADDTHIS_DATA_TRACK_ADDRESSBAR = False
 
 
@@ -79,7 +79,7 @@ ADDTHIS_DATA_TRACK_ADDRESSBAR = False
 THEME = 'pelican-bootstrap3'#'html5-dopetrope'
 
 # Pelican Theme-Specific Variables  
-BOOTSTRAP_THEME = 'cosmo'#'sandstone'#'lumen'#'cosmo'
+BOOTSTRAP_THEME = 'cosmo'#'sandstone'#'lumen'
 SHOW_ARTICLE_CATEGORY = True
 
 SITELOGO = 'images/logo.png'
@@ -94,4 +94,7 @@ AVATAR = "/images/headshot.png"
 BANNER = "/images/banner.png"
 
 DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
+SHOW_ARTICLE_CATEGORY = True
+TAG_CLOUD_MAX_ITEMS = 8
 
+PYGMENTS_STYLE = 'monokai'
