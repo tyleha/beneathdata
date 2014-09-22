@@ -39,10 +39,8 @@ I read a good argument pointing out that if you want to find a relationship betw
 
 Now we've got a nicer looking linear relationship. 
 A few notes:
-* The Yankees are far and away the highest spending team from decade to decade. But since the early 2000's, they've been outspending opponents like no team ever before.
-* 
 
-
++ The Yankees are far and away the highest spending team from decade to decade. But since the early 2000's, they've been outspending opponents like no team ever before.
 
 
 You can download my data here if you'd like to fiddle around with it yourself.

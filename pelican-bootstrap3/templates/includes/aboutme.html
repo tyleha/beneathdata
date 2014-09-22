@@ -1,13 +1,11 @@
 <div id="aboutme">
-	<h2>About {{ AUTHOR }}</h2><br/>
-
+	<h3>About {{ AUTHOR }}</h3><br/>
     {% if AVATAR %}
         <p>
             <img width="66%" class="img-thumbnail" src="{{ AVATAR }}"/>
         </p>
     {% endif %}
-    <p>
-        
+    <p> 
         {{ ABOUT_ME }}
     </p>
 </div>
