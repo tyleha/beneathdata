@@ -5,6 +5,9 @@ Category: How To
 Slug: how-i-built-this-website
 Author: Tyler Hartley
 
+[TOC]
+
+
 I have wanted to run a data blog for a good long while now. And, like any aspiring blogger, I had various failed attempts that never got off the ground. Half the reason was that, well, writing is hard. The other half of the reason is that I can be a ridiculous control freak when it comes to digital design. 
 
 I tried __Weebly__ (they let me use a custom domain for free), but the interface was clunky and the UI always looked cookie-cutter.
@@ -102,6 +105,11 @@ It is THAT easy.
 
 Of course, you can now go nuts and modify the theme however you like. Pelican-bootstrap3's features are [well documented](https://github.com/DandyDev/pelican-bootstrap3/blob/master/README.md). For what it's worth, if you'd like to use my precise custom theme, clone it from my repo [here](). You can check out my pelicanconf.py settings [here](https://github.com/tylerhartley/thedatashow/blob/master/pelicanconf.py).
 
+```python hl_lines="1 3"
+def foo():
+    pass
+import numpy
+```
 ## Publishing to Github Pages
 
 First you'll need to decide if you want to use a Github user page or project page. The difference here is not trivial. The user page is served at yourgithubname.github.io, while the projects are served at yourgithubname.github.io. Of course, we'll end up mapping those urls to other registered custom domains, and the majority of you will want to use an apex domain (e.g. mywebsite.com, not blog.mywebsite.com). Unfortunately on Github Pages, a mapped apex domain will be 
