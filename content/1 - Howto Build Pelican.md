@@ -5,9 +5,6 @@ Category: How To
 Slug: how-i-built-this-website
 Author: Tyler Hartley
 
-[TOC]
-
-
 I have wanted to run a data blog for a good long while now. And, like any aspiring blogger, I had various failed attempts that never got off the ground. Half the reason was that, well, writing is hard. The other half of the reason is that I can be a ridiculous control freak when it comes to digital design. 
 
 I tried __Weebly__ (they let me use a custom domain for free), but the interface was clunky and the UI always looked cookie-cutter.

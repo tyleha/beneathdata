@@ -103,4 +103,5 @@ PYGMENTS_STYLE = 'monokai'
 #PLUGIN_PATHS = ['plugins']
 #PLUGINS = ['extract_toc',]
 
-MD_EXTENSIONS = (['toc', 'fenced_code', 'codehilite(css_class=highlight)','extra'])
+MD_EXTENSIONS = ['toc', 'fenced_code', 'codehilite(css_class=highlight)', 'extra']
+#MD_EXTENSIONS = ['codehilite(css_class=highlight)', 'extra']
