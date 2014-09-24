@@ -15,7 +15,7 @@ I even looked at __Squarespace__, which nearly had me convinced (those are some 
 
 To top it all off, I kept feeling ashamed, like I know enough programming that I should just do it myself. But I didn't want to start from scratch or even from medium scratch like Django. That's where Pelican came in. 
 
-![]()
+![The Pelican](https://avatars0.githubusercontent.com/u/2043492?v=2&s=200)
 
 ## What is Pelican?
 Pelican is a static-site generation tool that abstracts a massive amount of the HTML/CSS generation for you, and lets you write your post in Markdown or reST or whatever markup your little heart desires. It has a rich community offering dozens of cool plugins and custom-built themes, all simple to edit to your tastes, right down to the raw HTML, CSS, and JS. [If you've heard of Jekyll before, it's that, but written in Python.] 
@@ -38,7 +38,7 @@ Things you'll need to run Pelican
 Woo! That's it. Assuming you have Python 2.7.x or 3.3.x, just run the following:
 
 ```bash
-$ pip install pelican markdown
+$ pip install pelican markdown fabric
 ```
 
 ## Quickstart
@@ -125,11 +125,11 @@ To get started with GH Pages, follow the instructions [here](https://pages.githu
 $ git branch -b source
 ```
 
-Here's where you're going to put all your pelican files. Your content folder, your theme folder, the pelicanconf.py file, everything (I suggest adding the output/ directory to .gitignore so you don't end up tracking it twice). When you're ready to push your site live, you'll need **[ghp-import](https://github.com/davisp/ghp-import)**. 
+Here's where you're going to put all your pelican files. Your content folder, your theme folder, the pelicanconf.py file, everything needed to build your site. When you're ready to push your Pelican site live, you'll need **[ghp-import](https://github.com/davisp/ghp-import)**. 
 
-`ghp-import` allows us to copy the contents of a specific folder to a separate branch. Saves a ton of time, and makes updating your Github Pages site a two-command action.
+`ghp-import` allows us to copy the contents of a specific folder to a separate git branch. Saves a ton of time, and makes updating your Github Pages site a two-command action.
 
-Github will only look in a specific brach for the HTML content to serve your static site - the `master` brangh for user pages and the `gh-pages` branch for projects. So, depending on which page you're using, run the following command in your `source` branch:
+Github will only look in a specific brach for the HTML content to serve your static site - the `master` branch for user pages and the `gh-pages` branch for projects. So, depending on which page you're using, run the following command from your `source` branch:
 
 ```bash
 $ ghp-import -m 'commit message' -b master output
@@ -149,7 +149,7 @@ def publishghp(msg):
     local("git push --all")
 ```
 
-You can then pass the commit message to the fabric command like so:
+You can then commit and push in one line, passing the commit message to the fabric command like so:
 
 ```bash
 $ fab publishghp:"commit message"
@@ -158,17 +158,17 @@ $ fab publishghp:"commit message"
 Happy blogging.
 
 ## Amazon S3
-If you, like me, want to use an apex domain with Pelican, or you're just a big Amazon fan, then Amazon S3 is for you. It isn't quite free (maybe $0.75/month for me, so still insanely cheap) and it sure isn't as hip as Github, but it gets the job. 
+If you, like me, want to use an apex domain with Pelican, or you're just a big Amazon fan, then Amazon S3 is for you. It isn't quite free (maybe $0.75/month for me, so still insanely cheap) and it sure isn't as hip as Github, but it gets the job done. 
 
 Again, follow Amazon's [really outstanding instructions](http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) to get your static site set up, then come back here and we'll talk about pushing to S3.
 
 Like `ghp-import` for Github Pages, the open-source community has gone and done us a solid and created [s3cmd](http://s3tools.org/s3cmd). It's not as easy to use as ghp-import, but you really only need one command. 
 
-`s3cmd` is intended to be a full-feature command line manager of your s3 bucket, but all we're doing is pushing files up there. For that, we'll stick to the `sync` command which tries to move only files that differ from local to cloud.
+`s3cmd` is designed as a full-feature command line manager of your s3 bucket, but all we'll use it for is pushing files up. For that, we'll stick to the `sync` command which tries to only upload files that differ between local and cloud to save bandwidth.
 
-My big complaint about `s3cmd` is its massive inability to correctly figure out file mime-types, which wasn't even a problem I was aware existed in the world today until using this program. 
+My big complaint about `s3cmd` is its massive inability to correctly figure out file mime-types, which wasn't even a problem I was aware existed in the world until using this program. 
 
-To get around this issue, **make sure** you are using at least s3cmd v1.5+. Then, upload your files with this command:
+To get around the issue, **make sure** you are using at least **s3cmd v1.5**. Then, upload your website with this command:
 
 ```bash
 s3cmd sync output/ --acl-public --guess-mime-type s3://bucketname/
@@ -177,12 +177,14 @@ s3cmd sync output/ --acl-public --guess-mime-type s3://bucketname/
 on UNIX and
 
 ```bash
-python C:\\s3cmd-1.5.0-rc1\s3cmd sync output/ --acl-public --guess-mime-type s3://%s/"%s3bucket
+python path\\to\\s3cmd\\s3cmd sync output/ --acl-public --guess-mime-type s3://%s/"%s3bucket
 ```
 
 on Windows. [I tested s3cmd on Windows and it _does_ work, it's just annoying. Stick to UNIX.] `output/` is the directory we're pushing to S3 with the trailing slash. `--acl-public` guarantees that the files are viewable by anyone (it's a webiste, dummy) and `--guess-mime-type` does just that. If you're on UNIX, you may need to `apt-get remove python-magic` for it to work. Ugh. But: **Boom. Your site is now live**. 
 
 ## Wrap-up
+
+You just made a good-looking website that you're hosting for (essentially) free and have full source control over! Congrats!
 
 Of course, it's all the hard work in between these above commands that are going to make or break your website. Pelican just makes it easy to get down to the actual task of _writing_ your blog, but hopefully this post has made it that much easier still.
 
