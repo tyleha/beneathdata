@@ -100,8 +100,8 @@ TAG_CLOUD_MAX_ITEMS = 8
 PYGMENTS_STYLE = 'monokai'
 
 ############################ Plugins ######################################
-#PLUGIN_PATHS = ['plugins']
-#PLUGINS = ['extract_toc',]
+PLUGIN_PATHS = ['plugins']
+PLUGINS = ['simple_footnotes', 'extract_toc',]
 
 MD_EXTENSIONS = ['toc', 'fenced_code', 'codehilite(css_class=highlight)', 'extra']
 #MD_EXTENSIONS = ['codehilite(css_class=highlight)', 'extra']
