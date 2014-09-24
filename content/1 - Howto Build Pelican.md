@@ -18,15 +18,18 @@ To top it all off, I kept feeling ashamed, like I know enough programming that I
 ![]()
 
 ## What is Pelican?
-Pelican is a static-site generation tool that abstracts a massive amount of the HTML/CSS generation for you, and lets you write your post in Markdown or RST or whatever markup your little heart desires. It has a rich community offering dozens of cool plugins and custom-built themes, all simple to edit to your tastes, right down to the raw HTML, CSS, and JS. To top it all off, because Pelican creates static sites, you can host your website for _absolutely free_ on Github Pages or for pennies a month on Amazon S3 (more on that later). No server maintenance, no hosting fees, no fuss.
+Pelican is a static-site generation tool that abstracts a massive amount of the HTML/CSS generation for you, and lets you write your post in Markdown or reST or whatever markup your little heart desires. It has a rich community offering dozens of cool plugins and custom-built themes, all simple to edit to your tastes, right down to the raw HTML, CSS, and JS. [If you've heard of Jekyll before, it's that, but written in Python.] 
 
-For an occasional perfectionist like me, Pelican was a godsend. I quickly was able to get a good-looking, mobile-ready site up and running and, of course, add _content_. If you too are interested in building your own custom website (for free!), then follow along. Feel free to post questions in the comments.
+To top it all off, because Pelican creates static sites, you can host your website for *__absolutely free__* on Github Pages or for pennies a month on Amazon S3 (more on that later). No server maintenance, no hosting fees, no fuss.
+
+For an occasional perfectionist like me, Pelican was a godsend. I quickly was able to get a good-looking, mobile-ready site up and running and, of course, add _content_ with ease. If you too are interested in building your own custom website (for free!), then follow along. Feel free to post questions in the comments.
 
 ## Setting up your environment
 
 First off, Pelican is well documented. Read the docs [here](http://docs.getpelican.com/en/latest/quickstart.html) - they are great.
 
 Things you'll need to run Pelican
+
 * Python
 * Pelican
 * Markdown (if that's your thing)
@@ -35,7 +38,7 @@ Things you'll need to run Pelican
 Woo! That's it. Assuming you have Python 2.7.x or 3.3.x, just run the following:
 
 ```bash
-pip install pelican markdown
+$ pip install pelican markdown
 ```
 
 ## Quickstart
@@ -78,37 +81,108 @@ I'm not going to go into detail about how to create posts or modify additional P
 
 You're now ready to fire up Pelican, locally at least. All you need to do is one of the following, depending on your OS and preferences
 
-1. `fab build` followed by `fab serve` (or just `fab reserve`)
+1. `fab build` followed by `fab serve` (or just `fab reserve` to do both at once)
 2. `make html` and then `make serve`
-3. `pelican content -s publishconf.py` followed by `cd output`, `python -m SimpleHTTPServer`
+3. `pelican content -s publishconf.py` followed by `cd output`, `python -m SimpleHTTPServer` (ugh...just install fabric and do #1)
 
-Boom. You're up and running on localhost:8000.
+Boom. You're up and running on **localhost:8000**.
 
 ## Applying a theme
 
-Ok, so the default Pelican theme looks sort of like Pepto Bismol. We can fix that! Check out the list of existing Pelican themes over at https://github.com/getpelican/pelican-themes. Having looked at screenshots of them all, my favorites are (in order):
+Ok, so the default Pelican theme looks sort of like [Pepto Bismol](http://oilonwhyte.com/files/2010/11/pepto_bismol_ad.jpg). We can fix that! Check out the list of existing Pelican themes over at [https://github.com/getpelican/pelican-themes](https://github.com/getpelican/pelican-themes). Having looked at all the available themes, my favorites are (in order):
 
-1. [pelican-bootstrap3](https://github.com/DandyDev/pelican-bootstrap3) - The theme this website uses, which leverages the massively popular Bootstrap library and Bootswatch themes. 
+1. [pelican-bootstrap3](https://github.com/DandyDev/pelican-bootstrap3) - The theme this website uses, leveraging the massively popular Bootstrap library.
 2. [html5-dopetrope](https://github.com/PierrePaul/html5-dopetrope)
 3. [pure](https://github.com/PurePelicanTheme/pure)
 
-To apply a theme, it's this easy - get yourself a copy of the repo, stick it somewhere (maybe in your project folder, up to you), and then point Pelican to it in your pelicanconf.py script with the variable 
+with `pelican-bootstrap3` being far and away my favorite and best documented. To apply a theme, it's this easy - get yourself a copy of the repo, stick it somewhere (maybe in your project folder), and then point Pelican to it in your pelicanconf.py script with the setting:
 
 ```python
 THEME = '/path/to/theme'
 ```
 
-It is THAT easy. 
+It is **THAT** easy. 
 
-Of course, you can now go nuts and modify the theme however you like. Pelican-bootstrap3's features are [well documented](https://github.com/DandyDev/pelican-bootstrap3/blob/master/README.md). For what it's worth, if you'd like to use my precise custom theme, clone it from my repo [here](). You can check out my pelicanconf.py settings [here](https://github.com/tylerhartley/thedatashow/blob/master/pelicanconf.py).
+Of course, you can now go nuts and modify the theme however you like. Pelican-bootstrap3's features are [well documented](https://github.com/DandyDev/pelican-bootstrap3/blob/master/README.md). For what it's worth, if you'd like to use my precise custom pelican-bootstrap3 theme, you can clone it from my repo [here](https://github.com/tylerhartley/pelican-bootstrap3). You can also see my precise pelicanconf.py settings as a guide [here](https://github.com/tylerhartley/thedatashow/blob/master/pelicanconf.py).
 
-```python hl_lines="1 3"
-def foo():
-    pass
-import numpy
+## Where you gonna host this thing?
+
+First you'll need to decide where you want to host your site. Sure, you could do it on a Heroku server and whatnot, but remember this is a static site! It can be served anywhere that serves flat files!! [even Dropbox...!] 
+
+The two most popular options are probably Github Pages and Amazon S3. The features are nearly identical and the cost is either nill or a couple quarters/mo. But, the one discriminating fact that led me to Amazon S3 has to do with webiste speed. 
+
+When this is all said and done, you probably want to access your Pelican site from an apex domain like **the-data-show.com**. It's the norm. Unfortunately on Github Pages, a mapped apex domain will will be [_really_. _slow_](http://instantclick.io/github-pages-and-apex-domains). However, if you map a custom subdomain like **blog.the-data-show.com**, Github will serve your static site plenty fast. The underlying reason has to do with A/ALIAS records, CDNs, and other fancy stuff, but there's the rub. YES, you could get around the problem with a custom CDN or DNS, but that seems like extra work to me. 
+
+Alternately, Amazon S3 serve an apex domain by routing traffic through Route 53 for $0.50/month. Choose wisely.  
+
+## Github Pages
+
+First you'll need to decide if you want to use a Github user page or project page. The only real difference is default Github url - username.github.io for user pages and username.github.io/projectname for projects.  
+
+To get started with GH Pages, follow the instructions [here](https://pages.github.com/). Once you have your repo created, clone it and create a branch. I called mine source. 
+
+```bash
+$ git branch -b source
 ```
-## Publishing to Github Pages
 
-First you'll need to decide if you want to use a Github user page or project page. The difference here is not trivial. The user page is served at yourgithubname.github.io, while the projects are served at yourgithubname.github.io. Of course, we'll end up mapping those urls to other registered custom domains, and the majority of you will want to use an apex domain (e.g. mywebsite.com, not blog.mywebsite.com). Unfortunately on Github Pages, a mapped apex domain will be 
+Here's where you're going to put all your pelican files. Your content folder, your theme folder, the pelicanconf.py file, everything (I suggest adding the output/ directory to .gitignore so you don't end up tracking it twice). When you're ready to push your site live, you'll need **[ghp-import](https://github.com/davisp/ghp-import)**. 
 
-## Publishing to Amazon S3
+`ghp-import` allows us to copy the contents of a specific folder to a separate branch. Saves a ton of time, and makes updating your Github Pages site a two-command action.
+
+Github will only look in a specific brach for the HTML content to serve your static site - the `master` brangh for user pages and the `gh-pages` branch for projects. So, depending on which page you're using, run the following command in your `source` branch:
+
+```bash
+$ ghp-import -m 'commit message' -b master output
+$ git push --all
+```
+
+**Boom. Your site is now live.** Isn't that awesome? Replace master with gh-pages and output with wherever your output HTML goes as necessary.
+
+Alternatively, you could make a Fabric command to do this all in one move, and maybe commit your current branch at the same time, like the following:
+
+```python
+def publishghp(msg):
+    preview() #builds publishconf.py
+    local("git add -A") #will commit allll files, be careful
+    local("git commit -m '%s'"%msg)
+    local("ghp-import -m '%s' -b master output"%msg)
+    local("git push --all")
+```
+
+You can then pass the commit message to the fabric command like so:
+
+```bash
+$ fab publishghp:"commit message"
+```
+
+Happy blogging.
+
+## Amazon S3
+If you, like me, want to use an apex domain with Pelican, or you're just a big Amazon fan, then Amazon S3 is for you. It isn't quite free (maybe $0.75/month for me, so still insanely cheap) and it sure isn't as hip as Github, but it gets the job. 
+
+Again, follow Amazon's [really outstanding instructions](http://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) to get your static site set up, then come back here and we'll talk about pushing to S3.
+
+Like `ghp-import` for Github Pages, the open-source community has gone and done us a solid and created [s3cmd](http://s3tools.org/s3cmd). It's not as easy to use as ghp-import, but you really only need one command. 
+
+`s3cmd` is intended to be a full-feature command line manager of your s3 bucket, but all we're doing is pushing files up there. For that, we'll stick to the `sync` command which tries to move only files that differ from local to cloud.
+
+My big complaint about `s3cmd` is its massive inability to correctly figure out file mime-types, which wasn't even a problem I was aware existed in the world today until using this program. 
+
+To get around this issue, **make sure** you are using at least s3cmd v1.5+. Then, upload your files with this command:
+
+```bash
+s3cmd sync output/ --acl-public --guess-mime-type s3://bucketname/
+```
+
+on UNIX and
+
+```bash
+python C:\\s3cmd-1.5.0-rc1\s3cmd sync output/ --acl-public --guess-mime-type s3://%s/"%s3bucket
+```
+
+on Windows. [I tested s3cmd on Windows and it _does_ work, it's just annoying. Stick to UNIX.] `output/` is the directory we're pushing to S3 with the trailing slash. `--acl-public` guarantees that the files are viewable by anyone (it's a webiste, dummy) and `--guess-mime-type` does just that. If you're on UNIX, you may need to `apt-get remove python-magic` for it to work. Ugh. But: **Boom. Your site is now live**. 
+
+## Wrap-up
+
+Of course, it's all the hard work in between these above commands that are going to make or break your website. Pelican just makes it easy to get down to the actual task of _writing_ your blog, but hopefully this post has made it that much easier still.
+
