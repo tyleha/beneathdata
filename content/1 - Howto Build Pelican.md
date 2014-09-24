@@ -1,4 +1,4 @@
-Title: How I Built this Website using Pelican
+Title: How I built this website using Pelican
 Date: 2014-9-22 11:15
 Tags: how-to, python, pelican, website
 Category: How To
