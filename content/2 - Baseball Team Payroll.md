@@ -43,29 +43,31 @@ Let's break that graph down into roughly 10 year periods.
 
 ![Decade-by-decade correlation between wins and salary](/images/baseball/Salary_vs_Wins_by_decade.png)
 
-We see basically the same thing as in the previous graph, a positive slope but a ton of noise. Except now it’s amusing to look at the A’s vs the Yankees post-1993.[ref]Notice the A’s in the 80’s and early 90’s – their heyday. They won the world series, they had incredible stars like Dennis Eckersley, they were on top. It’s also the only time in their history they won the world series. Now look at the years since 1994 – their payroll has been consistenly in the bottom half and yet they’ve been winning pretty above the best fit line. This is proof that at least part of Moneyball’s thesis is true – smart teams like the A’s can outperform their salaries. On the other hand, look at the Yankees. Nearly always waaaay out to the right. Nearly always winning. They set the trend. They are the reason for the Luxury Tax.[/ref]
+We see basically the same thing as in the previous graph, a positive slope but a ton of noise. Except now it’s amusing to look at the A’s vs the Yankees post-1993.[ref]Notice the A’s in the 80’s and early 90’s – their heyday. They won the world series, they had incredible stars like Dennis Eckersley. They were on top. It’s also the only time in their history spent in the top half of the league. Now look at the years since 1994 – their payroll has been consistenly in the bottom half and yet they’ve been winning above the best fit line. This is evidence that at least part of Moneyball’s thesis is true – smart teams like the A’s can outperform their salaries. On the other hand, look at the Yankees. Nearly always waaaay out to the right. Nearly always winning. They set the trend. They are the reason for the Luxury Tax.[/ref]
 
-#### Effect of Money Long-Term
-Let’s adjust our hypotheses – it’s not JUST money that wins baseball games. More specifically, it’s money applied over time. This makes intuitive sense - even with a huge payroll it takes years to build the right team, develop prospects, and have the stars align. Below you’ll see the same graph as before, just with each team averaged into a single data point. 
+## Effect of Money Long-Term
+Let’s adjust our hypotheses – it’s not JUST money that wins baseball games. More specifically, it’s money applied over time. This makes intuitive sense - even with a huge payroll it takes years to build the right team, develop prospects, and see your investment pay off. Below you’ll see the same graph as before, just with each team averaged into a single data point. 
 
 ![Alt text](/images/baseball/salary_avg_by_decade.png)
 
 Salary Power has increased slightly and the R values have increased considerably, which makes intuitive sense. We might reasonably conclude that payroll, when kept high over time, has a significant effect on the performance of a team, with Salary Power in the neighborhood of 5 wins per MAD (standard deviation). This means you could expect a team like the Yankees who outspends the median by 2 MAD to consistently win 10 more games than league average, or 91 games a year. 91 games pretty much assures you a spot in the playoffs nowadays...talk about nontrivial.
 
-## The Competitive Balance and MLB Luxury Tax
+## The Competitive Balance Problem and MLB Luxury Tax
 
-If you were paying close attention to the previous graph, you noticed that Salary Power has changed over the decades, peaking in the ’94-’03 era at 7+ wins/MAD. Honestly, if you’d put a gun to my head and made me guess what 10-year period would show the most powerful monetary effects, I would have guessed essentially these 10 years. Here’s why. MLB payroll has plenty to do with your team's owners, but even MORE to do with your team's revenue. If you’re a big market team then sure, you’ll get better attendance and more purchased merchandise. But beginning in 1990, baseball saw the first truly, insanely lucrative TV deals being to pop up in places like New York and Chicago. With their newfound cash prospects, some teams were suddenly able to outspend their opponents by ridiculous margins. 
+If you were paying close attention to the previous graph, you noticed that Salary Power has changed over the decades, peaking in the ’94-’03 era at 7+ wins/MAD. Honestly, if you’d put a gun to my head and made me guess what 10-year period would show the most powerful monetary effects, I would have guessed essentially these 10 years. Here’s why. MLB payroll has plenty to do with the owners' pockets, but even MORE to do with the team's revenue. If you’re a big market team then sure, you’ll get better attendance and more purchased merchandise. But beginning in 1990, baseball saw the first truly, insanely lucrative TV deals being to pop up in places like New York and Chicago. With their newfound cash prospects, some teams were suddenly able to outspend their opponents by ridiculous margins. 
 
 To quote a more reputable source than I: 
 >As the importance of media contracts grew, so did the problems associated with them…These local contracts did not pay all teams, only the home team. The problem from MLB’s point of view was not the income, but the variance in that income. That variance has increased over time, and is the primary source of the gap in payrolls, which is linked to the gap in quality, which is cited as the “competitive balance problem.” In 1962 the MLB average for local media income was $640,000 ranging from a low of $300,000 (Washington) to a high of $1.2 million (New York Yankees). In 2001, the average team garnered $19 million from local radio and television contracts, but the gap between the bottom and top had widened to an incredible $51.5 million. The Montreal Expos received $536,000 for their local broadcast rights while the New York Yankees received more than $52 million for theirs. 
 
-Talk as much as you want to about George Steinbrenner, but the YES Network is as much a reason why this generation’s Yankees are who they are.
+Talk as much as you want to about George Steinbrenner, but the YES Network might be a bigger reason why this generation's Yankees are who they are.
 
 We can better investigate the changing influence of money in baseball by looking at Salary Power from year to year.
 
 ![Salary Power over the years](/images/baseball/Slope_plot_of_win_to_MAD_ratio.png)
 
 Charted above you’ll see Salary Power plotted annually and as a 5-year running average. The running average in particular paints a consistent story, which I will narrate myself:
+
+<_ahem_\>
 
 When Baseball transtitioned to the free agent model in 1976, some teams jumped on the opportunity and spent heavily on good players. These teams performed well. But over the next 10 years, as teams learned how to navigate free agency and spend their money wisely, the competitive balance began to equalize. No one team or group of teams had the resources to outspend opponents and change the equation. Not even Steinbrenner’s Yankees. 
 
