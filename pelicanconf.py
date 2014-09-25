@@ -66,8 +66,8 @@ for k in EXTRA_PATH_METADATA.keys(): # Fix backslash paths to resources if on Wi
 
 
 ##################### Exterior Services ############################
-DISQUS_SITENAME = 'reticulatingspline'
-DISQUS_SHORTNAME = 'reticulatingspline'
+DISQUS_SITENAME = 'thedatashow'
+DISQUS_SHORTNAME = 'thedatashow'
 DISQUS_DISPLAY_COUNTS = True
 
 GOOGLE_ANALYTICS = "UA-54524020-1"
