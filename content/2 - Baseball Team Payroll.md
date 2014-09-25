@@ -63,7 +63,7 @@ Talk as much as you want to about George Steinbrenner, but the YES Network is as
 
 We can better investigate the changing influence of money in baseball by looking at Salary Power from year to year.
 
-![](/images/baseball/Slope_plot_of_win_to_MAD_ratio.png)
+![Salary Power over the years](/images/baseball/Slope_plot_of_win_to_MAD_ratio.png)
 
 Charted above you’ll see Salary Power plotted annually and as a 5-year running average. The running average in particular paints a consistent story, which I will narrate myself:
 

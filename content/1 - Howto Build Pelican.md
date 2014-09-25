@@ -45,7 +45,7 @@ $ pip install pelican markdown fabric
 Fist things first - use pelican's quickstart method to build the default website. We'll get around to applying themes in a bit. Use the `pelican-quickstart` command and follow the prompts
 
 ```bash
->pelican-quickstart
+$ pelican-quickstart
 
 Welcome to pelican-quickstart v3.4.0.
 
@@ -54,24 +54,24 @@ This script will help you create a new Pelican-based website.
 Please answer the following questions so this script can generate the files
 needed by Pelican.
 
-> Where do you want to create your new web site? [.] folder_to_use
-> What will be the title of this web site? BlogName
-> Who will be the author of this web site? Your Name
-> What will be the default language of this web site? [en]
-> Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) y
-> What is your URL prefix? (see above example; no trailing slash) http://mycustomdomain.com
-> Do you want to enable article pagination? (Y/n) y
-> How many articles per page do you want? [10]
-> Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) y
-> Do you want an auto-reload & simpleHTTP script to assist with theme and site development? (Y/n) y
-> Do you want to upload your website using FTP? (y/N) n
-> Do you want to upload your website using SSH? (y/N) n
-> Do you want to upload your website using Dropbox? (y/N) n
-> Do you want to upload your website using S3? (y/N) y
-> What is the name of your S3 bucket? [my_s3_bucket]
-> Do you want to upload your website using Rackspace Cloud Files? (y/N) n
-> Do you want to upload your website using GitHub Pages? (y/N) y
-> Is this your personal page (username.github.io)? (y/N) y
+$ Where do you want to create your new web site? [.] folder_to_use
+$ What will be the title of this web site? BlogName
+$ Who will be the author of this web site? Your Name
+$ What will be the default language of this web site? [en]
+$ Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) y
+$ What is your URL prefix? (see above example; no trailing slash) http://mycustomdomain.com
+$ Do you want to enable article pagination? (Y/n) y
+$ How many articles per page do you want? [10]
+$ Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) y
+$ Do you want an auto-reload & simpleHTTP script to assist with theme and site development? (Y/n) y
+$ Do you want to upload your website using FTP? (y/N) n
+$ Do you want to upload your website using SSH? (y/N) n
+$ Do you want to upload your website using Dropbox? (y/N) n
+$ Do you want to upload your website using S3? (y/N) y
+$ What is the name of your S3 bucket? [my_s3_bucket]
+$ Do you want to upload your website using Rackspace Cloud Files? (y/N) n
+$ Do you want to upload your website using GitHub Pages? (y/N) y
+$ Is this your personal page (username.github.io)? (y/N) y
 Done. Your new project is available at home/tyler/folder_to_use
 ```
 
@@ -89,7 +89,7 @@ Boom. You're up and running on **localhost:8000**.
 
 ## Applying a theme
 
-Ok, so the default Pelican theme looks sort of like [Pepto Bismol](http://oilonwhyte.com/files/2010/11/pepto_bismol_ad.jpg). We can fix that! Check out the list of existing Pelican themes over at [https://github.com/getpelican/pelican-themes](https://github.com/getpelican/pelican-themes). Having looked at all the available themes, my favorites are (in order):
+Ok, so the default Pelican theme looks sort of like Pepto Bismol. We can fix that! Check out the list of existing Pelican themes over at [https://github.com/getpelican/pelican-themes](https://github.com/getpelican/pelican-themes). Having looked at all the available themes, my favorites are (in order):
 
 1. [pelican-bootstrap3](https://github.com/DandyDev/pelican-bootstrap3) - The theme this website uses, leveraging the massively popular Bootstrap library.
 2. [html5-dopetrope](https://github.com/PierrePaul/html5-dopetrope)
@@ -103,17 +103,17 @@ THEME = '/path/to/theme'
 
 It is **THAT** easy. 
 
-Of course, you can now go nuts and modify the theme however you like. Pelican-bootstrap3's features are [well documented](https://github.com/DandyDev/pelican-bootstrap3/blob/master/README.md). For what it's worth, if you'd like to use my precise custom pelican-bootstrap3 theme, you can clone it from my repo [here](https://github.com/tylerhartley/pelican-bootstrap3). You can also see my precise pelicanconf.py settings as a guide [here](https://github.com/tylerhartley/thedatashow/blob/master/pelicanconf.py).
+Of course, you can now go nuts and modify the theme however you like. Pelican-bootstrap3's features are [well documented](https://github.com/DandyDev/pelican-bootstrap3/blob/master/README.md). With relatively little effort, I added a banner image, a custom footer, and tweaked sylings. Pelican leverages a Django-like template format and Jinja2, which means that editing site-wide content requires editing only a single file. For what it's worth, if you'd like to use my precise custom pelican-bootstrap3 theme, you can clone it from my repo [here](https://github.com/tylerhartley/pelican-bootstrap3). You can also see my precise pelicanconf.py settings as a guide [here](https://github.com/tylerhartley/thedatashow/blob/master/pelicanconf.py).
 
 ## Where you gonna host this thing?
 
-First you'll need to decide where you want to host your site. Sure, you could do it on a Heroku server and whatnot, but remember this is a static site! It can be served anywhere that serves flat files!! [even Dropbox...!] 
+First you'll need to decide where you want to host your site. Sure, you could do it on a Heroku server and whatnot, but remember this is a static site! It can be served anywhere that serves flat files!![ref]even Dropbox...![/ref] 
 
 The two most popular options are probably Github Pages and Amazon S3. The features are nearly identical and the cost is either nill or a couple quarters/mo. But, the one discriminating fact that led me to Amazon S3 has to do with webiste speed. 
 
 When this is all said and done, you probably want to access your Pelican site from an apex domain like **the-data-show.com**. It's the norm. Unfortunately on Github Pages, a mapped apex domain will will be [_really_. _slow_](http://instantclick.io/github-pages-and-apex-domains). However, if you map a custom subdomain like **blog.the-data-show.com**, Github will serve your static site plenty fast. The underlying reason has to do with A/ALIAS records, CDNs, and other fancy stuff, but there's the rub. YES, you could get around the problem with a custom CDN or DNS, but that seems like extra work to me. 
 
-Alternately, Amazon S3 serve an apex domain by routing traffic through Route 53 for $0.50/month. Choose wisely.  
+Alternately, Amazon S3 serves an apex domain by routing traffic through their Route 53 DNS service for $0.50/month. Choose wisely.  
 
 ## Github Pages
 
@@ -177,10 +177,10 @@ s3cmd sync output/ --acl-public --guess-mime-type s3://bucketname/
 on UNIX and
 
 ```bash
-python path\\to\\s3cmd\\s3cmd sync output/ --acl-public --guess-mime-type s3://%s/"%s3bucket
+python path\\to\\s3cmd\\s3cmd sync output/ --acl-public --guess-mime-type s3://bucketname/
 ```
 
-on Windows. [I tested s3cmd on Windows and it _does_ work, it's just annoying. Stick to UNIX.] `output/` is the directory we're pushing to S3 with the trailing slash. `--acl-public` guarantees that the files are viewable by anyone (it's a webiste, dummy) and `--guess-mime-type` does just that. If you're on UNIX, you may need to `apt-get remove python-magic` for it to work. Ugh. But: **Boom. Your site is now live**. 
+on Windows.[ref]I tested s3cmd on Windows and it _does_ work, it's just annoying. Stick to UNIX.[/ref]] `output/` is the directory we're pushing to S3 with the trailing slash. `--acl-public` guarantees that the files are viewable by anyone (it's a webiste, dummy) and `--guess-mime-type` does just that. If you're on UNIX, you may need to `apt-get remove python-magic` for it to work. Ugh. But: **Boom. Your site is now live**. 
 
 ## Wrap-up
 

@@ -57,8 +57,9 @@ YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
 
 ################## Add custom css #########################
 CUSTOM_CSS = 'static/custom.css'
-STATIC_PATHS = ['images', 'extra/custom.css']
+STATIC_PATHS = ['images', 'extra/custom.css', 'extra/href_scroll.js']
 EXTRA_PATH_METADATA = {'extra/custom.css':{'path':'static/custom.css'},
+                    'extra/href_scroll.js':{'path':'theme/js/href_scroll.js'}
                        }
 for k in EXTRA_PATH_METADATA.keys(): # Fix backslash paths to resources if on Windows
     EXTRA_PATH_METADATA[system_path(k)] = EXTRA_PATH_METADATA.pop(k)
