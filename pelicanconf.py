@@ -36,8 +36,12 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 
 # Blogroll
-LINKS = (('IPython', 'http://ipython.org'),
+LINKS = (
         ('FiveThirtyEight', 'http://FiveThirtyEight.com'),
+        ('What If?', 'http://what-if.xkcd.com/'),
+        ('McSweeney\'s', 'http://www.mcsweeneys.net/'),
+        ('Fangraphs', 'http://www.fangraphs.com/'),
+        ('IPython', 'http://ipython.org'),
          )
 
 # Social widget
@@ -95,7 +99,7 @@ AVATAR = "/images/headshot.png"
 BANNER = "/images/banner.png"
 
 DISPLAY_ARTICLE_INFO_ON_INDEX = True
-#DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
+DISPLAY_RECENT_POSTS_ON_SIDEBAR = True
 SHOW_ARTICLE_CATEGORY = True
 TAG_CLOUD_MAX_ITEMS = 8
 
