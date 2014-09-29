@@ -52,7 +52,7 @@ Let’s adjust our hypotheses – it’s not JUST money that wins baseball games
 
 Salary Power has increased slightly and the R values have increased considerably, which makes intuitive sense. We might reasonably conclude that payroll, when kept high over time, has a significant effect on the performance of a team, with Salary Power in the neighborhood of 5 wins per MAD (standard deviation). This means you could expect a team like the Yankees who outspends the median by 2 MAD to consistently win 10 more games than league average, or 91 games a year. 91 games pretty much assures you a spot in the playoffs nowadays...talk about nontrivial.
 
-## The Competitive Balance Problem and MLB Luxury Tax
+## The Competitive Balance Problem and MLB Revenue Sharing
 
 If you were paying close attention to the previous graph, you noticed that Salary Power has changed over the decades, peaking in the ’94-’03 era at 7+ wins/MAD. Honestly, if you’d put a gun to my head and made me guess what 10-year period would show the most powerful monetary effects, I would have guessed essentially these 10 years. Here’s why. MLB payroll has plenty to do with the owners' pockets, but even MORE to do with the team's revenue. If you’re a big market team then sure, you’ll get better attendance and more purchased merchandise. But beginning in 1990, baseball saw the first truly, insanely lucrative TV deals being to pop up in places like New York and Chicago. With their newfound cash prospects, some teams were suddenly able to outspend their opponents by ridiculous margins. 
 
@@ -61,11 +61,11 @@ To quote a more reputable source than I:
 
 Talk as much as you want to about George Steinbrenner, but the YES Network might be a bigger reason why this generation's Yankees are who they are.
 
-We can better investigate the changing influence of money in baseball by looking at Salary Power from year to year.
+We can better investigate the changing influence of money in baseball by looking at `Salary Power` from year to year.
 
 ![Salary Power over the years](/images/baseball/Slope_plot_of_win_to_MAD_ratio.png)
 
-Charted above you’ll see Salary Power plotted annually and as a 5-year running average. The running average in particular paints a consistent story, which I will narrate myself:
+Charted above you’ll see Salary Power plotted annually and as a 5-year running average. The data here is pretty damning. Since we have available data, Salary Power has has been well above zero nearly every year. From 1995 to 2011, it never went below 3. As we saw before, the late 90's and early 00's had incredibly high Salary Power numbers, at one point reaching 9 (!!) wins/MAD. The Salary Power running average in particular (in black) paints a consistent story, which I will narrate myself:
 
 <_ahem_\>
 
@@ -73,22 +73,25 @@ When Baseball transtitioned to the free agent model in 1976, some teams jumped o
 
 Then came 1990. TV contracts began to develop into insanely lucrative deals. But unlike before, there were haves and have-nots, mostly dependent on the size of the market. The competitive balance began to unbalance again, peaking around the millennium. Not coincidentally, around this time the Commissioner’s office was getting inundated with complaints. In fact, forget the commissioner’s office – the US SENATE was getting inundated with complaints (http://roadsidephotos.sabr.org/baseball/00-4compbal.htm). Bud Selig commissioned the Blue Ribbon Panel in 2000 (http://mlb.mlb.com/mlb/downloads/blue_ribbon.pdf) which basically concluded that Major League Baseball was in some serious trouble unless action was taken.[ref]I finally came across the blue ribbon study at the very end of writing this article. It makes me both proud and absolutely annoyed to find that the panel discovered many of the precise conclusions I present in this article AND used many of the precise same metrics to come to such a conclusion. I should have been born 15 years earlier.[/ref]   
 
-In direct response to the growing competitive balance problem, MLB instituted some changes. The biggest of which was the Luxury Tax. The Luxury Tax aimed to target the highest spending teams and provide a disincentive for outspending the median by so many standard deviations. The penalty was nontrivial – 17.5% of overages, then 30%, 40%, and 50% for each year over the line.[ref]If this paints you a picture, the entry for [Luxury Tax](http://en.wikipedia.org/wiki/Luxury_tax_(sports)) on Wikipedia has only one photo – a closeup of George Steinbrenner’s grumpy, wrinkly face.[/ref] To magnify the effect, these overage fees were in fact paid out to the poorest teams, to effectively redistribute TV revenue, if you think about it. If we reexamine our graph, you’ll notice a precipitous drop in value beginning roughly around 2003, coinciding with the institution of the Luxury Tax.
+In direct response to the growing competitive balance problem, MLB instituted some changes, the biggest of which was the Luxury Tax. The Luxury Tax aimed to target the highest spending teams and provide a disincentive for outspending the median by so many standard deviations. The penalty was nontrivial – 17.5% of overages, then 30%, 40%, and 50% for each year over the line.[ref]If this paints you a picture, the entry for [Luxury Tax](http://en.wikipedia.org/wiki/Luxury_tax_(sports)) on Wikipedia has only one photo – a closeup of George Steinbrenner’s grumpy, wrinkly face.[/ref] To magnify the effect, these overage fees were in fact paid out to the poorest teams, to effectively redistribute TV revenue, if you think about it. If we reexamine our graph, you’ll notice a precipitous drop in value beginning roughly around 2003, coinciding with the institution of the Luxury Tax.
 
-Today, the slope of the Win/Salary graph is back to around its 1990 levels. Bud Selig can count that as a big victory for the Luxury Tax and competitive balance. And you, as a discerning baseball fan, can rest assured that balance has been returned to the league. 
+Other revenue sharing methods were put into play around the same time, including equal distribution of national TV contracts. Today, Salary Power in baseball is back to around its 1990 levels. Bud Selig can count that as a big victory for revenue sharing and competitive balance. And you, as a discerning baseball fan, can rest assured that balance has been returned to the league. 
 
-**Right?**
+**...Right?**
+
+I'm not so sure.
 
 ## Competitive Balance and the Playoffs
 
-To see if competitive balance has returned, let's change our metrics a bit. First off, let's break teams into quartiles by annual payroll. Secondly, it's time to start looking at the postseason.
+First off, quick recap. We've gotten a pretty decent answer to our original question of "how much of an effect does money have on baseball?" We have one last step to take, but we've done well. Now, we're curious to ask "has competitive balance returned to the league since its 2000 peak?"
 
-We can debate money's effect on regular season success all we want, but teams play to win the World Series, not to win 91 games. Just ask Oakland A's fans.[ref]Or Atlanta Braves fans...sigh.[/ref] To answer our central question, "how much of an effect does money have on Baseball?" we should really be looking at what winning is all about - the postseason.
+To see if competitive balance has indeed improved, let's change our metrics a bit. First off, let's break teams into quartiles by annual payroll. Second, let's start looking at the postseason.
 
+We can debate money's effect on regular season success all we want, but teams play to win the World Series, not to win 91 games. Just ask Oakland A's fans.[ref]Or Atlanta Braves fans...sigh.[/ref] So, we should really be looking at what winning in baseball is all about - the postseason.
 
+Selig's Blue Ribbon Panel found in 1999 that poor teams were not flat out making the playoffs. They were not wrong. Examining the figure below, we see that from 1995-2003, a full 12.0% (14 of 117) teams in the bottom half of league payroll (Q4 and Q3) were making the playoffs. That is atrocious. In a completely balanced league, we'd see 50%. Basically the league is split into two leagues based on payroll, and you might as well just turn around and go home if you're team's on the wrong side.
 
-Selig's Blue Ribbon Panel found in 1999 that poor teams were not making the playoffs. See the graph below
-
+When we look at the same numbers from 2004-2013, we **do** see an improved picture - 16.7% (30 of 180). But is this picture 
 
 
 Table showing percentage chance of making playoffs since 1995
@@ -97,7 +100,7 @@ Let's think about the magnitude of that table for a minute. Let it sink in. In t
 
 Looking to the World Series only paints a worse picture. 
 
-Image of trips to world series by quartile
+of trips to world series by quartile
 
 And lastly, take a look at that table again. Of the 248 teams in the bottom half of baseball payrolls since 1995, how many have won the World Series? The answer?
 
