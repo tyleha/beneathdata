@@ -20,6 +20,7 @@ def getText(node, recursive = False):
 def parse_for_footnotes(article_generator):
     for article in article_generator.articles:
         if "[ref]" in article._content and "[/ref]" in article._content:
+            article._content += "<hr><h4>Footnotes</h4>"
             content = article._content.replace("[ref]", "<x-simple-footnote>").replace("[/ref]", "</x-simple-footnote>")
             parser = html5lib.HTMLParser(tree=html5lib.getTreeBuilder("dom"))
             dom = parser.parse(content)

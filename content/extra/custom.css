@@ -10,3 +10,8 @@
     }
 }
 */
+
+.img-thumbnail {
+    background-color: transparent;
+    border: transparent;
+}
