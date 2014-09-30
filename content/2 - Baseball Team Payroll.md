@@ -94,7 +94,7 @@ So, **YES**, the Luxury Tax and other competitive balance solutions seem to have
 
 We're nearing the end here, so let's zoom out a bit. Below you'll find the chance of reaching or advancing past each level of the playoffs, broken down by salary quartile. It paints the same picture as before, just uglier. As you advance further into the playoffs, the chances only get worse for the poor teams in Q3 and Q4.[ref]Doing some additional math, Q3 and Q4 reach the playoffs at a ~1:3 ratio compared to Q1 (15% to 47%). But reach the World Series? Now we're down to 1:8 ratio (1.4% to 12.1%).[/ref] 
 
-<img src="/images/baseball/playoffs_table.PNG" alt="Percentage chance of making playoffs since 1995" style="width: 200px;"/>
+<img src="/images/baseball/playoffs_table.png" alt="Percentage chance of making playoffs since 1995" style="width: 450px;"/>
 
 Looking to the World Series only paints a worse picture. 
 
@@ -108,7 +108,7 @@ That team? The 2003 Florida Marlins with a payroll of $49M, good for 24th in bas
 
 <iframe width="480" height="360" src="//www.youtube-nocookie.com/embed/Lad4_T0C68o?start=170" frameborder="0" allowfullscreen></iframe>
 
-So, ONE team has won the World Series in the past 23 years with a below-average team salary. 
+So, ONE team has won the World Series in the past 23 tries with a below-average team payroll. 
 
 **What does that say about the effect of money on baseball success that I haven't already said?**
 

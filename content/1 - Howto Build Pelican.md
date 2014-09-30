@@ -11,7 +11,7 @@ I tried __Weebly__ (they let me use a custom domain for free), but the interface
 
 I tried __Wordpress__, but I couldn't get fine-grained enough control of the HTML/CSS without forking over the $100+ annual Pro fee.
 
-I even looked at __Squarespace__, which nearly had me convinced (those are some beautiful templates over there), but frankly, it's just too Web 2.0 for me. Though if I was a photographer or an [artisinal lightbulb maker](http://www.imdb.com/video/imdb/vi3729299993), I'd use Squarespace in a heartbeat.  
+I even looked at __Squarespace__, which nearly had me convinced (those are some beautiful templates over there), but frankly, it's just too Web 2.0 for me. Though if I was a photographer or an [artisanal light bulb maker](http://www.imdb.com/video/imdb/vi3729299993), I'd use Squarespace in a heartbeat.  
 
 To top it all off, I kept feeling ashamed, like I know enough programming that I should just do it myself. But I didn't want to start from scratch or even from medium scratch like Django. That's where Pelican came in. 
 
@@ -42,7 +42,7 @@ $ pip install pelican markdown fabric
 ```
 
 ## Quickstart
-Fist things first - use pelican's quickstart method to build the default website. We'll get around to applying themes in a bit. Use the `pelican-quickstart` command and follow the prompts
+First things first - use pelican's quickstart method to build the default website. We'll get around to applying themes in a bit. Use the `pelican-quickstart` command and follow the prompts
 
 ```bash
 $ pelican-quickstart
@@ -103,15 +103,15 @@ THEME = '/path/to/theme'
 
 It is **THAT** easy. 
 
-Of course, you can now go nuts and modify the theme however you like. Pelican-bootstrap3's features are [well documented](https://github.com/DandyDev/pelican-bootstrap3/blob/master/README.md). With relatively little effort, I added a banner image, a custom footer, and tweaked sylings. Pelican leverages a Django-like template format and Jinja2, which means that editing site-wide content requires editing only a single file. For what it's worth, if you'd like to use my precise custom pelican-bootstrap3 theme, you can clone it from my repo [here](https://github.com/tylerhartley/pelican-bootstrap3). You can also see my precise pelicanconf.py settings as a guide [here](https://github.com/tylerhartley/thedatashow/blob/master/pelicanconf.py).
+Of course, you can now go nuts and modify the theme however you like. Pelican-bootstrap3's features are [well documented](https://github.com/DandyDev/pelican-bootstrap3/blob/master/README.md). With relatively little effort, I added a banner image, a custom footer, and tweaked stylings. Pelican leverages a Django-like template format and Jinja2, which means that editing site-wide content requires editing only a single file. For what it's worth, if you'd like to use my precise custom pelican-bootstrap3 theme, you can clone it from my repo [here](https://github.com/tylerhartley/pelican-bootstrap3). You can also see my precise pelicanconf.py settings as a guide [here](https://github.com/tylerhartley/thedatashow/blob/master/pelicanconf.py).
 
 ## Where you gonna host this thing?
 
 First you'll need to decide where you want to host your site. Sure, you could do it on a Heroku server and whatnot, but remember this is a static site! It can be served anywhere that serves flat files!![ref]even Dropbox...![/ref] 
 
-The two most popular options are probably Github Pages and Amazon S3. The features are nearly identical and the cost is either nill or a couple quarters/mo. But, the one discriminating fact that led me to Amazon S3 has to do with webiste speed. 
+The two most popular options are probably Github Pages and Amazon S3. The features are nearly identical and the cost is either nil or a couple quarters/mo. But, the one discriminating fact that led me to Amazon S3 has to do with website speed. 
 
-When this is all said and done, you probably want to access your Pelican site from an apex domain like **the-data-show.com**. It's the norm. Unfortunately on Github Pages, a mapped apex domain will will be [_really_. _slow_](http://instantclick.io/github-pages-and-apex-domains). However, if you map a custom subdomain like **blog.the-data-show.com**, Github will serve your static site plenty fast. The underlying reason has to do with A/ALIAS records, CDNs, and other fancy stuff, but there's the rub. YES, you could get around the problem with a custom CDN or DNS, but that seems like extra work to me. 
+When this is all said and done, you probably want to access your Pelican site from an apex domain like **the-data-show.com**. It's the norm. Unfortunately on Github Pages, a mapped apex domain will be [_really_. _slow_](http://instantclick.io/github-pages-and-apex-domains). However, if you map a custom subdomain like **blog.the-data-show.com**, Github will serve your static site plenty fast. The underlying reason has to do with A/ALIAS records, CDNs, and other fancy stuff, but there's the rub. YES, you could get around the problem with a custom CDN or DNS, but that seems like extra work to me. 
 
 Alternately, Amazon S3 serves an apex domain by routing traffic through their Route 53 DNS service for $0.50/month. Choose wisely.  
 
@@ -129,7 +129,7 @@ Here's where you're going to put all your pelican files. Your content folder, yo
 
 `ghp-import` allows us to copy the contents of a specific folder to a separate git branch. Saves a ton of time, and makes updating your Github Pages site a two-command action.
 
-Github will only look in a specific brach for the HTML content to serve your static site - the `master` branch for user pages and the `gh-pages` branch for projects. So, depending on which page you're using, run the following command from your `source` branch:
+Github will only look in a specific branch for the HTML content to serve your static site - the `master` branch for user pages and the `gh-pages` branch for projects. So, depending on which page you're using, run the following command from your `source` branch:
 
 ```bash
 $ ghp-import -m 'commit message' -b master output
@@ -180,11 +180,10 @@ on UNIX and
 python path\\to\\s3cmd\\s3cmd sync output/ --acl-public --guess-mime-type s3://bucketname/
 ```
 
-on Windows.[ref]I tested s3cmd on Windows and it _does_ work, it's just annoying. Stick to UNIX.[/ref]] `output/` is the directory we're pushing to S3 with the trailing slash. `--acl-public` guarantees that the files are viewable by anyone (it's a webiste, dummy) and `--guess-mime-type` does just that. If you're on UNIX, you may need to `apt-get remove python-magic` for it to work. Ugh. But: **Boom. Your site is now live**. 
+on Windows.[ref]I tested s3cmd on Windows and it _does_ work, it's just annoying. Stick to UNIX.[/ref]] `output/` is the directory we're pushing to S3 with the trailing slash. `--acl-public` guarantees that the files are viewable by anyone (it's a website, dummy) and `--guess-mime-type` does just that. If you're on UNIX, you may need to `apt-get remove python-magic` for it to work. Ugh. But: **Boom. Your site is now live**. 
 
 ## Wrap-up
 
 You just made a good-looking website that you're hosting for (essentially) free and have full source control over! Congrats!
 
 Of course, it's all the hard work in between these above commands that are going to make or break your website. Pelican just makes it easy to get down to the actual task of _writing_ your blog, but hopefully this post has made it that much easier still.
-
