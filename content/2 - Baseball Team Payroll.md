@@ -6,13 +6,13 @@ Slug: money-in-baseball
 Author: Tyler Hartley
 <!-- Summary: Short version for index and feeds -->
 
-Since _Moneyball_ was published in 2003, the idea that money is as much a part of the game as first basemen or the infield grass has become common knowledge. We all understand the basic notion that in Major League Baseball, money can define who plays on your team and therefore _how_ your team plays. Basically, the story goes like this - wealthy, extravagant teams like the New York Yankees can buy their way to a championship. But the little guys, they have to gain an edge in other ways, developing farm talent and picking out the diamonds in the rough with advanced metrics. What _Moneyball_ successfully conveyd is that even if money is limitless in baseball, it isn't everything. What the book didn't ask, however, is _"Ok, so money isn't everything. But how much is it worth?"_
+Since _Moneyball_ was published in 2003, the idea that money is as much a part of the game as first basemen or the infield grass has become common knowledge. We all understand the basic notion that in Major League Baseball, money can define who plays on your team and therefore _how_ your team plays. Basically, the story goes like this - wealthy, extravagant teams like the New York Yankees can buy their way to a championship. But the little guys, they have to gain an edge in other ways, developing farm talent and picking out the diamonds in the rough with advanced metrics. What _Moneyball_ successfully conveyed is that even if money is limitless in baseball, it isn't everything. What the book didn't ask, however, is _"Ok, so money isn't everything. But how much is it worth?"_
 
 ## Conventional Wisdom
 
 It seems intuitive that teams with deep pockets can buy the best players and thus put together the best teams. But we see time and time again that small-market teams with smaller payrolls still manage to compete in baseball...the Oakland Athletics, the Tampa Bay Rays... But simultaneously, we see the wealthy Yankees dominate for two decades, we see the Red Sox come to power in the early '00's on a rising payroll, and we see the 2013/14 Dodgers spend (and win) like there's no tomorrow. Conventional wisdom seems to point in both directions. Who's right? 
 
-Various sources have tried to tackle this question in variously incomplete ways. Wikipedia notes that "_...the New York Yankees have consistently had the highest total payroll in MLB, and they have appeared in 40 of the 109 World Series for 27 wins as of 2013..._"[ref]http://en.wikipedia.org/wiki/Salary_cap#Major_League_Baseball_.28luxury_tax.29[/ref] That's great, but the Yankees are only an anecdote. Somebody at Columbia Business School did a deeper investigation of the idea and concluded that 20% of success in baseball can be attributed to payroll[ref]http://www.sloaSalary Powerortsconference.com/wp-content/uploads/2014/02/2014_SSAC_Why-money-is-not-baseballs-most-valuable-currency.pdf[/ref]. I buy that. 20% is money, the other 80% is...skill? But how can we say that? And how has that trend evolved over time? 
+Various sources have tried to tackle this question in variously incomplete ways. Wikipedia notes that "_...the New York Yankees have consistently had the highest total payroll in MLB, and they have appeared in 40 of the 109 World Series for 27 wins as of 2013..._"[ref]http://en.wikipedia.org/wiki/Salary_cap#Major_League_Baseball_.28luxury_tax.29[/ref] That's great, but the Yankees are only an anecdote. Somebody at Columbia Business School did a deeper investigation of the idea and concluded that 20% of success in baseball can be attributed to payroll[ref]http://www.sloaSalary Powerortsconference.com/wp-content/uploads/2014/02/2014_SSAC_Why-money-is-not-baseballs-most-valuable-currency.pdf[/ref]. I buy that. 20% is money; the other 80% is...skill? But how can we say that? And how has that trend evolved over time? 
 
 ## A brief history of Baseball salaries
 
@@ -36,7 +36,7 @@ Now, we can compare payrolls of teams from 1976 to 2013 to each other. Let’s j
 
 ![Decade-by-decade correlation between wins and salary](/images/baseball/Salary_vs_Wins_by_decade.png)
 
-There’s definitely a positive relationship there, implying that money DOES affect wins. Looking at the best fit line, we can get an idea of the magnitude of that relationship which I'll just call "Normalized Salary Power" or "Salary Power". Salary Power is between 2 and 5.5 since 1977, but the data is noisy. We can say "sure, money has a nonzero effect on baseball," but there’s data points all over the place that buck the trend. Is this noise because of the inherent randomness in a baseball season, or is it because money has a really weak correlation with winning? Both? At the very least, it’s amusing to look at the A’s vs the Yankees post-1993.[ref]Notice the A’s in the 80’s and early 90’s – their heyday. They won the World Series, they had incredible stars like Dennis Eckersley and Ricky Henderson. They were on top. It’s also the only time in their history spent in the top half of the league. Now look at the years since 1994 – their payroll has been consistenly in the bottom half and yet they’ve been winning above the best fit line. This is evidence that at least part of Moneyball’s thesis is true – smart teams like the A’s can outperform their salaries. On the other hand, look at the Yankees. Nearly always waaaay out to the right. Nearly always winning. They set the trend. They are the reason for the Luxury Tax.[/ref]
+There’s definitely a positive relationship there, implying that money DOES affect wins. Looking at the best fit line, we can get an idea of the magnitude of that relationship which I'll just call "Normalized Salary Power" or "Salary Power". Salary Power is between 2 and 5.5 since 1977, but the data is noisy. We can say "sure, money has a nonzero effect on baseball," but there’s data points all over the place that buck the trend. Is this noise because of the inherent randomness in a baseball season, or is it because money has a really weak correlation with winning? Both? At the very least, it’s amusing to look at the A’s vs the Yankees post-1993.[ref]Notice the A’s in the 80’s and early 90’s – their heyday. They won the World Series, they had incredible stars like Dennis Eckersley and Ricky Henderson. They were on top. It’s also the only time in their history spent in the top half of the league. Now look at the years since 1994 – their payroll has been consistently in the bottom half and yet they’ve been winning above the best fit line. This is evidence that at least part of Moneyball’s thesis is true – smart teams like the A’s can outperform their salaries. On the other hand, look at the Yankees. Nearly always waaaay out to the right. Nearly always winning. They set the trend. They are the reason for the Luxury Tax.[/ref]
 
 ## Effect of Money Long-Term
 Let’s adjust our hypotheses – it’s not JUST money that wins baseball games. More specifically, it’s money applied over time. This makes intuitive sense - even with a huge payroll it takes years to build the right team, develop prospects, and see your investment pay off. Below you’ll see the same graph as before, just with each team averaged into a single data point. 
@@ -58,11 +58,11 @@ We can better investigate the changing influence of money in baseball by looking
 
 ![Salary Power over the years](/images/baseball/Slope_plot_of_win_to_MAD_ratio.png)
 
-Charted above you’ll see Salary Power plotted annually and as a 5-year running average. The data here is pretty damning. Since we have reliable salary data, Salary Power has has been well above zero every year. From 1995 to 2011, it never went below 3. As we saw before, the late 90's and early 00's had _incredibly_ high Salary Power numbers, at one point reaching 9 (!!) wins/MAD. The Salary Power running average in particular (in black) paints a consistent story, which I will narrate myself. 
+Charted above you’ll see Salary Power plotted annually and as a 5-year running average. The data here is pretty damning. Since we have reliable salary data, Salary Power has been well above zero every year. From 1995 to 2011, it never went below 3. As we saw before, the late 90's and early 00's had _incredibly_ high Salary Power numbers, at one point reaching 9 (!!) wins/MAD. The Salary Power running average in particular (in black) paints a consistent story, which I will narrate myself. 
 
 <_ahem_\>
 
-When Baseball transtitioned to the free agent model in 1976, some teams jumped on the opportunity and spent heavily on free agents. These teams performed well - much better than their adversaries. But over the next 10 years, as teams learned how to navigate free agency and spend their money wisely, the competitive balance began to equalize. No one team or group of teams had the resources to outspend opponents and unbalance the equation. Not even Steinbrenner’s Yankees. 
+When Baseball transitioned to the free agent model in 1976, some teams jumped on the opportunity and spent heavily on free agents. These teams performed well - much better than their adversaries. But over the next 10 years, as teams learned how to navigate free agency and spend their money wisely, the competitive balance began to equalize. No one team or group of teams had the resources to outspend opponents and unbalance the equation. Not even Steinbrenner’s Yankees. 
 
 Then came 1990. TV contracts began to develop into insanely lucrative deals. But unlike before, there were haves and have-nots, mostly dependent on the size of the TV market and contract. The competitive balance began to unbalance again, peaking around the millennium. Not coincidentally, around this time the Commissioner’s office was getting inundated with complaints. In fact, forget the Commissioner, the US SENATE [convened multiple sessions on the matter!](http://www.gpo.gov/fdsys/pkg/CHRG-106shrg74416/pdf/CHRG-106shrg74416.pdf). To address the growing problem, Bud Selig created the [Blue Ribbon Panel](http://mlb.mlb.com/mlb/downloads/blue_ribbon.pdf) which, in 2000, basically concluded that Major League Baseball was in serious trouble unless action was taken.
 
@@ -98,9 +98,9 @@ We're nearing the end here, so let's zoom out a bit. Below you'll find the chanc
 
 Looking to the World Series only paints a worse picture. 
 
-![Who wins the world series, by year and normalized payroll](/images/baseball/who_wins_the_world_series.png)
+![Who wins the World Series, by year and normalized payroll](/images/baseball/who_wins_the_world_series.png)
 
-Essentially, teams in the bottom half of payroll don't win the World Series. Since '90, Exactly **ONE** team has won the World Series with a below-average payroll. 
+Essentially, teams in the bottom half of payroll don't win the World Series. Since '90, exactly **ONE** team has won the World Series with a below-average payroll. 
 
 **ONE.**
 
@@ -116,12 +116,10 @@ For a reference, if all teams were evenly talented, the odds of a Q3 or Q4 payro
 
 ## Wrapup
 
-So, what have we learned? If you skimmed this article (understandable) hoping for a tl;dr, We've seen that:
+So, what have we learned? If you skimmed this article (understandable) hoping for a tl;dr, we've seen that:
 
 * Salary Power in baseball peaked around 2000, and has fallen since to a 20-year low in 2013. 
 * The Luxury Tax and other revenue sharing methods have helped improve the competitive balance, but money still buys wins (about 3 wins per deviation).
 * MLB playoffs remain a money-gated event, with wealthy teams _vastly_ outperforming poor teams.
 
 Look, baseball doesn't need to be perfectly income-agnostic to be a fun sport to watch. Wealthy ownership comes and goes, teams develop young (cheap) prospects, franchises rise and fall. But let's just be clear about it - if your favorite team is spending in the bottom half of baseball, you can basically kiss your World Series hopes goodbye.
-
-
