@@ -21,6 +21,22 @@
                   </li>
                 {% endfor %}
               </ul>
+
+             <!-- // <script src="https://apis.google.com/js/platform.js" async defer></script> -->
+              <!-- <g:plusone size="standard(bubble)" data-href="http://the-data-show.com"></g:plusone> -->
+              <br>
+              <br>
+              <h3>Share The Data Show</h3>
+                <div class="addthis_toolbox addthis_default_style addthis_32x32_style" addthis:url="{{ SITEURL }}" addthis:title="Check out {{ SITENAME }}!">
+                  <a class="addthis_button_facebook"></a>
+                  <a class="addthis_button_twitter"></a>
+                  <a class="addthis_button_google_plusone_share"></a>
+                  <a class="addthis_button_email"></a>
+                  <a class="addthis_button_linkedin"></a>
+                  <a class="addthis_button_rss_follow" addthis:userid="{{ SITEURL }}/feeds/all.atom.xml"></a>
+                  <a class="addthis_button_compact"></a>
+                </div>
+                <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ ADDTHIS_PROFILE }}"></script>
            </div>
            <div class="col-sm-4">
                {% if ABOUT_ME %}

@@ -32,18 +32,11 @@ Since 1977, MLB salaries have increased a whopping 71 times over (unadjusted for
 
 Because of this **massive** growth in player salaries, we can't simply compare team salary dollar values across the years. So, I utilized a metric to normalize payrolls called [Median Absolute Deviations (MAD)](https://dipot.ulb.ac.be/dspace/bitstream/2013/139499/1/Leys_MAD_final-libre.pdf). You can think of MAD as just standard deviations from the mean, but less sensitive to outliers (_ahem_ Yankees _ahem_). If you don't know what a standard deviation is, just think of MADs as salary.
 
-#### Effect of Money All-Time
-Now, we can compare salaries of teams from 1976 to 2013. Let’s just take the dummy approach – plot the wins vs normalized salary of every single team since 1977.
-
-![All time correlation between wins and salary](/images/baseball/Wins_vs_salary_all_teams_all_time.png)
-
-There’s a positive relationship there. Looking at the best fit line, we can get an idea of the magnitude of that relationship which I'll call "Normalized Salary Power" or Salary Power. Salary Power in Baseball since '77 is 3.8 wins for every standard deviation you outspend the league, but it’s noisy. We can say "sure, money has a nonzero effect on Baseball," but there’s data points all over the place that buck the trend. Is this noise because of the inherent randomness in a baseball season, or is it because money has a really weak correlation with winning? Both?
-
-Let's break that graph down into roughly 10 year periods. 
+Now, we can compare salaries of teams from 1976 to 2013. Let’s just take the dummy approach – plot the wins vs normalized salary of every single team since 1977, broken down into roughly 10-year periods.
 
 ![Decade-by-decade correlation between wins and salary](/images/baseball/Salary_vs_Wins_by_decade.png)
 
-We see basically the same thing as in the previous graph, a positive slope but a ton of noise. Except now it’s amusing to look at the A’s vs the Yankees post-1993.[ref]Notice the A’s in the 80’s and early 90’s – their heyday. They won the world series, they had incredible stars like Dennis Eckersley. They were on top. It’s also the only time in their history spent in the top half of the league. Now look at the years since 1994 – their payroll has been consistenly in the bottom half and yet they’ve been winning above the best fit line. This is evidence that at least part of Moneyball’s thesis is true – smart teams like the A’s can outperform their salaries. On the other hand, look at the Yankees. Nearly always waaaay out to the right. Nearly always winning. They set the trend. They are the reason for the Luxury Tax.[/ref]
+There’s a positive relationship there. Looking at the best fit line, we can get an idea of the magnitude of that relationship which I'll call "Normalized Salary Power" or Salary Power. Salary power is between 2 and 5.5 since 1977, but it's noisy. We can say "sure, money has a nonzero effect on Baseball," but there’s data points all over the place that buck the trend. Is this noise because of the inherent randomness in a baseball season, or is it because money has a really weak correlation with winning? Both? At least it’s amusing to look at the A’s vs the Yankees post-1993.[ref]Notice the A’s in the 80’s and early 90’s – their heyday. They won the world series, they had incredible stars like Dennis Eckersley. They were on top. It’s also the only time in their history spent in the top half of the league. Now look at the years since 1994 – their payroll has been consistenly in the bottom half and yet they’ve been winning above the best fit line. This is evidence that at least part of Moneyball’s thesis is true – smart teams like the A’s can outperform their salaries. On the other hand, look at the Yankees. Nearly always waaaay out to the right. Nearly always winning. They set the trend. They are the reason for the Luxury Tax.[/ref]
 
 ## Effect of Money Long-Term
 Let’s adjust our hypotheses – it’s not JUST money that wins baseball games. More specifically, it’s money applied over time. This makes intuitive sense - even with a huge payroll it takes years to build the right team, develop prospects, and see your investment pay off. Below you’ll see the same graph as before, just with each team averaged into a single data point. 
@@ -61,7 +54,7 @@ To quote a more reputable source than I:
 
 Talk as much as you want to about George Steinbrenner, but the YES Network might be a bigger reason why this generation's Yankees are who they are.
 
-We can better investigate the changing influence of money in baseball by looking at `Salary Power` from year to year.
+We can better investigate the changing influence of money in baseball by looking at Salary Power from year to year.
 
 ![Salary Power over the years](/images/baseball/Slope_plot_of_win_to_MAD_ratio.png)
 
@@ -83,27 +76,47 @@ I'm not so sure.
 
 ## Competitive Balance and the Playoffs
 
-First off, quick recap. We've gotten a pretty decent answer to our original question of "how much of an effect does money have on baseball?" We have one last step to take, but we've done well. Now, we're curious to ask "has competitive balance returned to the league since its 2000 peak?"
-
 To see if competitive balance has indeed improved, let's change our metrics a bit. First off, let's break teams into quartiles by annual payroll. Second, let's start looking at the postseason.
 
-We can debate money's effect on regular season success all we want, but teams play to win the World Series, not to win 91 games. Just ask Oakland A's fans.[ref]Or Atlanta Braves fans...sigh.[/ref] So, we should really be looking at what winning in baseball is all about - the postseason.
+We can debate money's effect on regular season success all we want, but teams play to win the World Series, not to win 91 games. Just ask Oakland A's fans.[ref]Or Atlanta Braves fans...sigh.[/ref] 
 
-Selig's Blue Ribbon Panel found in 1999 that poor teams were not flat out making the playoffs. They were not wrong. Examining the figure below, we see that from 1995-2003, a full 12.0% (14 of 117) teams in the bottom half of league payroll (Q4 and Q3) were making the playoffs. That is atrocious. In a completely balanced league, we'd see 50%. Basically the league is split into two leagues based on payroll, and you might as well just turn around and go home if you're team's on the wrong side.
+![No matter how you slice it, poor teams aren't makin' the playoffs](/images/baseball/pre_vs_post_luxury_tax_playoff_rate.png)
 
-When we look at the same numbers from 2004-2013, we **do** see an improved picture - 16.7% (30 of 180). But is this picture 
+Selig's Blue Ribbon Panel found in 1999 that poor teams were not flat out making the playoffs. They were correct. Examining the figure above, we see that from 1995-2003, a full 12.0% teams in the bottom half of league payroll (Q4 + Q3) were making the playoffs. Conversely, teams in Q1 are making the playoffs _more than half the time_. Let's think about the magnitude of that table for a minute. That is atrocious. In a completely balanced league, we'd expect see a 26.7% playoff rate (8 playoff slots for 30 teams) across each quartile.[ref]This would be for completely random chance played out in the long run. Obviously there would be fluctuations from year to year[/ref] We're nowhere close.
 
+When we look at the same numbers from 2004-2013, we *do* see an improved picture. We see a corresponding decrease in playoff rate for Q1 and Q2, but Q1 remains _well_ above random chance. 
 
-Table showing percentage chance of making playoffs since 1995
+So, **YES**, the Luxury Tax and other competitive balance solutions seem to have made a difference, but no, it hasn't leveled the playing field. Not even close.
 
-Let's think about the magnitude of that table for a minute. Let it sink in. In the modern playoff era, the era that was supposed to _expand_ playoffs to give more teams a chance, teams in the top quartile (Q1) have a nearly 50% chance of making the playoffs though they make up only 25% of teams. In contrast, the bottom two quartiles have a _25% chance TOTAL_ of making the playoffs, _half_ the chance that a team from Q1 has. 
+## Winning it All
+
+We're nearing the end here, so let's zoom out a bit. Below you'll find the chance of reaching or advancing past each level of the playoffs, broken down by salary quartile. It paints the same picture as before, only worse. As you advance further into the playoffs, the chances only get worse for the poor teams in Q3 and Q4.[ref]Doing some additional math, Q3 and Q4 can reach the playoffs at a ~1:3 ratio compared to Q1 (15% to 47%). But reach the World Series? Now we're down to 1:8 ratio (1.4% to 12.1%).[/ref] 
+
+{Table showing percentage chance of making playoffs since 1995}
 
 Looking to the World Series only paints a worse picture. 
 
-of trips to world series by quartile
+{Plot of teams to win world series by year and salary rank that year}
 
-And lastly, take a look at that table again. Of the 248 teams in the bottom half of baseball payrolls since 1995, how many have won the World Series? The answer?
+Essentially, teams in the top 10 win the World Series every year. Since '90, Exactly **ONE** team has spent in the bottom half of leage payroll and won the World Series. 
 
-One.
+**ONE.**
 
-One team. That team - your 2003 Marlins, folks (insert paragraph from google doc)
+That team? The 2003 Florida Marlins with a payroll of $49M, good for 24th in baseball. And, if you’ll remember, the ‘03 Marlins were unusual for a few reasons - they had massive production from some very young (and thus very cheap) players - rookies Miguel Cabrera and Dontrelle Willis plus 2nd year Josh Beckett. On top of that, their WS run was anything but easy. They needed a brilliant tag at home by Ivan Rodriguez in the NLDS to advance over the Giants and then, in the NLCS, you may remember this: (link to steve bartman incident). 
+
+So, ONE team has won the World Series in the past 23 years with a below-average team salary. What does that say about the effect of money on baseball success that I haven't already said?[ref]For a comparison, if all teams were evenly talented, the odds of a Q3 or Q4 payroll team winning only 1 of 23 world series is about 1 in 365,000, or roughly three times less likely than being struck by lightning [reference](http://www.nsc.org/NSC%20Picture%20Library/News/web_graphics/Injury_Facts_37.pdf).[/ref] 
+
+## Wrapup
+
+So, what have we learned? If you skimmed this article (understandable) hoping for a tl;dr, here you go.
+
+We've seen that:
+
+* Salary Power in baseball peaked around 2000, and has fallen since to a 20-year low in 2013. 
+* The Luxury Tax and other revenue sharing methods have made a dent in competitive balance, but money still buys wins (about 3 wins per deviation).
+* The playoffs remain a money-gated event, with wealthy teams _vastly_ outperforming poor teams.
+* The World Series is for top-10 salary teams only.
+
+Look, baseball doesn't need to be perfectly income-agnostic to be a fun sport to watch. Wealthy ownership comes and goes, teams develop young (cheap) prospects, franchises rise and fall. But let's just be clear about it - if your favorite team is spending in the bottom half of league salary, you can basically kiss your World Series hopes goodbye.
+
+
