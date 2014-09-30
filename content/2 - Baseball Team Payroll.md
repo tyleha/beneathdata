@@ -98,7 +98,7 @@ Looking to the World Series only paints a worse picture.
 
 {Plot of teams to win world series by year and salary rank that year}
 
-Essentially, teams in the top 10 win the World Series every year. Since '90, Exactly **ONE** team has spent in the bottom half of leage payroll and won the World Series. 
+Essentially, teams in the bottom half of payroll don't win the World Series. Since '90, Exactly **ONE** team has spent in the bottom half of league payroll and won the World Series. 
 
 **ONE.**
 
