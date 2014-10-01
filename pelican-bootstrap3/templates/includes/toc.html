@@ -1,0 +1,8 @@
+{% if article.toc %}
+	<h4>Table of Contents</h4>
+	<hr>
+	{% for item in article.toc %}
+		<p>{{ item }}</p>
+		{% endfor %}
+{% endif %}
+

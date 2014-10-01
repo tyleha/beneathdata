@@ -11,11 +11,12 @@ from os import path
 from bs4 import BeautifulSoup
 from pelican import signals, readers, contents
 
+# TLH created variable 
+return_toc_as_list = True
 
 def extract_toc(content):
     if isinstance(content, contents.Static):
         return
-
     soup = BeautifulSoup(content._content,'html.parser')
     toc = None
     if not toc:  # default Markdown reader
@@ -27,7 +28,10 @@ def extract_toc(content):
     if toc:
         toc.extract()
         content._content = soup.decode()
-        content.toc = toc.decode()
+        if return_toc_as_list:
+            content.toc = toc.find_all('a')
+        else:
+            content.toc = toc.decode()
 
 
 def register():

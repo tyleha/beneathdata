@@ -6,6 +6,9 @@ Slug: money-in-baseball
 Author: Tyler Hartley
 <!-- Summary: Short version for index and feeds -->
 
+
+[TOC]
+
 Since _Moneyball_ was published in 2003, the idea that money is as much a part of the game as first basemen or the infield grass has become common knowledge. We all understand the basic notion that in Major League Baseball, money can define who plays on your team and therefore _how_ your team plays. Basically, the story goes like this - wealthy, extravagant teams like the New York Yankees can buy their way to a championship. But the little guys, they have to gain an edge in other ways, developing farm talent and picking out the diamonds in the rough with advanced metrics. What _Moneyball_ successfully conveyed is that even if money is limitless in baseball, it isn't everything. What the book didn't ask, however, is _"Ok, so money isn't everything. But how much is it worth?"_
 
 ## Conventional Wisdom
