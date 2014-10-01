@@ -1,4 +1,4 @@
-Title: Does money buy wins in Baseball?
+Title: Does money buy wins in baseball?
 Date: 2014-9-04 10:20
 Tags: baseball, python, statistics, money
 Category: Blog
@@ -12,7 +12,7 @@ Since _Moneyball_ was published in 2003, the idea that money is as much a part o
 
 It seems intuitive that teams with deep pockets can buy the best players and thus put together the best teams. But we see time and time again that small-market teams with smaller payrolls still manage to compete in baseball...the Oakland Athletics, the Tampa Bay Rays... But simultaneously, we see the wealthy Yankees dominate for two decades, we see the Red Sox come to power in the early '00's on a rising payroll, and we see the 2013/14 Dodgers spend (and win) like there's no tomorrow. Conventional wisdom seems to point in both directions. Who's right? 
 
-Various sources have tried to tackle this question in variously incomplete ways. Wikipedia notes that "_...the New York Yankees have consistently had the highest total payroll in MLB, and they have appeared in 40 of the 109 World Series for 27 wins as of 2013..._"[ref]http://en.wikipedia.org/wiki/Salary_cap#Major_League_Baseball_.28luxury_tax.29[/ref] That's great, but the Yankees are only an anecdote. Somebody at Columbia Business School did a deeper investigation of the idea and concluded that 20% of success in baseball can be attributed to payroll[ref]http://www.sloaSalary Powerortsconference.com/wp-content/uploads/2014/02/2014_SSAC_Why-money-is-not-baseballs-most-valuable-currency.pdf[/ref]. I buy that. 20% is money; the other 80% is...skill? But how can we say that? And how has that trend evolved over time? 
+Various sources have tried to tackle this question in variously incomplete ways. Wikipedia notes that "_...the New York Yankees have consistently had the highest total payroll in MLB, and they have appeared in 40 of the 109 World Series for 27 wins as of 2013..._"[ref][wikipedia source](http://en.wikipedia.org/wiki/Salary_cap#Major_League_Baseball_.28luxury_tax.29)[/ref] That's great, but the Yankees are only an anecdote. Somebody at Columbia Business School did a deeper investigation of the idea and concluded that 20% of success in baseball can be attributed to payroll[ref][source](http://www.sloansportsconference.com/wp-content/uploads/2014/02/2014_SSAC_Why-money-is-not-baseballs-most-valuable-currency.pdf)[/ref]. Okay. 20% is money; the other 80% is...skill? But how can we say that? And how has that trend evolved over time? 
 
 ## A brief history of Baseball salaries
 
