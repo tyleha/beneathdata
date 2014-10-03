@@ -13,7 +13,7 @@ DEPLOY_PATH = env.deploy_path
 # Remote server configuration
 production = 'root@localhost:22'
 dest_path = '/var/www'
-s3bucket = u'the-data-show.com'
+s3bucket = u'beneathdata.com'
 s3cmd = r'C:\\s3cmd\\s3cmd'
 
 # Rackspace Cloud Files configuration settings

@@ -16,7 +16,7 @@ def system_path(path):
 ########################### General Settings ###################################
 
 AUTHOR = u'Tyler Hartley'
-SITENAME = u'The Data Show'
+SITENAME = u'Beneath Data'
 SITESUBTITLE = u"A blog dedicated to Python, data analystics, and good-looking graphs."
 SITEURL = ''
 
@@ -70,8 +70,8 @@ for k in EXTRA_PATH_METADATA.keys(): # Fix backslash paths to resources if on Wi
 
 
 ##################### Exterior Services ############################
-DISQUS_SITENAME = 'thedatashow'
-DISQUS_SHORTNAME = 'thedatashow'
+DISQUS_SITENAME = 'beneathdata'
+DISQUS_SHORTNAME = 'beneathdata'
 DISQUS_DISPLAY_COUNTS = True
 
 GOOGLE_ANALYTICS = "UA-54524020-1"

@@ -103,7 +103,7 @@ THEME = '/path/to/theme'
 
 It is **THAT** easy. 
 
-Of course, you can now go nuts and modify the theme however you like. Pelican-bootstrap3's features are [well documented](https://github.com/DandyDev/pelican-bootstrap3/blob/master/README.md). With relatively little effort, I added a banner image, a custom footer, and tweaked stylings. Pelican leverages a Django-like template format and Jinja2, which means that editing site-wide content requires editing only a single file. For what it's worth, if you'd like to use my precise custom pelican-bootstrap3 theme, you can clone it from my repo [here](https://github.com/tylerhartley/pelican-bootstrap3). You can also see my precise pelicanconf.py settings as a guide [here](https://github.com/tylerhartley/thedatashow/blob/master/pelicanconf.py).
+Of course, you can now go nuts and modify the theme however you like. Pelican-bootstrap3's features are [well documented](https://github.com/DandyDev/pelican-bootstrap3/blob/master/README.md). With relatively little effort, I added a banner image, a custom footer, and tweaked stylings. Pelican leverages a Django-like template format and Jinja2, which means that editing site-wide content requires editing only a single file. For what it's worth, if you'd like to use my precise custom pelican-bootstrap3 theme, you can clone it from my repo [here](https://github.com/tylerhartley/pelican-bootstrap3). You can also see my precise pelicanconf.py settings as a guide [here](https://github.com/tylerhartley/beneathdata/blob/master/pelicanconf.py).
 
 ## Where you gonna host this thing?
 
@@ -111,7 +111,7 @@ First you'll need to decide where you want to host your site. Sure, you could do
 
 The two most popular options are probably Github Pages and Amazon S3. The features are nearly identical and the cost is either nil or a couple quarters/mo. But, the one discriminating fact that led me to Amazon S3 has to do with website speed. 
 
-When this is all said and done, you probably want to access your Pelican site from an apex domain like **the-data-show.com**. It's the norm. Unfortunately on Github Pages, a mapped apex domain will be [_really_. _slow_](http://instantclick.io/github-pages-and-apex-domains). However, if you map a custom subdomain like **blog.the-data-show.com**, Github will serve your static site plenty fast. The underlying reason has to do with A/ALIAS records, CDNs, and other fancy stuff, but there's the rub. YES, you could get around the problem with a custom CDN or DNS, but that seems like extra work to me. 
+When this is all said and done, you probably want to access your Pelican site from an apex domain like **beneathdata.com**. It's the norm. Unfortunately on Github Pages, a mapped apex domain will be [_really_. _slow_](http://instantclick.io/github-pages-and-apex-domains). However, if you map a custom subdomain like **blog.beneathdata.com**, Github will serve your static site plenty fast. The underlying reason has to do with A/ALIAS records, CDNs, and other fancy stuff, but there's the rub. YES, you could get around the problem with a custom CDN or DNS, but that seems like extra work to me. 
 
 Alternately, Amazon S3 serves an apex domain by routing traffic through their Route 53 DNS service for $0.50/month. Choose wisely.  
 

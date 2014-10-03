@@ -10,7 +10,7 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-SITEURL = 'http://the-data-show.com'
+SITEURL = 'http://beneathdata.com'
 RELATIVE_URLS = False
 
 FEED_DOMAIN = SITEURL
@@ -21,6 +21,6 @@ DELETE_OUTPUT_DIRECTORY = True
 
 # Following items are often useful when publishing
 
-DISQUS_SITENAME = "thedatashow"
-DISQUS_SHORTNAME = "thedatashow"
+DISQUS_SITENAME = "beneathdata"
+DISQUS_SHORTNAME = "beneathdata"
 DISQUS_DISPLAY_COUNTS = True
