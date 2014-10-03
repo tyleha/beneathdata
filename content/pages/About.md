@@ -4,7 +4,7 @@ Title: About
 
 ### About Me
 
-I am an engineer and programmer by trade. I'll do just about anything on two wheels. I'm an occasional writer and a halfway decent sailor, too. I have backed my way into programming to a certain degree, but in 2012 pushed myself into Python full-time and haven't looked back. I am curious about the world around me and find myself testing odd hypotheses and my natural bent is digging deep into data sets trying to find the deeper meaining. 
+I am an engineer and programmer by trade. I'll do just about anything on two wheels. I'm an occasional writer and a halfway decent sailor, too. I have backed my way into programming to a certain degree, but in 2012 I pushed myself into Python full-time and haven't looked back. I am curious about the world around me and find my natural bent is digging deep into data sets trying to find the underlying signals and patterns. Hence the blog name. 
 
 ### About this website
 
