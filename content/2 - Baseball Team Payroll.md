@@ -1,5 +1,5 @@
 Title: Does money buy wins in baseball?
-Date: 2014-9-04 10:20
+Date: 2014-10-04 10:31
 Tags: baseball, python, statistics, money
 Category: Blog
 Slug: money-in-baseball
@@ -24,7 +24,7 @@ Then came the 1970's. Players banded together and negotiated Free Agency. Free A
 
 We can actually witness this rebalancing happening, as salary data since 1977 is publicly available. I cobbled team payroll data together from a few sources and while it isn't perfect, it's the best we have.[ref]I collected information on team history from the great [baseball-reference.com](http://baseball-reference.com) and cobbled together team salaries from a few wonky resources. Salary data hasn't always been available. Nearly nothing is out there from before 1977 though, since 1985, team salaries have been [publicly released](http://sabr.org/research/mlbs-annual-salary-leaders-1874-2012) by the MLBPA. So the data set we'll have to work with covers 1977 to 2013, with high confidence in the data post '85.[/ref] You can download my raw data [here](https://drive.google.com/file/d/0ByMeR_pUUZB5a1QwWi1RNjhEUGM/edit?usp=sharing) if you like.
 
-![The axes aren't right to see it, but good god textbook prices have risen!](/images/baseball/Total_Salary.png)
+![The axes aren't right to see it, but good god textbook prices have risen!](/images/baseball/total_salary.png)
 
 Since 1977, MLB salaries have increased a whopping 71 times over (unadjusted for inflation). If somehow you were able to invest $10k in an index fund of baseball salaries 40 years ago, it would now be worth nearly three-quarters of a million dollars. By contrast, the median US income has only increased 4x and the entire NASDAQ (which barely existed in 1977) "only" 45x. 
 
@@ -34,16 +34,18 @@ Because of this **massive** growth in player salaries, we can't simply compare t
 
 Now, we can compare payrolls of teams from 1976 to 2013 to each other. Let’s just take the dummy approach – plot the wins vs normalized salary of every single team since 1977, broken down into roughly 10-year periods.
 
-![Decade-by-decade correlation between wins and salary](/images/baseball/Salary_vs_Wins_by_decade.png)
+![Decade-by-decade correlation between wins and salary](/images/baseball/salary_vs_wins_by_decade.png)
 
 There’s definitely a positive relationship there, implying that money DOES affect wins. Looking at the best fit line, we can get an idea of the magnitude of that relationship which I'll just call "Normalized Salary Power" or "Salary Power". Salary Power is between 2 and 5.5 since 1977, but the data is noisy. We can say "sure, money has a nonzero effect on baseball," but there’s data points all over the place that buck the trend. Is this noise because of the inherent randomness in a baseball season, or is it because money has a really weak correlation with winning? Both? At the very least, it’s amusing to look at the A’s vs the Yankees post-1993.[ref]Notice the A’s in the 80’s and early 90’s – their heyday. They won the World Series, they had incredible stars like Dennis Eckersley and Ricky Henderson. They were on top. It’s also the only time in their history spent in the top half of the league. Now look at the years since 1994 – their payroll has been consistently in the bottom half and yet they’ve been winning above the best fit line. This is evidence that at least part of Moneyball’s thesis is true – smart teams like the A’s can outperform their salaries. On the other hand, look at the Yankees. Nearly always waaaay out to the right. Nearly always winning. They set the trend. They are the reason for the Luxury Tax.[/ref]
 
 ## Effect of Money Long-Term
 Let’s adjust our hypotheses – it’s not JUST money that wins baseball games. More specifically, it’s money applied over time. This makes intuitive sense - even with a huge payroll it takes years to build the right team, develop prospects, and see your investment pay off. Below you’ll see the same graph as before, just with each team averaged into a single data point. 
 
-![Alt text](/images/baseball/salary_avg_by_decade.png)
+![Alt text](/images/baseball/salary_avg_vs_wins_by_decade.png)
 
-Salary Power has increased slightly and the R values have increased considerably, which makes sense. We might reasonably conclude that payroll, when kept high over time, has a significant effect on the performance of a team, with Salary Power in the neighborhood of 5 wins per MAD (standard deviation). This means you could expect a team like the Yankees who outspends the median by 2 MAD to consistently win 10 more games than league average, or 91 games a year. 91 games pretty much assures you a spot in the playoffs nowadays...talk about nontrivial.
+Salary Power has increased slightly and the _r_ values have increased considerably, to well above 0.5 and into the "pretty decent" correlation zone. It would be fair to conclude that payroll, when kept high over time, has a significant effect on the performance of a team. How significant? The slope of the correlation (Salary Power) hovers in the neighborhood of 5 wins per MAD (standard deviation). This means you could expect a team like the Yankees who consistently outspends the median by 2 MAD to win 10 more games than league average, or 91 games a year. 91 games pretty much assures you a spot in the playoffs nowadays - that's how powerful the effect is.
+
+Right now, you should be feeling an uneasy confidence that wins in baseball can be bought.
 
 ## The Competitive Balance Problem and MLB Revenue Sharing
 
@@ -56,7 +58,7 @@ Talk as much as you want to about George Steinbrenner, but the YES Network might
 
 We can better investigate the changing influence of money in baseball by looking at Salary Power from year to year.
 
-![Salary Power over the years](/images/baseball/Slope_plot_of_win_to_MAD_ratio.png)
+![Salary Power over the years](/images/baseball/salary_power_over_the_years.png)
 
 Charted above you’ll see Salary Power plotted annually and as a 5-year running average. The data here is pretty damning. Since we have reliable salary data, Salary Power has been well above zero every year. From 1995 to 2011, it never went below 3. As we saw before, the late 90's and early 00's had _incredibly_ high Salary Power numbers, at one point reaching 9 (!!) wins/MAD. The Salary Power running average in particular (in black) paints a consistent story, which I will narrate myself. 
 

@@ -111,9 +111,9 @@ First you'll need to decide where you want to host your site. Sure, you could do
 
 The two most popular options are probably Github Pages and Amazon S3. The features are nearly identical and the cost is either nil or a couple quarters/mo. But, the one discriminating fact that led me to Amazon S3 has to do with website speed. 
 
-When this is all said and done, you probably want to access your Pelican site from an apex domain like **beneathdata.com**. It's the norm. Unfortunately on Github Pages, a mapped apex domain will be [_really_. _slow_](http://instantclick.io/github-pages-and-apex-domains). However, if you map a custom subdomain like **blog.beneathdata.com**, Github will serve your static site plenty fast. The underlying reason has to do with A/ALIAS records, CDNs, and other fancy stuff, but there's the rub. YES, you could get around the problem with a custom CDN or DNS, but that seems like extra work to me. 
+When this is all said and done, you probably want to access your Pelican site from an apex domain like **beneathdata.com**. It's the norm. Unfortunately on Github Pages, a mapped apex domain will be [_really_. _slow_](http://instantclick.io/github-pages-and-apex-domains). However, if you map a custom subdomain like **blog.beneathdata.com**, Github will serve your static site plenty fast. The underlying reason has to do with A/ALIAS records, CDNs, and other fancy stuff, but there's the rub. YES, you could get around the problem on Github Pages with a custom CDN like CloudFlare. But if you want fine-grained control over your CDN, you'll have to look elsewhere.
 
-Alternately, Amazon S3 serves an apex domain by routing traffic through their Route 53 DNS service for $0.50/month. Choose wisely.  
+Amazon S3 fills that nice nicely, and serves an apex domain by routing traffic through their Route 53 DNS service for $0.50/month, which can then be hooked into Amazon's CloudFront CDN. Choose wisely. Both options will get you a great site.  
 
 ## Github Pages
 
