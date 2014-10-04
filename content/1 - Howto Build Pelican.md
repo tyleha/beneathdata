@@ -1,7 +1,7 @@
 Title: How I built this website using Pelican
 Date: 2014-9-22 11:15
 Tags: how-to, python, pelican, website
-Category: How To
+Category: How-to
 Slug: how-i-built-this-website
 Author: Tyler Hartley
 

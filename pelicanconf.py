@@ -45,16 +45,24 @@ LINKS = (
          )
 
 # Social widget
-SOCIAL = (('Github', 'http://github.com/tylerhartley'),
-         ('Linkedin', 'http://linkedin.com/in/tylerhartley'),
-         ('Google+', 'https://plus.google.com/102425100151107773886/posts'),    
-          ('Professional Site', 'http://tylerhartley.com'),
+SOCIAL = (('github', 'http://github.com/tylerhartley'),
+         ('linkedin', 'http://linkedin.com/in/tylerhartley'),
+         ('google+', 'https://plus.google.com/102425100151107773886/posts'),    
+          ('professional site', 'http://tylerhartley.com'),
           )
 
 DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
+
+ARTICLE_URL = '{category}/{slug}/'
+ARTICLE_SAVE_AS = '{category}/{slug}/index.html'
+PAGE_URL = '{slug}.html'
+PAGE_SAVE_AS = '{slug}.html'
+TAG_URL = 'tags/{slug}.html'
+TAG_SAVE_AS = 'tags/{slug}.html'
+TAGS_URL = 'tags.html'
 
 # Generate archive
 YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
