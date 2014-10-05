@@ -82,7 +82,7 @@ To see if competitive balance has indeed improved since 2003, let's change our m
 
 We can debate money's effect on regular season success all we want, but teams play to win the World Series, not to win 91 games. Just ask Oakland A's fans.[ref]Or Atlanta Braves fans...sigh.[/ref] 
 
-![No matter how you slice it, poor teams aren't makin' the playoffs](/images/baseball/pre_vs_post_luxury_tax_playoff_rate.png)
+<img src="/images/baseball/pre_vs_post_luxury_tax_playoff_rate.png" alt="No matter how you slice it, poor teams aren't makin' the playoffs" style="width: 550px;"/>
 
 Selig's Blue Ribbon Panel found in 1999 that poor teams were not flat out making the playoffs. They were correct. Examining the figure above, we see that from 1995-2003, a meager 12.0% teams in the bottom half of league payroll (Q4 + Q3) were making the playoffs. Conversely, teams in Q1 were making the playoffs _more than half the time_. 
 
