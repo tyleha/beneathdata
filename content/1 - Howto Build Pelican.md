@@ -11,7 +11,7 @@ I tried __Weebly__ (they let me use a custom domain for free), but the interface
 
 I tried __Wordpress__, but I couldn't get fine-grained enough control of the HTML/CSS without forking over the $100+ annual Pro fee.
 
-I even looked at __Squarespace__, which nearly had me convinced (those are some beautiful templates over there), but frankly, it's just too Web 2.0 for me. Though if I was a photographer or an [artisanal light bulb maker](http://www.imdb.com/video/imdb/vi3729299993), I'd use Squarespace in a heartbeat.  
+I even looked at __Squarespace__, which nearly had me convinced (those are some beautiful templates over there), but frankly, it's just too Web 2.0 for me. Though if I was a photographer or an [artisanal light bulb maker](https://www.youtube.com/watch?v=rmLp9Mn-5rg), I'd use Squarespace in a heartbeat.  
 
 To top it all off, I kept feeling ashamed, like I know enough programming that I should just do it myself. But I didn't want to start from scratch or even from medium scratch like Django. That's where Pelican came in. 
 
