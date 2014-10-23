@@ -14,17 +14,18 @@
                </br>
                <ul style="list-style-type:circle">
                 {% for name, link in LINKS %}
+                <div style="margin-bottom: 10.5px; margin-top: 10.5px; font-size: 19px;">
                   <li>
                     <a href="{{ link }}" target="_blank">
-                        <h4>{{ name }}</h4>
+                        {{ name }}
                     </a>
                   </li>
+                <div>
                 {% endfor %}
               </ul>
 
              <!-- // <script src="https://apis.google.com/js/platform.js" async defer></script> -->
               <!-- <g:plusone size="standard(bubble)" data-href="http://the-data-show.com"></g:plusone> -->
-              <br>
               <br>
               <h3>Share The Data Show</h3>
                 <div class="addthis_toolbox addthis_default_style addthis_32x32_style" addthis:url="{{ SITEURL }}" addthis:title="Check out {{ SITENAME }}!">
