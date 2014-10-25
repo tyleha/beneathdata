@@ -219,3 +219,16 @@ figure.floatcenter, .align-center {
 #footer-well {
     margin-bottom: 0px;
 }
+
+/*Code horizontal scrolling?*/
+.highlight pre * {
+  white-space: nowrap;    // this sets all children inside to nowrap
+}
+
+.highlight pre {
+  overflow-x: auto;       // this sets the scrolling in x
+}
+
+.highlight pre {
+  white-space: pre;       // forces <code> to respect <pre> formatting
+}
