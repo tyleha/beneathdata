@@ -21,6 +21,7 @@ SITESUBTITLE = u"A blog dedicated to Python, data analystics, and good-looking g
 SITEURL = ''
 
 PATH = 'content'
+DELETE_OUTPUT_DIRECTORY = True
 
 TIMEZONE = 'America/Los_Angeles'
 
@@ -69,9 +70,10 @@ YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
 
 ################## Add custom css #########################
 CUSTOM_CSS = 'static/custom.css'
-STATIC_PATHS = ['images', 'extra/custom.css', 'extra/href_scroll.js']
+STATIC_PATHS = ['images', 'extra/custom.css', 'extra/href_scroll.js', 'extra/jquery.zoom.js']
 EXTRA_PATH_METADATA = {'extra/custom.css':{'path':'static/custom.css'},
-                    'extra/href_scroll.js':{'path':'theme/js/href_scroll.js'}
+                    'extra/href_scroll.js':{'path':'theme/js/href_scroll.js'},
+                    'extra/jquery.zoom.js':{'path':'theme/js/jquery.zoom.js'},
                        }
 for k in EXTRA_PATH_METADATA.keys(): # Fix backslash paths to resources if on Windows
     EXTRA_PATH_METADATA[system_path(k)] = EXTRA_PATH_METADATA.pop(k)

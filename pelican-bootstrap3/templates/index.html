@@ -16,7 +16,9 @@ body {
 	<div class="container">
 		<div class="copy">
 			<h1>{{ SITENAME }}</h1>
-			<p class="intro">{{ SITESUBTITLE }}</p>
+			{% if SITESUBTITLE %}
+				<p class="intro">{{ SITESUBTITLE }}</p>
+			{% endif %}
 		</div>
 	</div>
 </div>
