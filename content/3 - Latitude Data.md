@@ -55,15 +55,15 @@ Pandas is an incredibly powerful tool that simplifies working with complex datat
 So, you've installed Pandas. Let's get started! We'll read in the _LocationHistory.json_ and create a `DataFrame`.
 
 ```python
-with open('LocationHistory.json') as fh:
+with open('LocationHistory.json', 'r') as fh:
     raw = json.loads(fh.read())
 
 ld = pd.DataFrame(raw['locations'])
 del raw #free up some memory
 # convert to typical units
-ld['latitude'] = ld['latitude']/float(1e7) 
-ld['longitude'] = ld['longitude']/float(1e7)
-ld['timestamp'] = ld['timestamp'].map(lambda x: float(x)/1000)
+ld['latitudeE7'] = ld['latitudeE7']/float(1e7) 
+ld['longitudeE7'] = ld['longitudeE7']/float(1e7)
+ld['timestampMs'] = ld['timestampMs'].map(lambda x: float(x)/1000) #to seconds
 ld['datetime'] = ld.timestamp.map(datetime.datetime.fromtimestamp)
 # Rename fields based on the conversions we just did
 ld.rename(columns={'latitudeE7':'latitude', 'longitudeE7':'longitude', 'timestampMs':'timestamp'}, inplace=True)
@@ -155,9 +155,9 @@ df_map['hood_count'] = df_map['poly'].apply(num_of_contained_points, args=(city_
 df_map['hood_hours'] = df_map.hood_count/60.0
 ```
 
-So now, `df_map.hood_count` contains a count of the number of gps points located within each neighborhood. But what do those counts really mean? It's not very meaningful knowing that I spent 2,500 "datapoints" in Capital Hill, except to compare against other neighborhoods. And we could do that. Or we could convert `hood_count` into time...
+So now, `df_map.hood_count` contains a count of the number of gps points located within each neighborhood. But what do those counts really mean? It's not very meaningful knowing that I spent 2,500 "datapoints" in Capitol Hill, except to compare against other neighborhoods. And we could do that. Or we could convert `hood_count` into time...
 
-Turns out, that's **really** easy, for one simple reason. From investigating my location history, it seems that unless my phone is off or without reception, Android reports my location _exactly_ every 60 seconds. Not usually 60 seconds, not sometimes 74 seconds, **_60 seconds_**. It's been true on Android 4.2-4.4, and using a Samsung S3 and my current Nexus 5. Hopefully that means it holds true for you, too[ref]Of course, if this _doesn't_ hold true, you can still convert to time - you'll just have to actually compute time differences. Something like `myseries.diff().sum()` should be a good start[/ref]. So if we make the assumption that I keep my phone on 24/7 (true) and I have city-wide cellular reception (also true), then all we need to do is `hood_count/60.0`, as shown above, and now we're talking in hours instead of datapoints. 
+Turns out, that's **really** easy, for one simple reason. From investigating my location history, it seems that unless my phone is off or without reception, Android reports my location _exactly_ every 60 seconds. Not usually 60 seconds, not sometimes 74 seconds, **_60 seconds_**. It's been true on Android 4.2-4.4, and using a Samsung S3 and my current Nexus 5. Hopefully that means it holds true for you, too.[ref]Of course, if this _doesn't_ hold true, you can still convert to time - you'll just have to actually compute time differences. Something like `myseries.diff().sum()` should be a good start[/ref] So if we make the assumption that I keep my phone on 24/7 (true) and I have city-wide cellular reception (also true), then all we need to do is `hood_count/60.0`, as shown above, and now we're talking in hours instead of datapoints[ref]YES, I realize that using this methodology, 2 data points would be calculated as 2 minutes, when possibly I only spent 1 minute there and caught the tail ends in multiple GPS snapshots. So my estimates of time may be _slightly_ elevated. But the tradeoff for solving this problem is miniscule.[/ref]. 
 
 ### Step 3: Plot the choropleth
 
