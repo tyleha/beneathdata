@@ -87,7 +87,10 @@
 
 </head>
 <body>
+<!-- <script src="{{ SITEURL }}/theme/js/jquery.min.js"></script> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 {% block banner %}{% endblock %}
+
 <div class="navbar {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-inverse{% else %}navbar-default{% endif %} navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -155,9 +158,6 @@
     </div>
 </div>
 {% include 'includes/footer.html' %}
-
-<!-- <script src="{{ SITEURL }}/theme/js/jquery.min.js"></script> -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="{{ SITEURL }}/theme/js/bootstrap.min.js"></script>

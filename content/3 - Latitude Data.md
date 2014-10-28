@@ -4,7 +4,7 @@ Tags: location, maps, python, shapely, basemap
 Category: How-to
 Slug: visualizing-my-location-history
 Author: Tyler Hartley
-<!-- Status: draft -->
+Status: draft
 
 The vast majority of us carry a little GPS device in our pockets all day long, quietly recording our location. But location is more than just latitude and longitude - it can tell us our speed, our direction, our activities, and frankly our lives. Some people regard this as terrifying, but I see an awesome dataset!
 
@@ -189,6 +189,11 @@ This plotting code for the choropleth gets a bit wordy for a blog format, so che
     });
 </script>
 
+<span class='zoom' id='ex1'>
+    <img src='/images/latitude/choropleth.png' width='555px' alt='Choropleth of my location history' style="border:1px solid #021a40"/>
+</span>
+
+
 ---------------
 
 ## Hexbin Map
@@ -313,7 +318,7 @@ Perfect! I realize this graph probably isn't intrinsically interesting to anybod
 flights.distance.sum()
 ```
 
-85,000 miles. Not bad. If only I had loyalty to any one airline!
+53,000 miles. If only I had loyalty to any one airline!
 
 ## Wrapup
 
