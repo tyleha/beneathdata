@@ -8,9 +8,9 @@ Author: Tyler Hartley
 
 The vast majority of us carry a little GPS device in our pockets all day long, quietly recording our location. But location is more than just latitude and longitude - it can tell us our speed, our direction, our activities, and frankly our lives. Some people regard this as terrifying, but I see an awesome dataset!
 
-Initially, I didn't have much of a drive to fiddle with my own location history. What could I really do that Google Latitude couldn't already? But after Latitude's demise in 2013, I enterd full fiddle-around mode, and quickly discovered the incredible array of tools that Python puts at your disposal to easily and beautifully manipulate GPS and map data.
+Initially, I didn't have much of a drive to fiddle with my own location history. What could I really do that Google Latitude couldn't already? But after Latitude's demise in 2013, I entered full fiddle-around mode, and quickly discovered the incredible array of tools that Python puts at your disposal to easily and beautifully manipulate GPS and map data.
 
-This blog post focues on how to analyze your location history data and produce some cool graphs to visualize how you spend your time. Of course, there are 1,000,001 more ways to utilize location history, but hopefully this post gives you the tools to pursue those other ideas. If you're not interested in the learning the code to make these graphs, but want to see some cool graphs (or know me personally), stick around. You might even learn a thing or two about me.
+This blog post focuses on how to analyze your location history data and produce some cool graphs to visualize how you spend your time. Of course, there are 1,000,001 more ways to utilize location history, but hopefully this post gives you the tools to pursue those other ideas. If you're not interested in the learning the code to make these graphs, but want to see some cool graphs (or know me personally), stick around. You might even learn a thing or two about me.
 
 To follow this post, you'll need a bunch of Python packages. 
 
@@ -45,7 +45,7 @@ Google provides a service called **[Takeout](https://www.google.com/settings/tak
 
 1. Go to [https://www.google.com/settings/takeout](https://www.google.com/settings/takeout). Uncheck all services except "Location History"
 2. The data will be in a json format, which works great for us. Download it in your favorite compression type (.zip, .tgz)
-3. When Google has finished creating your archive, you'll get an email notificaiton and a link to download.
+3. When Google has finished creating your archive, you'll get an email notification and a link to download.
 4. Download and unzip the file, and you should be looking at a _LocationHistory.json_ file.
 
 ## Working with location data in Pandas
@@ -71,7 +71,7 @@ ld = ld[ld.accuracy < 1000] #Ignore locations with accuracy estimates over 1000m
 ld.reset_index(drop=True, inplace=True)
 ```
 
-Now you've got a Pandas `DataFrame` called `ld` containing all your location history and related info. Google gave us latitude, longitude, and a timestamp (obviously), but also accuracy, activitys [sic], altitude, heading...Google is clearly trying to do some complex backend analysis of your locaiton history to infer what you're up to and where you're going. But all we need is those first three.
+Now you've got a Pandas `DataFrame` called `ld` containing all your location history and related info. Google gave us latitude, longitude, and a timestamp (obviously), but also accuracy, activitys [sic], altitude, heading...Google is clearly trying to do some complex backend analysis of your location history to infer what you're up to and where you're going. But all we need is those first three.
 
 ## Working with Shapefiles in Python
 
@@ -117,13 +117,13 @@ We'll need the above Basemap object `m` for both of the following plots.
 
 ## Choropleth Map
 
-A choropleth map "provides an easy way to visualize how a measurement varies across a geographic area."[ref]http://en.wikipedia.org/wiki/Choropleth_map[/ref]. You've seen them a thousand times, and usually whenever population or presedential elections are discussed, like [this example](http://www.101traveldestinations.com/wp-content/uploads/2014/08/choropleth-map-2.jpg).
+A choropleth map "provides an easy way to visualize how a measurement varies across a geographic area."[ref]quoted from [http://en.wikipedia.org/wiki/Choropleth_map](http://en.wikipedia.org/wiki/Choropleth_map)[/ref]. You've seen them a thousand times, and usually whenever population or presidential elections are discussed, like [this example](http://www.101traveldestinations.com/wp-content/uploads/2014/08/choropleth-map-2.jpg).
 
 I wanted to produce a choropleth map of my own location history, but instead of breaking it down by country or state, use the neighborhoods of Seattle.
 
-### Step 1: Prep data and pair down locations
+### Step 1: Prep data and pare down locations
 
-The first step is to pair down my location history to _only_ contain datapoints within the map's borders.
+The first step is to pare down my location history to _only_ contain datapoints within the map's borders.
 
 ```python
 # set up a map dataframe
@@ -157,7 +157,7 @@ df_map['hood_hours'] = df_map.hood_count/60.0
 
 So now, `df_map.hood_count` contains a count of the number of gps points located within each neighborhood. But what do those counts really mean? It's not very meaningful knowing that I spent 2,500 "datapoints" in Capital Hill, except to compare against other neighborhoods. And we could do that. Or we could convert `hood_count` into time...
 
-Turns out, that's **really** easy, for one simple reason. From investigating my location history, it seems that unless my phone is off or without reception, Android reports my location _exactly_ every 60 seconds. Not usually 60 seconds, not sometimes 74 seconds, **_60 seconds_**. It's been true on Android 4.2-4.4, and using a Samsung S3 and my current Nexus 5. Hopefully that means it holds true for you, too[ref]Of course, if this _doesn't_ hold true, you can still convert to time - you'll just have to actually compute time differences. Something like `myseries.diff().cumsum()` should be a good start[/ref]. So if we make the assumption that I keep my phone on 24/7 (true) and I have city-wide cellular reception (also true), then all we need to do is `hood_count/60.0`, as shown above, and now we're talking in hours instead of datapoints. 
+Turns out, that's **really** easy, for one simple reason. From investigating my location history, it seems that unless my phone is off or without reception, Android reports my location _exactly_ every 60 seconds. Not usually 60 seconds, not sometimes 74 seconds, **_60 seconds_**. It's been true on Android 4.2-4.4, and using a Samsung S3 and my current Nexus 5. Hopefully that means it holds true for you, too[ref]Of course, if this _doesn't_ hold true, you can still convert to time - you'll just have to actually compute time differences. Something like `myseries.diff().sum()` should be a good start[/ref]. So if we make the assumption that I keep my phone on 24/7 (true) and I have city-wide cellular reception (also true), then all we need to do is `hood_count/60.0`, as shown above, and now we're talking in hours instead of datapoints. 
 
 ### Step 3: Plot the choropleth
 
@@ -167,9 +167,27 @@ This plotting code for the choropleth gets a bit wordy for a blog format, so che
 
 [<h4>**See The Code**</h4>](https://gist.github.com/tylerhartley/c5ea21e2a4879fcc4151)
 
-<img src="/images/latitude/choropleth.png" alt="Choropleth of my location history" style="width: 550px; border:1px solid #021a40;"/>
+<style>
+    .zoom {
+        display:inline-block;
+        position: relative;
+    }
+    
+    .zoom img {
+        display: block;
+        border:1px solid #021a40;
+    }
 
+    .zoom img::selection { background-color: transparent; }
+</style>
 
+<script src='/theme/js/jquery.zoom.js'></script>
+<script>
+    $(document).ready(function(){
+        $('#ex1').zoom();
+        $('#ex2').zoom();
+    });
+</script>
 
 ---------------
 
@@ -179,9 +197,9 @@ We can also take a different approach to choropleths, and instead of using each 
 
 [<h4>**See The Code**</h4>](https://gist.github.com/tylerhartley/8bb82acd62472dfebfea)
 
-<img src="/images/latitude/hexbin.png" alt="Hexbin of my location history" style="width: 550px; border:1px solid #021a40;"/>
-
-I've increased the hexbin size and obfuscated the data, only because this graph is pretty telling about where I live and what I do!
+<span class='zoom' id='ex2'>
+    <img src='/images/latitude/hexbin.png' width='555px' alt='Hexbin of my location history' style="border:1px solid #021a40"/>
+</span>
 
 Some super interesting patterns pop out immediately - I pretty much just hang out in North Seattle and Downtown! You can quickly spot my time on the Burke-Gilman trail on the east side, and you can also spot some of my favorite hangouts. Some of my friends may even see their houses on here.
 
@@ -289,7 +307,13 @@ Matplotlib's Basemap again comes to the rescue. If we plot on a flat projection 
 
 ![](/images/latitude/all_flights.png)
 
-Perfect! You can see all my flights originating in Seattle, plus my recent trip to Vietnam/Cambodia. And Basemap made it so easy for us - no Shapefiles to import because all that map info is inherent to the Basemap module.
+Perfect! I realize this graph probably isn't intrinsically interesting to anybody - who cares about my flight history - but for me, I can draw a lot of conclusions! You can see some popular layover locations, all those lines in/out of Seattle, plus a recent trip to southeast Asia. And Basemap has made it so easy for us - no Shapefiles to import because all that map info is inherent to the Basemap module. I can even calculate all the skymiles I _should_ have earned with a single line of code:
+
+```python
+flights.distance.sum()
+```
+
+85,000 miles. Not bad. If only I had loyalty to any one airline!
 
 ## Wrapup
 
