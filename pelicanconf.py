@@ -47,6 +47,7 @@ LINKS = (
 
 # Social widget
 SOCIAL = (('github', 'http://github.com/tylerhartley'),
+         ('twitter', 'https://twitter.com/tylerhartley'),
          ('linkedin', 'http://linkedin.com/in/tylerhartley'),
          ('google+', 'https://plus.google.com/102425100151107773886/posts'),    
           ('professional site', 'http://tylerhartley.com'),

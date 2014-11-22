@@ -38,9 +38,9 @@ import json
 import datetime
 ```
 
-## Downloading your Android location history
+## Downloading your Google location history
 
-If you use Android, you can choose to store your GPS location history [on Google's servers](https://support.google.com/gmm/answer/3118687?hl=en). The decisions of when and how to upload this data are entirely obfuscated to the end user, but as you'll see below, Android appears to upload a GPS location **every 60 seconds**, at least in my case. That's plenty of data to work with.
+If you've previously enabled Google location reporting on your smartphone, your GPS data will be periodically uploaded [to Google's servers](https://support.google.com/gmm/answer/3118687?hl=en).[ref]Edited 11/21/14 to reflect that Google Location history is available on Android or iOS[/ref] The decisions of when and how to upload this data are entirely obfuscated to the end user, but as you'll see below, Android appears to upload a GPS location **every 60 seconds**, at least in my case. That's plenty of data to work with.
 
 Google provides a service called **[Takeout](https://www.google.com/settings/takeout)** that allows us to export any personal Google data. How kind! We'll use Takeout to download our raw location history as a one-time snapshot. Since Latitude was retired, no API exists to access location history in real-time.[ref]If someone knows of a way, please, let me know![/ref] Here's what to do:
 
