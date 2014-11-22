@@ -1,16 +1,17 @@
 Title: Visualizing My Location History with Python, Shapely, and Basemap
-Date: 2014-10-08 10:31
-Tags: location, maps, python, shapely, basemap 
+Date: 2014-10-28 22:12
+Tags: location, gps, maps, python, shapely, basemap 
 Category: How-to
 Slug: visualizing-my-location-history
 Author: Tyler Hartley
-Status: draft
 
-The vast majority of us carry a little GPS device in our pockets all day long, quietly recording our location. But location is more than just latitude and longitude; it can tell us about our speed, our direction, our activities, and frankly our lives. Some people regard this as terrifying, but I for one see a wonderful dataset.
+The vast majority of us carry a little GPS device in our pockets all day long, quietly recording our location. But location is more than just latitude and longitude; it can tell us about our speed, our direction, our activities, and frankly our lives. Some people regard this as terrifying, but I see a wonderful dataset.
 
-Initially, I didn't have much of a drive to fiddle with my own location history. What could I really do that Google Latitude couldn't already? But after Latitude's demise in 2013, I entered full fiddle-around mode, and quickly discovered the incredible array of tools that Python puts at your disposal to easily and beautifully manipulate GPS and map data.
+Initially, I didn't have much of a drive to fiddle with my own location history. What could I really do that Google Latitude couldn't already? But after Latitude's [demise](https://support.google.com/gmm/answer/3001634?hl=en) in 2013, I entered full fiddle-around mode, and quickly discovered the incredible array of tools that Python puts at your disposal to easily and beautifully manipulate geospatial data.
 
-This blog post focuses on how to analyze your location history data and produce some cool maps to visualize how you spend your time. Of course, there are 1,000,001 more ways to utilize location history, but hopefully this post gives you the tools to pursue those other ideas. If you're not interested in the learning the code to make these graphs but know me personally, stick around. You might even learn a thing or two about me.
+This blog post focuses on how to analyze your location history data and produce some cool maps to visualize how you spend your time. Of course, there are 1,000,001 more ways to utilize location history, but hopefully this post gives you the tools to pursue those other ideas. 
+
+If you're not interested in the learning the code to make these graphs but know me personally, stick around. You might even learn a thing or two about me.
 
 To follow this post, you'll need a bunch of Python packages. 
 
@@ -21,7 +22,7 @@ To follow this post, you'll need a bunch of Python packages.
 * [Fiona](https://pypi.python.org/pypi/Fiona)
 * [Descartes](https://pypi.python.org/pypi/descartes)
 
-And of course, all this code will be executed using [IPython](http://ipython.org), my best friend. Here's my import list for this tutorial:
+And of course, all this code will be executed using [IPython](http://ipython.org), my best friend. Here's my import list for this tutorial.
 
 ```python
 import matplotlib.pyplot as plt
@@ -41,7 +42,7 @@ import datetime
 
 If you use Android, you can choose to store your GPS location history [on Google's servers](https://support.google.com/gmm/answer/3118687?hl=en). The decisions of when and how to upload this data are entirely obfuscated to the end user, but as you'll see below, Android appears to upload a GPS location **every 60 seconds**, at least in my case. That's plenty of data to work with.
 
-Google provides a service called **[Takeout](https://www.google.com/settings/takeout)** that allows us to export any personal Google data. How kind! We'll use Takeout to download our raw location history as a one-time snapshot. Since Latitude was retired, no API exists to access location history in real-time[ref]If someone knows of a way, please, let me know![/ref]. Here's what to do:
+Google provides a service called **[Takeout](https://www.google.com/settings/takeout)** that allows us to export any personal Google data. How kind! We'll use Takeout to download our raw location history as a one-time snapshot. Since Latitude was retired, no API exists to access location history in real-time.[ref]If someone knows of a way, please, let me know![/ref] Here's what to do:
 
 1. Go to [https://www.google.com/settings/takeout](https://www.google.com/settings/takeout). Uncheck all services except "Location History"
 2. The data will be in a json format, which works great for us. Download it in your favorite compression type.
@@ -50,9 +51,9 @@ Google provides a service called **[Takeout](https://www.google.com/settings/tak
 
 ## Working with location data in Pandas
 
-Pandas is an incredibly powerful tool that simplifies working with complex datatypes and performing statistical analysis in the style of _R_. Because of its flexible structure, I find myself spending a fraction of the time coding it would in Numpy[ref]Which is already so simple to work with![/ref]. Find a great primer on using Pandas [here](http://www.gregreda.com/2013/10/26/intro-to-pandas-data-structures/). We won't be going too in depth.
+**Pandas** is an incredibly powerful tool that simplifies working with complex datatypes and performing statistical analysis in the style of _R_. Because of its flexible structure, I find myself spending a fraction of the time coding the same solution as compared to pure Python.[ref]Which is already so simple to work with![/ref] Find a great primer on using Pandas [here](http://www.gregreda.com/2013/10/26/intro-to-pandas-data-structures/). We won't be going too in depth.
 
-So, you've installed Pandas. Let's get started! We'll read in the _LocationHistory.json_ and create a `DataFrame`.
+So, you've installed Pandas. Let's get started! We'll read in the _LocationHistory.json_ file from Google Takeout and create a `DataFrame`.
 
 ```python
 with open('LocationHistory.json', 'r') as fh:
@@ -71,22 +72,22 @@ ld = ld[ld.accuracy < 1000] #Ignore locations with accuracy estimates over 1000m
 ld.reset_index(drop=True, inplace=True)
 ```
 
-Now you've got a Pandas `DataFrame` called `ld` containing all your location history and related info. We've got **latitude**, **longitude**, and a **timestamp** (obviously), but also accuracy, activitys [sic], altitude, heading...Google is clearly trying to do some complex backend analysis of your location history to infer what you're up to and where you're going (and you'll see some of these fields in use if you use _Google Now_). But all we'll need is lat, lon, and time.
+Now you've got a Pandas `DataFrame` called `ld` containing all your location history and related info. We've got **latitude**, **longitude**, and a **timestamp** (obviously), but also accuracy, activitys [sic], altitude, heading. Google is clearly trying to do some complex backend analysis of your location history to infer what you're up to and where you're going (and you'll see some of these fields in use if you use _Google Now_ on your smartphone). But all we'll need is latitude, longitude, and time.
 
 ## Working with Shapefiles in Python
 
 The more I learn about mapping, the more I realize how complex it is. But to do what we want to do with our location history, we're going to have to become experts in mapping in a couple hours. We don't have time to learn proprietary GIS software or write our own methods to analyze map data. But Python being Python, we've already got packages to knock this stuff out. 
 
-[Shapefile](http://en.wikipedia.org/wiki/Shapefile) is a widely-used data format for describing points, lines, and polygons. To work with shapefiles, Python gives us [Shapely](https://pypi.python.org/pypi/Shapely)[ref]It's got bindings to GEOS, the engine that will perform a lot of the computation, and a clean syntax.[/ref]. Shapely rocks. To briefly read/write shapefiles, we'll use [Fiona](https://pypi.python.org/pypi/Fiona).
+[Shapefile](http://en.wikipedia.org/wiki/Shapefile) is a widely-used data format for describing points, lines, and polygons. To work with shapefiles, Python gives us [Shapely](https://pypi.python.org/pypi/Shapely).[ref]It's got bindings to GEOS, the engine that will perform a lot of the computation, and a clean syntax.[/ref] Shapely rocks. To briefly read/write shapefiles, we'll use [Fiona](https://pypi.python.org/pypi/Fiona).
 
 To learn Shapely and write this blog post, I leaned heavily on an article from [sensitivecities.com](http://sensitivecities.com/so-youd-like-to-make-a-map-using-python-EN.html). Please, go pester that guy to write more stuff. Tom MacWright also wrote [a great overview](http://www.macwright.org/2012/10/31/gis-with-python-shapely-fiona.html) of the tools we'll be using.
 
-First up, you'll need to download shapefile data for the part of the world you're interested in plotting. I wanted to focus on my current home of Seattle, which like many cities [provides city shapefile map data](https://data.seattle.gov/dataset/data-seattle-gov-GIS-shapefile-datasets/f7tb-rnup) for free[ref]I grabbed the neighborhoods shapefile.[/ref]. The US Census Bureau provides a ton of national shapefiles [here](https://www.census.gov/geo/maps-data/data/tiger.html).
+First up, you'll need to download shapefile data for the part of the world you're interested in plotting. I wanted to focus on my current home of Seattle, which like many cities [provides city shapefile map data](https://data.seattle.gov/dataset/data-seattle-gov-GIS-shapefile-datasets/f7tb-rnup) for free. It's even broken into city neighborhoods! The US Census Bureau provides a ton of national shapefiles [here](https://www.census.gov/geo/maps-data/data/tiger.html). Your city likely provides this kind of data too.
 
 Next, we'll need to import the Shapefile data we downloaded, which is easy as pie.
 
 ```python
-shapefilename = r'data\Neighborhoods\WGS84\Neighborhoods'
+shapefilename = 'data/Neighborhoods/WGS84/Neighborhoods'
 shp = fiona.open(shapefilename+'.shp')
 coords = shp.bounds
 shp.close()
@@ -111,19 +112,19 @@ m = Basemap(
 _out = m.readshapefile(shapefilename, name='seattle', drawbounds=False, color='none', zorder=2)
 ```
 
-We'll need the above Basemap object `m` for both of the following plots.
+We'll need the above Basemap object `m` for both of the following maps.
 
 ------------------
 
 ## Choropleth Map
 
-A choropleth map "provides an easy way to visualize how a measurement varies across a geographic area."[ref]quoted from [http://en.wikipedia.org/wiki/Choropleth_map](http://en.wikipedia.org/wiki/Choropleth_map)[/ref]. You've seen them a thousand times, and usually whenever population or presidential elections are discussed, like [this example](http://www.101traveldestinations.com/wp-content/uploads/2014/08/choropleth-map-2.jpg).
+A choropleth map _"provides an easy way to visualize how a measurement varies across a geographic area."_[ref]quoted from [http://en.wikipedia.org/wiki/Choropleth_map](http://en.wikipedia.org/wiki/Choropleth_map)[/ref]. You've seen them a thousand times, usually whenever population or presidential elections are discussed, as in [this example](http://www.101traveldestinations.com/wp-content/uploads/2014/08/choropleth-map-2.jpg).
 
-I wanted to produce a choropleth map of my own location history, but instead of breaking it down by country or state, I wanted to use the neighborhoods of Seattle.
+I wanted to produce a choropleth map of my own location history, but instead of breaking it down by country or state, I wanted to use the [neighborhoods of Seattle](http://en.wikipedia.org/wiki/Neighborhoods_in_Seattle).
 
 ### Step 1: Prep data and pare down locations
 
-The first step is to pare down my location history to _only_ contain points within the map's borders.
+The first step is to pare down your location history to _only_ contain points within the map's borders.
 
 ```python
 # set up a map dataframe
@@ -145,7 +146,7 @@ Now, `city_points` contains a list of all points that fall within the map and `h
 
 ### Step 2: Compute your measurement metric
 
-The raw data for my choropleth should be "number of points in each neighborhood." With Pandas, again, _easy_. (Warning - depending on the size of the `city_points` array, this could take a few minutes.)
+The raw data for my choropleth should be "number of points in each neighborhood." With Pandas, again, it's _easy_. (Warning - depending on the size of the `city_points` array, this could take a few minutes.)
 
 ```python
 def num_of_contained_points(apolygon, city_points):
@@ -175,7 +176,7 @@ This plotting code for the choropleth gets a bit wordy for a blog format, so che
     
     .zoom img {
         display: block;
-        border:1px solid #021a40;
+        /*border:1px solid #021a40;*/
     }
 
     .zoom img::selection { background-color: transparent; }
@@ -186,6 +187,8 @@ This plotting code for the choropleth gets a bit wordy for a blog format, so che
     $(document).ready(function(){
         $('#ex1').zoom();
         $('#ex2').zoom();
+        $('#ex3').zoom();
+        $('#ex4').zoom();
     });
 </script>
 
@@ -214,9 +217,9 @@ Of course, I don't _always_ have my phone with me, and I notice some glaring vac
 
 ## Map of Flights Taken
 
-If you haven't already figured it out, I really _liked_ Google Latitude. One thing Latitude attempted was to track all your plane flights. I'd say their algorithm caught about 90% of the flights I took, but never gave me the ability to visualize them. Always bummed me out!
+If you haven't already figured it out, I _really_ liked Google Latitude. One thing Latitude attempted was to track all your instances of flights. I'd say their algorithm caught about 90% of the flights I took, but it never gave me the ability to visualize them on a map. Always bummed me out!
 
-But now, armed with our raw location data and Pandas, we should be able to meet and even exceed Latitude's attempts to identify flights. The basic algorithm seems pretty simple - "if speed is greater than ~200kph, you're flying" because honestly, when else are you going that fast? But there are problems with that approach:
+But now, armed with our raw location data and Pandas, we should be able to meet and even exceed Latitude's attempts to identify flights. The basic algorithm seems pretty simple - "if speed is greater than ~300kph, you're flying" because honestly, when else are you going that fast? But there are problems with that approach:
 
 1. **GPS location can be inaccurate.** Take a peek at the `accuracy` field in your Data Frame. Not always spot-on. We could filter out inaccurate data points, but GPS doesn't have to be that far off to break our criteria. Think about it - if we're sampling location once per minute then all it would take is to be off by 200kph/60min or 3.3 km (~2 miles) and your algorithm would think you were flying! Looking through my location history, this  happens a few times per week. So we'll have to address this concern in the algo.
 2. **Your phone collects GPS data mid-flight.** This one caught me off guard. When I fly, I activate "airplane mode" which, as far as I could tell, deactivated wifi/cellular data/GPS. Turns out? It only deactivates the first two. Consequently, during a given flight, my phone will occasionally collect an (accurate!) location in mid-flight. If we're not careful, our algorithm could interpret each of these datapoints as a layover, and break our single flight into many small ones. That's no good.
@@ -308,9 +311,15 @@ Matplotlib's Basemap again comes to the rescue. If we plot on a flat projection 
 
 [<h4>**See The Code**</h4>](https://gist.github.com/tylerhartley/f338b9f638fbcb8605a5)
 
-![](/images/latitude/us_flights.png)
+<!-- ![](/images/latitude/us_flights.png) -->
+<span class='zoom' id='ex3'>
+    <img src='/images/latitude/us_flights.png' alt='Flights within the US'/>
+</span>
 
-![](/images/latitude/all_flights.png)
+<!-- ![](/images/latitude/all_flights.png) -->
+<span class='zoom' id='ex4'>
+    <img src='/images/latitude/all_flights.png' alt='Global flights'/>
+</span>
 
 Perfect! I realize this graph probably isn't intrinsically interesting to anybody - who cares about my flight history? - but for me, I can draw a lot of fun conclusions. You can see some popular layover locations, all those lines in/out of Seattle, plus a recent trip to southeast Asia. And Basemap has made it so simple for us - no Shapefiles to import because all that map info is baked into to the Basemap module. I can even calculate all the skymiles I _should_ have earned with a single line of code:
 
