@@ -65,7 +65,7 @@ del raw #free up some memory
 ld['latitudeE7'] = ld['latitudeE7']/float(1e7) 
 ld['longitudeE7'] = ld['longitudeE7']/float(1e7)
 ld['timestampMs'] = ld['timestampMs'].map(lambda x: float(x)/1000) #to seconds
-ld['datetime'] = ld.timestamp.map(datetime.datetime.fromtimestamp)
+ld['datetime'] = ld.timestampMs.map(datetime.datetime.fromtimestamp)
 # Rename fields based on the conversions we just did
 ld.rename(columns={'latitudeE7':'latitude', 'longitudeE7':'longitude', 'timestampMs':'timestamp'}, inplace=True)
 ld = ld[ld.accuracy < 1000] #Ignore locations with accuracy estimates over 1000m
