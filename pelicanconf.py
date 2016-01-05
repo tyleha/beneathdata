@@ -31,7 +31,7 @@ USE_FOLDER_AS_CATEGORY = True
 DEFAULT_DATE_FORMAT = '%a %d %B %Y'
 DEFAULT_DATE = 'fs'
 
-# Feed generation is usually not desired when developing 
+# Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
@@ -49,7 +49,7 @@ LINKS = (
 SOCIAL = (('github', 'http://github.com/tylerhartley'),
          ('twitter', 'https://twitter.com/tylerhartley'),
          ('linkedin', 'http://linkedin.com/in/tylerhartley'),
-         ('google+', 'https://plus.google.com/102425100151107773886/posts'),    
+         ('google+', 'https://plus.google.com/102425100151107773886/posts'),
           ('professional site', 'http://tylerhartley.com'),
           )
 
@@ -94,7 +94,7 @@ ADDTHIS_DATA_TRACK_ADDRESSBAR = False
 ####################### Theme-Specific Settings #########################
 THEME = 'pelican-bootstrap3'#'html5-dopetrope'
 
-# Pelican Theme-Specific Variables  
+# Pelican Theme-Specific Variables
 BOOTSTRAP_THEME = 'cosmo'#'sandstone'#'lumen'
 SHOW_ARTICLE_CATEGORY = True
 

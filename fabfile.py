@@ -46,7 +46,7 @@ def serve():
 
     server = AddressReuseTCPServer(('', PORT), SimpleHTTPServer.SimpleHTTPRequestHandler)
 
-    sys.stderr.write('Serving on port {0} ...\n'.format(PORT))
+    sys.stderr.write('Serving on port {0}...\n'.format(PORT))
     server.serve_forever()
 
 def reserve():
