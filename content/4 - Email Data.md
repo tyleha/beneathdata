@@ -5,9 +5,20 @@ Category: How-to
 Slug: visualize-email-history
 Author: Tyler Hartley
 
-You'll need a few basic python packages to follow this tutorial, namely `numpy`, `matplotlib` and `pandas`. If you don't already have these data analysis packages, I'd suggest taking a look at [Anaconda](https://www.continuum.io/downloads).
 
-All this code will be written for Python 3.x, and executed in an IPython (Jupyter) notebook. There are a few tweaks IPython you'd need to make to get this working in 2.7, and I'll call them out where applicable.[ref]But you should really start using 3.x for data analysis already. It's been 8 years. Shame on you.[/ref]
+Email is a window to the soul. OK, nobody has actually ever said that, but email is at the very least a permanent log of our daily lives. In fact, I'd argue that out of all the digital interaction we take part in, email is the most honest representation of our actual behavior. Phone calls are too sparse. Text messages capture only a subset of my closest contacts. But email...everybody emails. 
+
+<!-- To me, email is a uniquely dense log of our social interactions.  -->
+
+So, I was curious what email could tell me about my daily habits and naturally, I turned to Python and Pandas. This blog will be about exploring the uniquely dense dataset that is your email history and, more seriously, about taking ownership of your own data. Trust me, Google is learning tons about you from your email history already, so why shouldn't you?
+
+
+<!-- Lastly, this is a great opportunity to learn a bit more about visualization with Python. -->
+
+
+You'll need a few basic python packages to follow this tutorial, namely `numpy`, `matplotlib` and `pandas`. If you don't already have these data analysis packages, I'd suggest taking a look at [Anaconda](https://www.continuum.io/downloads). It's a terrific package manager in its own right and comes with all the packages you'll need for data analysis. 
+
+All this code will be written for Python 3.x and executed in an IPython. There are a few tweaks you'd need to make to get this working in 2.7, and I'll call them out where applicable.[ref]But you should really start using 3.x for data analysis already. It's been 8 years. Shame on you.[/ref]
 
 Here's my import list for this tutorial:
 
@@ -89,12 +100,12 @@ Luckily, the `GmailAccount` class took care of parsing the raw email payload int
 
 A remaining problem: the `date` field in our emails is unusable to us. It's just a dumb string. We need to parse it into a knowledgable python object, and pandas provides us just such a class: `Timestamp`. Now, I have my beef with a few things about Timestamp, but it does a great job combining the functionality of a bunch of different python modules[ref]Datetime, pytz, and emailutils.parse, to name a few.[/ref] into one cohesive unit. 
 
-Now, if you simply wanted to work with each timestamp from the perspective of a single timezone, this would be _super_ easy. Just `df['timestamp'] = pd.Timestamp(df.date)`. Dang. Even add `utc=True` to convert everything to UTC. But as you'll see in the next section, I actually want timezone _naive_ timestamps, and that gets a little trickier.
+Now, if you simply wanted to work with each timestamp from the perspective of a single timezone, this would be _super_ easy. Just `df['timestamp'] = df.date.map(pd.Timestamp)`. Dang. Even add `utc=True` to convert everything to UTC. But as you'll see in the next section, I actually want timezone _naive_ timestamps, and that gets a little trickier.
 
 <br>
 ## Step 2: Analysis and visualization
 
-So now the question is: what do we want to ask of our email data? To me, email is a uniquely dense log of our social interactions. Phone calls are too sparse. Text messages capture only a subset of my closest contacts. But email...everybody emails. So I was curious what email could tell me about my daily habits. 
+So now the question is: what do we want to ask of our email data? 
 
 To visualize daily email, let's break down emails by hour of the day sent or received, and plot that over time. Since there are probably tens of thousands of emails in your inbox (over 100,000 in mine), a simple scatter plot will saturate too easily. This looks like a job for a heatmap.
 
@@ -191,11 +202,11 @@ timestamp
 ...
 ```
 
-The second reason is that by setting a series of `Period`s as our DataFrame index, pandas automatically converted it to a `PeriodIndex` class for us which is super, super fast and easy to remap to a different timezone or slice (as we saw above). As it turns out, a series of plain `Period`s is actually incredibly non-performant to slice. #TODO improve this paragraph
+The second reason is that by setting a series of `Period`s as our DataFrame index, pandas automatically the periods to a `PeriodIndex` array for us which is super, super performant and easy to remap to a different timezone or slice (as we saw above). As it turns out, a series of plain `Period`s is actually incredibly expensive to slice as broadcasting is not available.
 
 ### Build heatmap DataFrame
 
-Our email DataFrame now contains all the info we need to build our heatmap. Now, for each month, we'll need count the number of emails received each hour of the day for each month. If that sounds like a few `for` loops and a lot of boilerplate code, you haven't used pandas' `value_counts()`:
+Our email DataFrame now contains all the info we need to build our heatmap. For each month, we'll need count the number of emails received each hour of the day for each month. If that sounds like a few `for` loops and a lot of boilerplate code, you haven't used pandas' `value_counts()` before:
 
 ```python
 mindate = df.timestamp.min()
@@ -218,7 +229,7 @@ for period in pr:
 hm.fillna(0, inplace=True)
 ```
 
-Just to prove a point, you could actually do the above with zero `for` loops using `groupby` and `pivot`, but this actually looks cleaner to me.
+Just to prove a point, you could actually do the above with zero `for` loops using `groupby` and `pivot`, but this code looks cleaner to me.
 
 ### Plot heatmap using `pcolor`
 
@@ -249,33 +260,89 @@ ax.set_yticks(t[::2])
 ax.set_xticks(x[::12])
 ax.set_xlim([x[0], x[-1]])
 ax.set_ylim([t[0], t[-1]])
+ax.tick_params(axis='x', pad=14, length=10, direction='inout')
 
-### Add a colorbar!
+### pcolor makes it sooo easy to add a color bar!
 plt.colorbar(cax=plt.subplot(gs[1]))
 ```
 
-While we're at it, let's add a line plot of total emails received per month:
+While we're at it, let's add a line plot of total emails received per month below the heatmap. Very easy. 
 
 ```python
-g = df.groupby(level=0)
-total_email = g.hour.count()
-
 ax2 = plt.subplot(gs[2])
+total_email = df.groupby(level=0).hour.count()
 plt.plot_date(total_email.index, total_email, '-', linewidth=1.5, color=cm(0.999))
-ax2.get_xaxis().set_visible(False)
-ax2.get_yaxis().set_visible(False)
+
+ax2.xaxis.tick_top()
+out = ax2.set_xticks(total_email.index[::12])
+out = ax2.xaxis.set_ticklabels([])
+ax2.tick_params(axis='x', pad=14, length=10, direction='inout')
 ```
 
-#### Image here
+<img src='/images/gmail/received_emails_heatmap.png' width='100%' alt='Received Emails'/>
 
-Now if we start from the top, change the selected Gmail inbox to `'"[Gmail]/Sent Mail"'` and the colormap to Blues, we can give the same treatment to our sent email.
+It's a solid visualization method. Immediately, a bunch of patterns jump out at you that fit with my life experience. ~Four giant vertical bands in the late aughts - my four years of college - with white bands in between (summers, when I hardly emailed anyone anyone). The midnight - 2am band is also very easily visible during college and you can quickly pick out my changing sleep habits as I transition from college to grad school to a 9-5 job. Cool!
 
-#### Image here
+Let's do the exact same thing for our sent mail - all we need to do is change the inbox selection from `[Gmail]/All Mail` to `[Gmail]/Sent Mail`. I also changed the colormap from `Oranges` to `Blues`.
+
+<img src='/images/gmail/sent_emails_heatmap.png' width='100%' alt='Sent Emails'/>
+
+A similar but slightly different story. You can totally see my wakeup time gradually slide earlier and earlier. A lot fewer post-midnight emails...ah, the joys of getting older.
+
 
 <br>
 ## Step 3: Go further
-### most frequently contacted people
-### monthly distinct recipients
+
+### Monthly distinct contacts
+
+These graphs show pretty clearly that the amount of email I send and receive has been steadily declining for the past few years (at least in my personal account). But, has the number of people I contact been decreasing too? This should be a piece of cake with `nunique`:
+
+```python
+# Save off your sent and received email DataFrames separately first...
+r = received_df.groupby(level=0)
+s = sent_df.groupby(level=0)
+ax = r['from'].nunique().plot(color=plt.get_cmap('Oranges')(0.999), label='From')
+ax = s['to'].nunique().plot(color=plt.get_cmap('Blues')(0.999), label='Sent')
+plt.title('Number of unique email contacts by month')
+plt.legend()
+```
+
+<img src='/images/gmail/num_unique.png' width='550px' alt='Number unique emails'/>
+
+To my surprise, the number of people emailing me has held preeety steady over the last 5 years. However, I email a good bit fewer people. I wonder if I've filled that gap with texting and Snapchat...
+
+### Most frequently contacted
+
+Another great question: who do I contact the most, and who contacts me? Now that's an easy question to answer:
+
+```python
+df['from'].value_counts().head()
+```
+
+However, this method has a few legitimate problems - it treats each name and email as unique, when the same person could have any number of email addresses. Without solving the problem of unifying name changes, we can at least count by name alone, ignoring email.[ref]Let's hope you don't have multiple friends with the same name![/ref] An optimal solution would be to leverage the [Google Contacts API](https://developers.google.com/google-apps/contacts/v3/?hl=en) and merge different email addresses that way, but that's probably for another blog post.
+
+```python
+def clean_name(fromname):
+    return fromname.split('<')[0].strip().replace('"', '')
+
+df['from_name'] = df['from'].map(clean_name)
+df['from_name'].value_counts()[:6]
+```
+```python
+Out[105]:
+Jennifer Lundstrem     2165
+Aaron Chevalier        1872
+Michael Hartley        1708
+Jeremiah Wander        1697
+Judy Hartley           1188
+Bryan Nichols           913
+```
+
+Hi, guys! 
+
+
+
+One interesting thing I gleaned from this exercise is learning that I communicate with my friends via email _way_ more than I did in college...I think I just used to _see_ people more often and consequently planning a dinner or a watch party didn't require a 37 chain email where we try and coordinate everyone's schedules. 
 
 
 

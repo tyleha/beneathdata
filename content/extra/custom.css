@@ -15,3 +15,7 @@
     background-color: transparent;
     border: transparent;
 }
+
+p {
+  margin: 15px 0;
+}
