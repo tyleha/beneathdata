@@ -84,8 +84,7 @@ def publishghp(msg):
 
 def publishs3():
     preview()
-    local("python C:\\s3cmd-1.5.0-rc1\s3cmd sync output/ --acl-public --guess-mime-type --delete-removed s3://%s/"%s3bucket)
-    #local("python "+"s3cmd"+" sync --acl-public --exclude '*.*' --include '*.css' --")
+    local("aws s3 sync output s3://beneathdata.com/ --acl public-read --delete --profile tyleha")
 
 """
 

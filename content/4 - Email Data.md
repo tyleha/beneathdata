@@ -293,7 +293,7 @@ You can find the all the code used so far as a Gist [**here**](https://gist.gith
 <br>
 ## Step 3: Go further
 
-I'd say we accomplished what we set out to do withour emails. But there's a million more things we can learn from this dataset. Let's try a couple quick ones.
+I'd say we accomplished what we set out to do with our emails. But there's a million more things we can learn from this dataset. Let's try a couple quick ones.
 
 ### Monthly distinct contacts
 
