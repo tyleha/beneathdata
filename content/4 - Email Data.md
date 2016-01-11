@@ -353,21 +353,3 @@ Like I said, email is an incredibly descriptive dataset. There are a ton more nu
 
 I encourage you to take a crack at some of those analytics yourself and post any good ones in the comment section below.
 
-
-
-
-
-
-
-
-
-
-<!-- One interesting thing I gleaned from this exercise is learning that I communicate with my friends via email _way_ more than I did in college...I think I just used to _see_ people more often and consequently planning a dinner or a watch party didn't require a 37 chain email where we try and coordinate everyone's schedules.  -->
-
-
-
-
-<!-- TODO
-* fix share buttons (where'd they go!?)
-* figure out if publishing an edit triggers rss -->
-
