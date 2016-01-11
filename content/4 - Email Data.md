@@ -272,6 +272,7 @@ While we're at it, let's add a line plot of total emails received per month belo
 ax2 = plt.subplot(gs[2])
 total_email = df.groupby(level=0).hour.count()
 plt.plot_date(total_email.index, total_email, '-', linewidth=1.5, color=cm(0.999))
+ax2.fill_between(total_email.index, 0, total_email, color=cm(0.5))
 
 ax2.xaxis.tick_top()
 out = ax2.set_xticks(total_email.index[::12])
@@ -293,12 +294,15 @@ A similar but slightly different story. You can totally see my wakeup time gradu
 <br>
 ## Step 3: Go further
 
+There's a million more things we can learn from this dataset. Let's try a couple quick ones.
+
 ### Monthly distinct contacts
 
-These graphs show pretty clearly that the amount of email I send and receive has been steadily declining for the past few years (at least in my personal account). But, has the number of people I contact been decreasing too? This should be a piece of cake with `nunique`:
+The heatamps we made show pretty clearly that the amount of email I send and receive has been steadily declining for the past few years (at least in my personal account). But, has the number of people I contact been decreasing, too? This should be a piece of cake with `nunique`:
 
 ```python
-# Save off your sent and received email DataFrames separately first...
+# Save off your sent and received email DataFrames separately first (received_df and sent_df)
+# Group by your index (Months, remember)
 r = received_df.groupby(level=0)
 s = sent_df.groupby(level=0)
 ax = r['from'].nunique().plot(color=plt.get_cmap('Oranges')(0.999), label='From')
@@ -309,7 +313,9 @@ plt.legend()
 
 <img src='/images/gmail/num_unique.png' width='550px' alt='Number unique emails'/>
 
-To my surprise, the number of people emailing me has held preeety steady over the last 5 years. However, I email a good bit fewer people. I wonder if I've filled that gap with texting and Snapchat...
+To my surprise, the number of people emailing me has held preeety steady over the last 5 years. However, I email a good bit fewer people. I wonder if I've filled that gap with texting and Snapchat...but of course, this analysis doesn't include people I've `cc`'d. 
+
+
 
 ### Most frequently contacted
 
@@ -319,11 +325,11 @@ Another great question: who do I contact the most, and who contacts me? Now that
 df['from'].value_counts().head()
 ```
 
-However, this method has a few legitimate problems - it treats each name and email as unique, when the same person could have any number of email addresses. Without solving the problem of unifying name changes, we can at least count by name alone, ignoring email.[ref]Let's hope you don't have multiple friends with the same name![/ref] An optimal solution would be to leverage the [Google Contacts API](https://developers.google.com/google-apps/contacts/v3/?hl=en) and merge different email addresses that way, but that's probably for another blog post.
+However, this method has a few legitimate problems - it treats each name + email as unique when the same person could have any number of email addresses. Without solving the problem of unifying different name formats (Bob Smith, Bob J. Smith, Robert Smith), we can at least count by name and ignore email address.[ref]Let's hope you don't have multiple friends with the same name![/ref] An optimal solution would be to leverage the [Google Contacts API](https://developers.google.com/google-apps/contacts/v3/?hl=en) and merge different email addresses that way, but that's probably for another blog post.
 
 ```python
 def clean_name(fromname):
-    return fromname.split('<')[0].strip().replace('"', '')
+    return fromname.split('<')[0].strip().replace('"', '').replace('\n', '')
 
 df['from_name'] = df['from'].map(clean_name)
 df['from_name'].value_counts()[:6]
@@ -341,14 +347,12 @@ Bryan Nichols           913
 Hi, guys! 
 
 
-
 One interesting thing I gleaned from this exercise is learning that I communicate with my friends via email _way_ more than I did in college...I think I just used to _see_ people more often and consequently planning a dinner or a watch party didn't require a 37 chain email where we try and coordinate everyone's schedules. 
 
 
 
 
 TODO
-* fix email
 * fix share buttons (where'd they go!?)
 * figure out if publishing an edit triggers rss
 
