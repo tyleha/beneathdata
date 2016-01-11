@@ -1,8 +1,8 @@
-Title: Visualize your email activity with Pandas
-Date: 2016-1-2 16:25
+Title: Email behavior analysis using Pandas
+Date: 2016-1-10 16:25
 Tags: email, gmail, python, pandas, personal data
 Category: How-to
-Slug: visualize-email-history
+Slug: email-behavior-analysis
 Author: Tyler Hartley
 
 
@@ -10,15 +10,15 @@ Email is a window to the soul. OK, nobody has actually ever said that, but email
 
 <!-- To me, email is a uniquely dense log of our social interactions.  -->
 
-So, I was curious what email could tell me about my daily habits and naturally, I turned to Python and Pandas. This blog will be about exploring the uniquely dense dataset that is your email history and, more seriously, about taking ownership of your own data. Trust me, Google is learning tons about you from your email history already, so why shouldn't you?
+So, I was curious what email could tell me about my daily habits and, naturally, I turned to Python and Pandas. This blog will be about exploring the uniquely dense dataset that is your email history and, more seriously, about taking ownership of your own data. Trust me, Google is learning tons about you from your email history already. Why shouldn't you?
 
 
 <!-- Lastly, this is a great opportunity to learn a bit more about visualization with Python. -->
 
 
-You'll need a few basic python packages to follow this tutorial, namely `numpy`, `matplotlib` and `pandas`. If you don't already have these data analysis packages, I'd suggest taking a look at [Anaconda](https://www.continuum.io/downloads). It's a terrific package manager in its own right and comes with all the packages you'll need for data analysis. 
+You'll need a few basic python packages to follow this tutorial, namely `numpy`, `matplotlib` and `pandas`. If you don't already have these data analysis packages, I'd suggest taking a look at [Anaconda](https://www.continuum.io/downloads). It's a terrific package manager in its own right and comes with all you'll need for data analysis. 
 
-All this code will be written for Python 3.x and executed in an IPython. There are a few tweaks you'd need to make to get this working in 2.7, and I'll call them out where applicable.[ref]But you should really start using 3.x for data analysis already. It's been 8 years. Shame on you.[/ref]
+All this code will be written for Python 3.x and executed in IPython. There are a few tweaks you'd need to make to get this working in 2.7, and I'll call them out where applicable.[ref]But you should really start using 3.x for data analysis already. It's been 8 years. Shame on you.[/ref]
 
 Here's my import list for this tutorial:
 
@@ -36,15 +36,15 @@ import GmailAccount # my package
 <br>
 ## Step 1: Get your emails and parse them
 
-While this tutorial will specifically focus on accessing emails from Gmail, it should broadly apply to almost any email provider. That's because Gmail, like pretty much everybody else, supports the IMAP access protocol
+While this tutorial will specifically focus on accessing emails from Gmail, it should broadly apply to almost any email provider. That's because Gmail, like pretty much everybody else, supports the IMAP access protocol.
 
 ### Getting email content via IMAP
 
 IMAP is pretty straightforward. Select a mail folder, retrieve a list of email ids that match a query string, and then fetch the content of those emails by id. 
 
-Unfortunately, it's a bit tricky to do cleanly and performantly, so I've quickly abstracted a class to handle the low-level fetching and parisng for you. To follow this tutorial, copy my **[GmailAccount class](https://gist.github.com/tylerhartley/fe00a92d01346b29b002)** into your project someplace, which under the hood just uses Python's `imaplib` and `email`.[ref] You could totally use this pretty decent [gmail package](https://github.com/charlierguo/gmail) instead of my own, but a) it hasn't been updated in years and b) it is waaaaaaay overkill for what we're doing.[/ref] I won't be getting into any real specifics about how to best use `imaplib`, so feel free to dig around the class to learn more.
+Unfortunately, it's a bit tricky to do cleanly and performantly, so I've quickly abstracted a class to handle the low-level fetching and parsing for you. To follow this tutorial, copy my **[GmailAccount class](https://gist.github.com/tylerhartley/fe00a92d01346b29b002)** into your project someplace, which under the hood just uses Python's `imaplib` and `email`.[ref] You could totally use this pretty decent [gmail package](https://github.com/charlierguo/gmail) instead of my own, but a) it hasn't been updated in years and b) it is waaaaaaay overkill for what we're doing.[/ref] I won't be getting into any real specifics about how to best use `imaplib`, so feel free to dig around the class to learn more.
 
-**BEFORE YOU START:** a while back, Gmail disabled basic auth (non Oauth2) access to raw IMAP. Oauth-ing into your inbox is well beyond the scope of this tutorial and I mean, this isn't an IPhone app so, I suggest you just [allow less secure apps to login to your account](https://www.google.com/settings/security/lesssecureapps). That way, you just need your email address and password to use IMAP. Don't forget to turn less secure access back off when you're done.
+**BEFORE YOU START:** A while back, Gmail disabled basic auth (non Oauth2) access to raw IMAP. Oauth-ing into your inbox is well beyond the scope of this tutorial and I mean, this isn't an IPhone app, so I suggest you just [allow less secure apps to login to your account](https://www.google.com/settings/security/lesssecureapps). That way, you just need your email address and password to use IMAP. Don't forget to turn less secure access back off when you're done.
 
 OK - let's login to Gmail and fetch metadata 'bout all our emails:
 
@@ -75,17 +75,14 @@ Before we move on, let's quickly break down that `ALL_HEADERS` string. It descri
 
 ### Converting your emails into a DataFrame
 
-Great! We've fetched thousands of emails (probably). But they're in an unworkable format. This is where [pandas](http://pandas.pydata.org/) comes into play. If you've read any of my [previous]() [blogs](), you'll know what a True Believer I am in pandas. There's no better way to work with data in Python and you may find you never write a `for` loop again.[ref]Also your code looks really organized and terse, which is nice.[/ref] 
+Great! We've fetched thousands of emails (probably). But they're in an unworkable format. This is where [pandas](http://pandas.pydata.org/) comes into play. If you've read any of my [previous]() [blogs](), you'll know what a True Believer I am in pandas. There's no better way to work with data in Python and you may find you never write a `for` loop again.[ref]There's a lot of very good reasons to not use for loops that have nothing to do with code readability and terseness. Pandas supports the incredible [broadcasting](http://docs.scipy.org/doc/numpy-1.10.1/user/basics.broadcasting.html) ability of Numpy across the majority of its Series which means that an operation can be run performantly at the C level instead of compiled Python.[/ref] 
 
 All we need to do is reformat our emails into a nice array of key/value pairs for pandas to load. Each email object has a `_headers` list containing each field we requested in our IMAP fetch query. So this function should do the trick:
 
 ```python
-def scrub_email(headers):    
-    d = {}
-    for val in headers:
-        # IMAP sometimes returns fields with varying capitalization...
-        d[val[0].lower()] = val[1]
-    return d
+def scrub_email(headers):   
+    # IMAP sometimes returns fields with varying capitalization. Lowercase each header name.
+    return dict([(title.lower(), value) for title, value in headers]) 
 ```
 
 Now load your emails into a `DataFrame`.
@@ -290,11 +287,13 @@ Let's do the exact same thing for our sent mail - all we need to do is change th
 
 A similar but slightly different story. You can totally see my wakeup time gradually slide earlier and earlier. A lot fewer post-midnight emails...ah, the joys of getting older.
 
+You can find the all the code used so far as a Gist [**here**](https://gist.github.com/tylerhartley/77580530af2411ebe4a9).
+
 
 <br>
 ## Step 3: Go further
 
-There's a million more things we can learn from this dataset. Let's try a couple quick ones.
+I'd say we accomplished what we set out to do withour emails. But there's a million more things we can learn from this dataset. Let's try a couple quick ones.
 
 ### Monthly distinct contacts
 
@@ -313,8 +312,9 @@ plt.legend()
 
 <img src='/images/gmail/num_unique.png' width='550px' alt='Number unique emails'/>
 
-To my surprise, the number of people emailing me has held preeety steady over the last 5 years. However, I email a good bit fewer people. I wonder if I've filled that gap with texting and Snapchat...but of course, this analysis doesn't include people I've `cc`'d. 
+To my surprise, the number of people emailing me has held preeety steady over the last 5 years. However, I've been gradually emailing fewer and fewer people. I wonder if I've filled that gap with texting and Snapchat...
 
+But of course, this analysis doesn't include people I've cc'd. To do that, we'd have to parse the `cc` string in to an array, expand it, etc., but that's probably for another blog.[ref]If any of you have a few liner to do it, I'd love to see it in the comments![/ref]
 
 
 ### Most frequently contacted
@@ -325,7 +325,7 @@ Another great question: who do I contact the most, and who contacts me? Now that
 df['from'].value_counts().head()
 ```
 
-However, this method has a few legitimate problems - it treats each name + email as unique when the same person could have any number of email addresses. Without solving the problem of unifying different name formats (Bob Smith, Bob J. Smith, Robert Smith), we can at least count by name and ignore email address.[ref]Let's hope you don't have multiple friends with the same name![/ref] An optimal solution would be to leverage the [Google Contacts API](https://developers.google.com/google-apps/contacts/v3/?hl=en) and merge different email addresses that way, but that's probably for another blog post.
+However, this method has a few legitimate problems - it treats each name + email as unique when the same person could have any number of email addresses. Without solving the problem of unifying different name formats (Bob Smith, Bob J. Smith, Robert Smith), we can at least count by name and ignore different email addresses.[ref]An optimal solution would be to leverage the [Google Contacts API](https://developers.google.com/google-apps/contacts/v3/?hl=en) and merge different email addresses that way, but that's probably for another blog post.[/ref]
 
 ```python
 def clean_name(fromname):
@@ -336,23 +336,38 @@ df['from_name'].value_counts()[:6]
 ```
 ```python
 Out[105]:
-Jennifer Lundstrem     2165
-Aaron Chevalier        1872
+Jennifer Lundstrem     2565
 Michael Hartley        1708
-Jeremiah Wander        1697
+Aaron Chevalier        1672
+Jeremiah Wander        1297
 Judy Hartley           1188
-Bryan Nichols           913
+Bryan Nichols           813
 ```
 
 Hi, guys! 
 
 
-One interesting thing I gleaned from this exercise is learning that I communicate with my friends via email _way_ more than I did in college...I think I just used to _see_ people more often and consequently planning a dinner or a watch party didn't require a 37 chain email where we try and coordinate everyone's schedules. 
+## Wrapup
+
+Like I said, email is an incredibly descriptive dataset. There are a ton more nugets of interest in that DataFrame above just waiting to be sussed out, and we haven't even started parsing the _content_ of the emails yet. Who writes me the longest messages? What's my favorite curse word? Whose emails am I most and least likely to respond to? And so on.
+
+I encourage you to take a crack at some of those analytics yourself and post any good ones in the comment section below.
 
 
 
 
-TODO
+
+
+
+
+
+
+<!-- One interesting thing I gleaned from this exercise is learning that I communicate with my friends via email _way_ more than I did in college...I think I just used to _see_ people more often and consequently planning a dinner or a watch party didn't require a 37 chain email where we try and coordinate everyone's schedules.  -->
+
+
+
+
+<!-- TODO
 * fix share buttons (where'd they go!?)
-* figure out if publishing an edit triggers rss
+* figure out if publishing an edit triggers rss -->
 

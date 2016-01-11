@@ -17,7 +17,7 @@ def system_path(path):
 
 AUTHOR = u'Tyler Hartley'
 SITENAME = u'Beneath Data'
-SITESUBTITLE = u"A blog dedicated to Python, data analystics, and good-looking graphs."
+SITESUBTITLE = u"A blog dedicated to data analytics and good-looking graphs."
 SITEURL = ''
 
 PATH = 'content'

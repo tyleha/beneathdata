@@ -1,6 +1,6 @@
 Title: Visualizing My Location History with Python, Shapely, and Basemap
 Date: 2014-10-28 22:12
-Tags: location, gps, maps, python, shapely, basemap 
+Tags: location, maps, python, shapely, basemap, personal data
 Category: How-to
 Slug: visualizing-my-location-history
 Author: Tyler Hartley
