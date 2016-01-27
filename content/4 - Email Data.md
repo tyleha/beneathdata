@@ -279,7 +279,7 @@ ax2.tick_params(axis='x', pad=14, length=10, direction='inout')
 
 <img src='/images/gmail/received_emails_heatmap.png' width='100%' alt='Received Emails'/>
 
-It's a solid visualization method. Immediately, a bunch of patterns jump out at you that fit with my life experience. ~Four giant vertical bands in the late aughts - my four years of college - with white bands in between (summers, when I hardly emailed anyone anyone). The midnight - 2am band is also very easily visible during college and you can quickly pick out my changing sleep habits as I transition from college to grad school to a 9-5 job. Cool!
+It's a solid visualization method. Immediately, a bunch of patterns jump out at you that fit with my life experience. ~Four giant vertical bands in the late aughts - my four years of college - with white bands in between (summers, when I hardly emailed anyone). The midnight - 2am band is also very easily visible during college and you can quickly pick out my changing sleep habits as I transition from college to grad school to a 9-5 job. Cool!
 
 Let's do the exact same thing for our sent mail - all we need to do is change the inbox selection from `[Gmail]/All Mail` to `[Gmail]/Sent Mail`. I also changed the colormap from `Oranges` to `Blues`.
 
@@ -349,7 +349,7 @@ Hi, guys!
 
 ## Wrapup
 
-Like I said, email is an incredibly descriptive dataset. There are a ton more nugets of interest in that DataFrame above just waiting to be sussed out, and we haven't even started parsing the _content_ of the emails yet. Who writes me the longest messages? What's my favorite curse word? Whose emails am I most and least likely to respond to? And so on.
+Like I said, email is an incredibly descriptive dataset. There are a ton more nuggets of interest in that DataFrame above just waiting to be sussed out, and we haven't even started parsing the _content_ of the emails yet. Who writes me the longest messages? What's my favorite curse word? Whose emails am I most and least likely to respond to? And so on.
 
 I encourage you to take a crack at some of those analytics yourself and post any good ones in the comment section below.
 
