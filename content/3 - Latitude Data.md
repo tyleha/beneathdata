@@ -166,7 +166,7 @@ We've got our location data. We've got our shapefiles in order. All that's left 
 
 This plotting code for the choropleth gets a bit wordy for a blog format, so check the code as a Gist at the below link.
 
-[<h4>**See The Code**</h4>](https://gist.github.com/tylerhartley/c5ea21e2a4879fcc4151)
+[<h4>**See The Code**</h4>](https://gist.github.com/tyleha/c5ea21e2a4879fcc4151)
 
 <style>
     .zoom {
@@ -203,7 +203,7 @@ This plotting code for the choropleth gets a bit wordy for a blog format, so che
 
 We can also take a different approach to choropleths, and instead of using each neighborhood polygon as a bin, let Basemap generate uniform hexagonal bins for us! It's a great way to visualize point density, as all our bins will be of equal size. Best of all, it requires essentially no extra work as we've already defined our neighborhood `Patches` and paired down our location data. See the code below in the Gist.
 
-[<h4>**See The Code**</h4>](https://gist.github.com/tylerhartley/8bb82acd62472dfebfea)
+[<h4>**See The Code**</h4>](https://gist.github.com/tyleha/8bb82acd62472dfebfea)
 
 <span class='zoom' id='ex2'>
     <img src='/images/latitude/hexbin.png' width='555px' alt='Hexbin of my location history' style="border:1px solid #021a40"/>
@@ -309,7 +309,7 @@ Now, the `flights` DataFrame contains only instances of true flight. All that's 
 
 Matplotlib's Basemap again comes to the rescue. If we plot on a flat projection like `tmerc`, the `drawgreatcircle` function will produce a true path arc just like we see in the [in-flight magazines](http://content.delta.com/content/www/en_US/traveling-with-us/where-we-fly/flight-partners/virgin-atlantic-partnership/vs-route-map/_jcr_content/mainPar/image.img.20130621T202250093Z.png).
 
-[<h4>**See The Code**</h4>](https://gist.github.com/tylerhartley/f338b9f638fbcb8605a5)
+[<h4>**See The Code**</h4>](https://gist.github.com/tyleha/f338b9f638fbcb8605a5)
 
 <!-- ![](/images/latitude/us_flights.png) -->
 <span class='zoom' id='ex3'>

@@ -42,7 +42,7 @@ While this tutorial will specifically focus on accessing emails from Gmail, it s
 
 IMAP is pretty straightforward. Select a mail folder, retrieve a list of email ids that match a query string, and then fetch the content of those emails by id. 
 
-Unfortunately, it's a bit tricky to do cleanly and performantly, so I've quickly abstracted a class to handle the low-level fetching and parsing for you. To follow this tutorial, copy my **[GmailAccount class](https://gist.github.com/tylerhartley/fe00a92d01346b29b002)** into your project someplace, which under the hood just uses Python's `imaplib` and `email`.[ref] You could totally use this pretty decent [gmail package](https://github.com/charlierguo/gmail) instead of my own, but a) it hasn't been updated in years and b) it is waaaaaaay overkill for what we're doing.[/ref] I won't be getting into any real specifics about how to best use `imaplib`, so feel free to dig around the class to learn more.
+Unfortunately, it's a bit tricky to do cleanly and performantly, so I've quickly abstracted a class to handle the low-level fetching and parsing for you. To follow this tutorial, copy my **[GmailAccount class](https://gist.github.com/tyleha/fe00a92d01346b29b002)** into your project someplace, which under the hood just uses Python's `imaplib` and `email`.[ref] You could totally use this pretty decent [gmail package](https://github.com/charlierguo/gmail) instead of my own, but a) it hasn't been updated in years and b) it is waaaaaaay overkill for what we're doing.[/ref] I won't be getting into any real specifics about how to best use `imaplib`, so feel free to dig around the class to learn more.
 
 **BEFORE YOU START:** A while back, Gmail disabled basic auth (non Oauth2) access to raw IMAP. Oauth-ing into your inbox is well beyond the scope of this tutorial and I mean, this isn't an IPhone app, so I suggest you just [allow less secure apps to login to your account](https://www.google.com/settings/security/lesssecureapps). That way, you just need your email address and password to use IMAP. Don't forget to turn less secure access back off when you're done.
 
@@ -287,7 +287,7 @@ Let's do the exact same thing for our sent mail - all we need to do is change th
 
 A similar but slightly different story. You can totally see my wakeup time gradually slide earlier and earlier. A lot fewer post-midnight emails...ah, the joys of getting older.
 
-You can find the all the code used so far as a Gist [**here**](https://gist.github.com/tylerhartley/77580530af2411ebe4a9).
+You can find the all the code used so far as a Gist [**here**](https://gist.github.com/tyleha/77580530af2411ebe4a9).
 
 
 <br>

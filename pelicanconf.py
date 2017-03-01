@@ -46,7 +46,7 @@ LINKS = (
          )
 
 # Social widget
-SOCIAL = (('github', 'http://github.com/tylerhartley'),
+SOCIAL = (('github', 'http://github.com/tyleha'),
          ('twitter', 'https://twitter.com/tylerhartley'),
          ('linkedin', 'http://linkedin.com/in/tylerhartley'),
          ('google+', 'https://plus.google.com/102425100151107773886/posts'),

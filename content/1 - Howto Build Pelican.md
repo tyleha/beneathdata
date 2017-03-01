@@ -103,7 +103,7 @@ THEME = '/path/to/theme'
 
 It is **THAT** easy. 
 
-Of course, you can now go nuts and modify the theme however you like. Pelican-bootstrap3's features are [well documented](https://github.com/DandyDev/pelican-bootstrap3/blob/master/README.md). With relatively little effort, I added a banner image, a custom footer, and tweaked stylings. Pelican leverages a Django-like template format and Jinja2, which means that editing site-wide content requires editing only a single file. For what it's worth, if you'd like to use my precise custom pelican-bootstrap3 theme, you can clone it from my repo [here](https://github.com/tylerhartley/pelican-bootstrap3). You can also see my precise pelicanconf.py settings as a guide [here](https://github.com/tylerhartley/beneathdata/blob/master/pelicanconf.py).
+Of course, you can now go nuts and modify the theme however you like. Pelican-bootstrap3's features are [well documented](https://github.com/DandyDev/pelican-bootstrap3/blob/master/README.md). With relatively little effort, I added a banner image, a custom footer, and tweaked stylings. Pelican leverages a Django-like template format and Jinja2, which means that editing site-wide content requires editing only a single file. For what it's worth, if you'd like to use my precise custom pelican-bootstrap3 theme, you can clone it from my repo [here](https://github.com/tyleha/pelican-bootstrap3). You can also see my precise pelicanconf.py settings as a guide [here](https://github.com/tyleha/beneathdata/blob/master/pelicanconf.py).
 
 ## Where you gonna host this thing?
 
