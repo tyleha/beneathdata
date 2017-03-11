@@ -1,5 +1,5 @@
 .navbar-brand {
-    padding: 10px 15px;
+  padding: 10px 15px;
 }
 /* Solutions for mobile and small screens  */
 /*
@@ -12,8 +12,8 @@
 */
 
 .img-thumbnail {
-    background-color: transparent;
-    border: transparent;
+  background-color: transparent;
+  border: transparent;
 }
 
 p {
