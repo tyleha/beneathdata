@@ -1,5 +1,5 @@
 Title: Love and Taxes 
-Date: 2017-3-11 19:00
+Date: 2017-3-11 16:33
 Tags: taxes, money, python, visualization
 Category: Blog
 Slug: love-and-taxes
@@ -14,7 +14,7 @@ So when I got married, I figured I'd finally get this all sorted out. Initially,
 
 In short, **marriage saves most people thousands a year...but it depends**. Let me explain.
 
-## Math (briefly)
+## Tax Math (briefly)
 
 The basics of the Federal Tax system are pretty simple: the more money you make, the higher tax rate you pay. It's called a ["progressive" tax](http://www.investopedia.com/terms/p/progressivetax.asp). A simplified version looks like this:
 
@@ -24,7 +24,7 @@ Every dollar between $10 and $20 gets taxed at 20% (so $2)
 Every dollar between $20 and $30 gets taxed at 30% (so $3)
 ```
 
-If I made $30 in income, I will get taxed $1 + $2 + $3, or $6.[ref]Something that bugs me - people say "I got a raise, now I'm in the 25% bracket which sucks". That misses the point - just the fraction of your income over that bracket get taxed at that rate. In our simplified example, my tax rate isn't the full 30% rate - only the last $10 I make gets taxed that way. Instead, my actual tax rate is $6/$30 or 20%.[/ref] But of course, those aren't the real cutoffs - the 2017 Federal Tax Bracket is as follows:
+If I made $30 in income, I will get taxed $1 + $2 + $3, or $6.[ref]Something that bugs me - people say "I got a raise, now I'm in the 25% bracket which sucks". That misses the point - just the fraction of your income over that bracket gets taxed at that rate. In our simplified example, my tax rate isn't the full 30% rate - only the last $10 I make gets taxed that way. Instead, my actual tax rate is $6 / $30 or 20%.[/ref] But of course, those aren't the real cutoffs - the 2017 Federal Tax Bracket is as follows:
 
 <table class="table">
     <thead>
@@ -98,7 +98,7 @@ So given what we know so far, we could conclude that marriage couldn't ever save
 
 ### But what if a couple makes vastly different sums of money?
 
-So far in our analysis, we've assumed both spouses make the same salary. Well, here's where things get interesting. Let's look at all possible combinations of spouse income from $0 per year to $200k.[ref]Making sure to also take into account a standard deduction and personal exemption. And also assuming no kids.[/ref] 
+So far in our analysis, we've assumed both spouses make the same salary. Well, here's where things get interesting. Let's look at all possible combinations of spouse income from $0 per year to $200k.[ref]Making sure to take into account a standard deduction and personal exemption. And also assuming no kids. Kids are complicated.[/ref] 
 
 <img src='/images/taxes/heatmap.png' width='100%' alt='Heatmap of taxes saved'/>
 
@@ -126,57 +126,13 @@ To actually lose money getting married (it's called the "Marriage Penalty"), bot
 
 The Couple A vs Couple B example raises some interesting questions. What is the federal government trying to incentivize with this tax structure? 
 
-**Our tax code encourages families with one primary breadwinner over one with two.** Put differently, you could argue it's encouraging stay-at-home parents. Almost like a credit for one parent leaving the workforce (or earning dramatically less). Without taking sides on that particular issue, it's worth noting that the single-earner household is [no longer the most common  type of household and hasn't been for 35 years](http://www.pewresearch.org/ft_dual-income-households-1960-2012-2/). In 60% of families, both spouses work.
+**Our tax code encourages families with one primary breadwinner over families with two incomes.** Put differently, you could argue it's encouraging stay-at-home parents. Almost like a credit for one parent leaving the workforce (or earning dramatically less). Without taking sides on that particular issue, it's worth noting that the single-earner household is [no longer the most common  type of household and hasn't been for 35 years](http://www.pewresearch.org/ft_dual-income-households-1960-2012-2/). In 60% of families, both spouses work.
 
 On the other side of the coin, the tax code penalizes wealthy couples who both earn significant incomes. But given the option to file separately, these couples won't actually be penalized &mdash; they just won't be advantaged, either.
 
-Among certain circles, this is a pretty well-understood connundrum &mdash; and one that's been debated for decades. (I didn't discover this issue. I just made a pretty graph about it.) Reading deeper about it gets pretty political pretty quick, but there are some interesting takes.[ref]But this isn't a politics blog! [/ref] You could ensure *all* married couples get a tax incentive regardless of income by removing the married tax bracket altogether and giving spouses a flat or fractional tax deduction. This is pretty much how the child tax credit works. 
+Among certain circles, this is a pretty well-understood connundrum &mdash; and one that's been debated for decades. (I didn't discover this issue. I just made a pretty graph about it.) Reading deeper about it gets pretty political pretty quick, but there are some interesting takeaways. You could ensure *all* married couples get a tax incentive regardless of income by removing the married tax bracket altogether and giving spouses a flat or fractional tax deduction. This is pretty much how the child tax credit works. Or you could eliminate the "marriage penalty" by simply making the marriage tax brackets twice the single ones.[ref]Which is actually how taxes worked in the US [between '48 and '69](http://www.ctj.org/html/marpen.htm)[/ref] But this isn't at the top of any politicians' radars.
 
+That's because in the end, it's unlikely any of these idiosyncracies in our tax structure are going to actually push a couple to get married or avoid marriage[ref]Can you imagine what an awkward proposal that would be? "With this ring, will you save me $6,861 annually?"[/ref]. But I think we can at least agree the federal tax code has a somewhat...outdated view of marriage.
 
+*You may now stop thinking about taxes. I am sorry.*
 
-
-
-
-
-
-----------------------
-
-
-Examples:
-
-* Basic tax misconceptions
-    * My wife thought that you automatically saved money by getting married
-* Basic tax structure (very very brief)
-* Show graph, explain graph
-* Weirdness illuminated by graph
-    * Gov is incentivising single-earner homes
-    * Disincentivizing two earners, but only if two earners make more than XXX
-* Explanation of weirdness
-    * Among certain circles, this is a well understood problem
-    * CTJ says it's unfair
-* Takeaways for you kids gettin' married out there, or for married couples
-* Ways it could be solved, but never will be
-
-
-* why is there even a married tax bracket? and if we're going to have one, why isn't it just 2x the single brackets? Well, honestly, it would be a tax break on the rich only.
-
-Most you can save is 13666.45
-
-Most you can get screwed is 33593.099999999991
-
-
-
-Which, let's be honest, can feel kinda great &mdash; like free money. Yet I know that's not true. It's amusing and a little bit disturbing that these refunds are also so commonly thought as "bonuses". It's _your_ money &mdash; you just overpaid the government, who has kindly has been accruing interest on it instead of you.[ref]As in, business people actually talk about a [tax refund "season"](https://www.forbes.com/sites/debraborchardt/2017/02/27/tax-refund-season-has-its-worst-start-in-10-years/#12766cf83c9b)[/ref]
-
-
-Now, it should be said that a lot of these changes are at the margins if you will - a few hundred dollars or a few tenths of a percent of your income. So it's unlikely to directly sway your choices regarding huge life decisions like career or marriage. But still, it is a bit...weird.
-
-
-The Citizens for Tax Justice organization feels that way too, 
-
-
-Ways to solve:
-Income splitting - was law from '48-'69
-
-http://www.ctj.org/html/marpen.htm
-Although the "tax on marriage" is in reality much less significant than often claimed, it is annoying and unfair. But despite the fact that the marriage penalty is almost universally deplored, there is substantial disagreement over both whether it can be eliminated
