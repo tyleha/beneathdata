@@ -118,9 +118,8 @@ PYGMENTS_STYLE = 'monokai'
 
 ############################ Plugins ######################################
 PLUGIN_PATHS = ['plugins']
-PLUGINS = ['simple_footnotes', 'extract_toc', 'feed_summary']
+PLUGINS = ['simple_footnotes']
 FEED_USE_SUMMARY = True
 SUMMARY_MAX_LENGTH = 100
 
-MD_EXTENSIONS = ['toc', 'fenced_code', 'codehilite(css_class=highlight)', 'extra']
-#MD_EXTENSIONS = ['codehilite(css_class=highlight)', 'extra']
+# MARKDOWN = ['toc', 'fenced_code', 'codehilite(css_class=highlight)', 'extra']
